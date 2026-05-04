@@ -18,3 +18,7 @@ func _physics_process(delta):
 	velocity.x = direction.x * speed
 	
 	move_and_slide()
+	
+	for body in $Hitbox.get_overlapping_bodies():
+		if body.has_method("recibir_daño"):
+			body.recibir_daño(10)

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bromscl8r4wsw"]
 
-[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://assets/Buildings.png" id="1_8cp3p"]
+[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://Buildings.png" id="1_8cp3p"]
 [ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_hv2ca"]
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_ydtn4"]
-[ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets/assets-removebg-preview.png" id="3_hv2ca"]
-[ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://assets/placeholder-300x300.png" id="3_s48l2"]
+[ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets-removebg-preview.png" id="3_hv2ca"]
+[ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://placeholder-300x300.png" id="3_s48l2"]
 [ext_resource type="Script" uid="uid://dgcdfhqus126p" path="res://portal_escalera.gd" id="4_s48l2"]
-[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://assets/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
+[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_qpwqs"]
-[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://assets/png-clipart-door-door.png" id="7_afh24"]
+[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="7_afh24"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qpwqs"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -402,6 +402,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lf6j1")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
+size = Vector2(37, 44)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -850,6 +853,12 @@ position = Vector2(-0.5, -0.9999924)
 scale = Vector2(0.09, 0.11333331)
 texture = ExtResource("3_s48l2")
 
+[node name="Hitbox" type="Area2D" parent="World/Enemigos/CharacterBody2D" unique_id=1973877797]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Enemigos/CharacterBody2D/Hitbox" unique_id=1444536893]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_qpwqs")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="World" unique_id=931044742 groups=["player"]]
 z_index = 1
 position = Vector2(40, 79.92999)
@@ -1055,6 +1064,16 @@ scroll_fit_content_width = true
 visible = false
 color = Color(0, 0, 0, 1)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576883842]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=97800350]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 27.0
+text = "Test"
+
+[connection signal="body_entered" from="World/Enemigos/CharacterBody2D/Hitbox" to="World/Enemigos/CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Portal_Escalera" to="Portal_Escalera" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal_Escalera" to="Portal_Escalera" method="_on_portal_escalera_body_exited"]
 [connection signal="body_entered" from="Portal_Escalera2" to="Portal_Escalera2" method="_on_body_entered"]
