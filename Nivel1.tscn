@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bromscl8r4wsw"]
 
 [ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://assets/Buildings.png" id="1_8cp3p"]
+[ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_hv2ca"]
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_ydtn4"]
 [ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets/assets-removebg-preview.png" id="3_hv2ca"]
+[ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://assets/placeholder-300x300.png" id="3_s48l2"]
 [ext_resource type="Script" uid="uid://dgcdfhqus126p" path="res://portal_escalera.gd" id="4_s48l2"]
 [ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://assets/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
 
@@ -295,6 +297,8 @@ texture = ExtResource("1_8cp3p")
 
 [sub_resource type="TileSet" id="TileSet_snpaj"]
 sources/0 = SubResource("TileSetAtlasSource_lf6j1")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -693,6 +697,22 @@ layer_0/tile_data = PackedInt32Array(2621440, 0, 0, 2621441, 65536, 0, 2621442, 
 
 [node name="World" type="Node2D" parent="." unique_id=1628306178]
 position = Vector2(0, 400.07)
+
+[node name="Enemigos" type="Node2D" parent="World" unique_id=1740396886]
+position = Vector2(0, -400.07)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="World/Enemigos" unique_id=1601612369]
+z_index = 2
+position = Vector2(476, 617)
+script = ExtResource("2_hv2ca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Enemigos/CharacterBody2D" unique_id=276747509]
+shape = SubResource("CapsuleShape2D_qpwqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Enemigos/CharacterBody2D" unique_id=100298368]
+position = Vector2(-0.5, -0.9999924)
+scale = Vector2(0.09, 0.11333331)
+texture = ExtResource("3_s48l2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="World" unique_id=931044742 groups=["player"]]
 z_index = 1

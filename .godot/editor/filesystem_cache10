@@ -1,0 +1,14 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1777858078
+icon.svg::CompressedTexture2D::2100952176018003477::1777858037::1777858078::1::::<><><>0<>0<>9d11e9674496896bb5308ed500fcb5ff<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Nivel1.tscn::PackedScene::3609293185862775594::1777858037::0::1::::<><><>0<>0<><>::uid://dgoq4grfvwm2x::::res://assets/Buildings.png<>uid://fcagk6lesrxf::::res://PlayerMovimiento.gd<>uid://cj47teku0sfqm::::res://assets/assets-removebg-preview.png<>uid://dgcdfhqus126p::::res://portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://assets/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg
+PlayerMovimiento.gd::GDScript::355084262090012103::1777858037::0::1::::<>CharacterBody2D<><>0<>0<><>::
+portal_escalera.gd::GDScript::7584715341677579273::1777858037::0::1::::<>Area2D<><>0<>0<><>::
+README.md::TextFile::-1::1777858031::0::1::::<><><>0<>0<><>::
+::res://assets/::1777858184
+assets-removebg-preview.png::CompressedTexture2D::5466385015333222368::1777858037::1777858078::1::::<><><>0<>0<>c482c45e3969f819113a09b2a7f5869a<>res://.godot/imported/assets-removebg-preview.png-122e2c181f50eb6efe875b139439694f.ctex::
+Buildings.png::CompressedTexture2D::7610320003029735357::1777858037::1777858078::1::::<><><>0<>0<>11233d8d1042f42acbe2f16709c641e2<>res://.godot/imported/Buildings.png-e1587171b0d0f4cbfb6e1ea4aec8eb13.ctex::
+fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg::CompressedTexture2D::8533607501555877248::1777858037::1777858078::1::::<><><>0<>0<>5f4d43a7e5757f607607e9d2f97a775b<>res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-1f3dcd32d6e1b2587f57253706799f3e.ctex::
+placeholder-300x300.png::CompressedTexture2D::2415043960182302480::1777858184::1777858185::1::::<><><>0<>0<>aa40ca2000041ede74b2b8e7a9a86e71<>res://.godot/imported/placeholder-300x300.png-a6377b1cf843c0aa01f81db730f0dc45.ctex::
+Props-01.png::CompressedTexture2D::4190689932954857770::1777858037::1777858078::1::::<><><>0<>0<>cffe76865670a3d75575b5ccb6b0306a<>res://.godot/imported/Props-01.png-82f1027901da04735a69a95aecf1e807.ctex::
+Tiles.png::CompressedTexture2D::7505641547692340960::1777858037::1777858078::1::::<><><>0<>0<>1b0df1d788159ab54a65c49d174e29b9<>res://.godot/imported/Tiles.png-606650b3698afd99ea52e71152f0494f.ctex::
