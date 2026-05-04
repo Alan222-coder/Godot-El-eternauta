@@ -302,6 +302,9 @@ sources/0 = SubResource("TileSetAtlasSource_lf6j1")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
+size = Vector2(33, 40)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
 
@@ -722,6 +725,12 @@ position = Vector2(-0.5, -0.9999924)
 scale = Vector2(0.09, 0.11333331)
 texture = ExtResource("3_s48l2")
 
+[node name="Hitbox" type="Area2D" parent="World/Enemigos/CharacterBody2D" unique_id=1497408558]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Enemigos/CharacterBody2D/Hitbox" unique_id=186602808]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_qpwqs")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="World" unique_id=931044742 groups=["player"]]
 z_index = 1
 position = Vector2(40, 79.92999)
@@ -876,6 +885,13 @@ Aprieta la z para bajar las escaleras"
 scroll_fit_content_height = true
 scroll_fit_content_width = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1943636343]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=18115639]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="World/Enemigos/CharacterBody2D/Hitbox" to="World/Enemigos/CharacterBody2D" method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="Portal_Escalera" to="Portal_Escalera" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal_Escalera" to="Portal_Escalera" method="_on_portal_escalera_body_exited"]
 [connection signal="body_entered" from="Portal_Escalera2" to="Portal_Escalera2" method="_on_body_entered"]

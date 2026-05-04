@@ -9,12 +9,12 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		return
-		
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
 	var direction = (player.global_position - global_position).normalized()
 	velocity.x = direction.x * speed
-	
 	move_and_slide()
+	
+	for body in $Hitbox.get_overlapping_bodies():
+		if body.has_method("recibir_daño"):
+			body.recibir_daño(10)
