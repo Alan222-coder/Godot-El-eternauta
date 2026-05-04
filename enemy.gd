@@ -9,6 +9,10 @@ func _ready():
 func _physics_process(delta):
 	if player == null:
 		return
+		
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 	
 	var direction = (player.global_position - global_position).normalized()
 	velocity.x = direction.x * speed

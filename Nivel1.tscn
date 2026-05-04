@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://assets/placeholder-300x300.png" id="3_s48l2"]
 [ext_resource type="Script" uid="uid://dgcdfhqus126p" path="res://portal_escalera.gd" id="4_s48l2"]
 [ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://assets/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
+[ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_qpwqs"]
+[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://assets/png-clipart-door-door.png" id="7_afh24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lf6j1"]
 texture = ExtResource("1_8cp3p")
@@ -388,6 +390,12 @@ _data = {
 &"Test": SubResource("Animation_3vf8r")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poccc"]
+size = Vector2(18, 58.00003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_516i8"]
+size = Vector2(59, 57.464996)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opwex"]
 texture = ExtResource("1_8cp3p")
 0:0/0 = 0
@@ -736,6 +744,48 @@ shape = SubResource("CapsuleShape2D_snpaj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=868760418]
 libraries/ = SubResource("AnimationLibrary_88etw")
+
+[node name="Puerta" type="Node2D" parent="World" unique_id=1864310790]
+
+[node name="Puerta" type="StaticBody2D" parent="World/Puerta" unique_id=400883131]
+position = Vector2(295, 215.93)
+scale = Vector2(1, 0.84000003)
+script = ExtResource("6_qpwqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Puerta/Puerta" unique_id=1419988223]
+position = Vector2(-1.0000019, 1.9299927)
+scale = Vector2(0.02055544, 0.031297397)
+texture = ExtResource("7_afh24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Puerta/Puerta" unique_id=27115480]
+position = Vector2(-1, 1.9299927)
+shape = SubResource("RectangleShape2D_poccc")
+
+[node name="Area2D" type="Area2D" parent="World/Puerta/Puerta" unique_id=1424754816]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Puerta/Puerta/Area2D" unique_id=1236571303]
+position = Vector2(-0.5, 2.1975098)
+shape = SubResource("RectangleShape2D_516i8")
+
+[node name="Puerta2" type="StaticBody2D" parent="World/Puerta" unique_id=764911664]
+position = Vector2(535, 210.93)
+scale = Vector2(1, 0.84000003)
+script = ExtResource("6_qpwqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Puerta/Puerta2" unique_id=2116879667]
+position = Vector2(-1.0000019, 1.9299927)
+scale = Vector2(0.02055544, 0.031297397)
+texture = ExtResource("7_afh24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Puerta/Puerta2" unique_id=89684737]
+position = Vector2(-1, 1.9299927)
+shape = SubResource("RectangleShape2D_poccc")
+
+[node name="Area2D" type="Area2D" parent="World/Puerta/Puerta2" unique_id=1964404416]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Puerta/Puerta2/Area2D" unique_id=630454705]
+position = Vector2(-0.5, 2.1975098)
+shape = SubResource("RectangleShape2D_516i8")
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=12065591]
 position = Vector2(1, 0)
