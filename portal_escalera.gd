@@ -5,7 +5,8 @@ extends Area2D
 
 var body_inside := false
 var body_ref : Node2D = null
-
+var ya_mostro_mensaje = false
+var player_in_range = false
 static var position_stack : Array = []
 var can_use := true   # ❗ sacamos static
 

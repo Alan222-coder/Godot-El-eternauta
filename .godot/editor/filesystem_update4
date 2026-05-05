@@ -1,4 +1,3 @@
-res://Nivel1.tscn
 res://door.gd
-res://enemy.gd
-res://PlayerMovimiento.gd
+res://Nivel1.tscn
+res://portal_escalera.gd
