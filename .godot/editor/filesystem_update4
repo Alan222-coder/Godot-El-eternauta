@@ -1,3 +1,4 @@
 res://Nivel1.tscn
 res://enemy.gd
+res://portal_escalera.gd
 res://PlayerMovimiento.gd

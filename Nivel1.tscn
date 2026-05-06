@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://Buildings.png" id="1_8cp3p"]
 [ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_hv2ca"]
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_ydtn4"]
-[ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets-removebg-preview.png" id="3_hv2ca"]
-[ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://placeholder-300x300.png" id="3_s48l2"]
+[ext_resource type="Texture2D" uid="uid://c6xkiwnfuomwn" path="res://01b6b7ec-ae62-4610-bd3b-8b046b358d7c.png" id="3_qpwqs"]
 [ext_resource type="Script" uid="uid://dgcdfhqus126p" path="res://portal_escalera.gd" id="4_s48l2"]
+[ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/ElEternauta16SpriteSheet.png" id="5_afh24"]
 [ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_qpwqs"]
 [ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="7_afh24"]
@@ -402,6 +402,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lf6j1")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
+radius = 8.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
 size = Vector2(37, 44)
@@ -409,94 +411,9 @@ size = Vector2(37, 44)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
 
-[sub_resource type="Animation" id="Animation_opwex"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_hv2ca")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_3vf8r"]
-resource_name = "Test"
-length = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_hv2ca")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [3, 2, 1]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_88etw"]
-_data = {
-&"RESET": SubResource("Animation_opwex"),
-&"Test": SubResource("Animation_3vf8r")
-}
-
 [sub_resource type="Gradient" id="Gradient_afh24"]
 offsets = PackedFloat32Array(0.32463768, 0.9971014)
-colors = PackedColorArray(1, 1, 1, 1, 0.56078434, 0.56078434, 0.56078434, 0)
+colors = PackedColorArray(0.6452097, 0.6452098, 0.6452097, 1, 0.56078434, 0.56078434, 0.56078434, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_poccc"]
 gradient = SubResource("Gradient_afh24")
@@ -505,6 +422,43 @@ height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.75213677, 0.26923078)
+
+[sub_resource type="Animation" id="Animation_poccc"]
+resource_name = "Caminar"
+length = 0.26667002
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_516i8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnvlo"]
+_data = {
+&"Caminar": SubResource("Animation_poccc"),
+&"RESET": SubResource("Animation_516i8")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poccc"]
 size = Vector2(18, 58.00003)
@@ -849,9 +803,10 @@ script = ExtResource("2_hv2ca")
 shape = SubResource("CapsuleShape2D_qpwqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Enemigos/CharacterBody2D" unique_id=100298368]
-position = Vector2(-0.5, -0.9999924)
-scale = Vector2(0.09, 0.11333331)
-texture = ExtResource("3_s48l2")
+position = Vector2(1.0000153, -1.9073486e-05)
+rotation = -0.0028588243
+scale = Vector2(-0.041850626, -0.034326382)
+texture = ExtResource("3_qpwqs")
 
 [node name="Hitbox" type="Area2D" parent="World/Enemigos/CharacterBody2D" unique_id=1973877797]
 
@@ -867,11 +822,10 @@ platform_wall_layers = 2
 script = ExtResource("2_ydtn4")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/CharacterBody2D" unique_id=1037754744]
-position = Vector2(-0.9999943, 3)
-scale = Vector2(0.14600001, 0.13049999)
-texture = ExtResource("3_hv2ca")
-hframes = 4
-frame = 3
+position = Vector2(-1.9073486e-06, 0.99999976)
+scale = Vector2(0.586, 1.010461)
+texture = ExtResource("5_afh24")
+hframes = 8
 
 [node name="Camera2D" type="Camera2D" parent="World/CharacterBody2D" unique_id=341942309]
 
@@ -879,14 +833,16 @@ frame = 3
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_snpaj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=868760418]
-libraries/ = SubResource("AnimationLibrary_88etw")
-
 [node name="PointLight2D2" type="PointLight2D" parent="World/CharacterBody2D" unique_id=953639077]
 position = Vector2(1, 2)
+scale = Vector2(1, 1.0063285)
+color = Color(0.55455405, 0.554554, 0.5545539, 1)
 energy = 1.21
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_poccc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=1513631104]
+libraries/ = SubResource("AnimationLibrary_lnvlo")
 
 [node name="Puerta" type="Node2D" parent="World" unique_id=1864310790]
 
@@ -993,7 +949,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera" unique_id=1419139355]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera" unique_id=1419139355 groups=["portales"]]
 position = Vector2(438, 615)
 shape = SubResource("RectangleShape2D_opwex")
 
@@ -1014,7 +970,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera2" unique_id=1881143293]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera2" unique_id=1881143293 groups=["portales"]]
 position = Vector2(438, 616)
 shape = SubResource("RectangleShape2D_opwex")
 
@@ -1034,7 +990,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera3" unique_id=327686917]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera3" unique_id=327686917 groups=["portales"]]
 position = Vector2(438, 617)
 shape = SubResource("RectangleShape2D_opwex")
 
