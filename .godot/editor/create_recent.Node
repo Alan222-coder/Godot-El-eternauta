@@ -1,5 +1,6 @@
-AnimationPlayer
+Marker2D
 RayCast2D
+AnimationPlayer
 CollisionShape2D
 Area2D
 Label

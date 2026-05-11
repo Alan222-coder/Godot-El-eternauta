@@ -816,7 +816,7 @@ shape = SubResource("RectangleShape2D_qpwqs")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="World" unique_id=931044742 groups=["player"]]
 z_index = 1
-position = Vector2(40, 79.92999)
+position = Vector2(40, 217.93)
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
 script = ExtResource("2_ydtn4")
@@ -843,6 +843,11 @@ texture = SubResource("GradientTexture2D_poccc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=1513631104]
 libraries/ = SubResource("AnimationLibrary_lnvlo")
+
+[node name="Marker2D" type="Marker2D" parent="World/CharacterBody2D" unique_id=1200470030]
+
+[node name="RayCast2D" type="RayCast2D" parent="World/CharacterBody2D/Marker2D" unique_id=356701956]
+target_position = Vector2(1000, 0)
 
 [node name="Puerta" type="Node2D" parent="World" unique_id=1864310790]
 

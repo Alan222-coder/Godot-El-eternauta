@@ -5,72 +5,163 @@ const JUMP_VELOCITY = -400.0
 
 @onready var anim = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
+@onready var muzzle = $Marker2D
+@onready var raycast = $Marker2D/RayCast2D
 
-# --- HP ---
-var hp_max: int = 100
-var hp: int = 100
-var invulnerable: bool = false
-@onready var hp_label: Label = $"../../CanvasLayer/Label"
+# ---------------- HP ----------------
+var hp_max := 100
+var hp := 100
+var invulnerable := false
 
-func _ready():
-	# Test (opcional, podés borrarlo después)
-	anim.play("Caminar")
+# ---------------- AIM ----------------
+var apuntando := false
 
-func _physics_process(delta: float) -> void:
-	# Gravedad
+@onready var hp_label = $"../../CanvasLayer/Label"
+
+func _physics_process(delta):
+
+	# ---------------- GRAVEDAD ----------------
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	
-	# Salto
+
+	# ---------------- SALTO ----------------
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	# ---------------- MOVIMIENTO ----------------
+	var direction := 0.0
 
-	# Movimiento
-	var direction := Input.get_axis("ui_left", "ui_right") + Input.get_axis("mizquierda", "mderecha")
-	direction = clamp(direction, -1, 1)
-
-	# HP
-	hp_label.text = "HP: " + str(hp)
+	# No permitir movimiento mientras apunta
+	if not apuntando:
+		direction = Input.get_axis("ui_left", "ui_right") + Input.get_axis("mizquierda", "mderecha")
+		direction = clamp(direction, -1, 1)
 
 	if direction != 0:
 		velocity.x = direction * SPEED
-		
-		# ▶️ ANIMACIÓN CAMINAR
 		anim.play("Caminar")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-		# ⏹️ detener animación
 		anim.stop()
 
 	move_and_slide()
 
-	# Flip del sprite
+	# ---------------- FLIP ----------------
 	if direction > 0:
 		sprite2d.flip_h = false
+		muzzle.position.x = abs(muzzle.position.x)
+
 	elif direction < 0:
 		sprite2d.flip_h = true
+		muzzle.position.x = -abs(muzzle.position.x)
 
+	# ---------------- APUNTAR ----------------
+	if Input.is_action_pressed("aim"):
 
-func _on_portal_escalera_body_entered(body: Node2D) -> void:
+		apuntando = true
+
+		var direccion = get_global_mouse_position() - muzzle.global_position
+
+		# El raycast sigue el mouse
+		raycast.target_position = direccion
+
+	# ---------------- DISPARAR ----------------
+	if apuntando and Input.is_action_just_released("aim"):
+
+		apuntando = false
+		disparar()
+
+	# ---------------- HP ----------------
 	hp_label.text = "HP: " + str(hp)
 
+func disparar():
 
-func recibir_daño(cantidad: int) -> void:
+	raycast.force_raycast_update()
+
+	var inicio = muzzle.global_position
+	var fin = raycast.to_global(raycast.target_position)
+
+	# ---------------- SI GOLPEA ----------------
+	if raycast.is_colliding():
+
+		var collider = raycast.get_collider()
+		var punto = raycast.get_collision_point()
+
+		print("Golpeaste:", collider.name)
+
+		# Aplicar daño
+		if collider.has_method("recibir_daño"):
+			collider.recibir_daño(25)
+
+		draw_linea(inicio, punto)
+
+	else:
+		draw_linea(inicio, fin)
+
+# ---------------- EFECTO VISUAL DEL DISPARO ----------------
+func draw_linea(start, end):
+
+	var line = Line2D.new()
+
+	line.top_level = true
+	line.default_color = Color(1, 1, 0)
+
+	# Grosor
+	line.width = 12
+
+	# Punta más gruesa
+	var curve = Curve.new()
+	curve.add_point(Vector2(0, 0.15))
+	curve.add_point(Vector2(1, 1.0))
+
+	line.width_curve = curve
+
+	line.add_point(start)
+	line.add_point(end)
+
+	get_tree().current_scene.add_child(line)
+
+	# ---------------- ANIMACIÓN ----------------
+
+	var duration = 0.08
+	var elapsed = 0.0
+
+	while elapsed < duration:
+
+		elapsed += get_process_delta_time()
+
+		var t = elapsed / duration
+		t = clamp(t, 0.0, 1.0)
+
+		# El inicio avanza hacia el final
+		var nuevo_inicio = start.lerp(end, t)
+
+		line.set_point_position(0, nuevo_inicio)
+
+		# Reducir grosor suavemente
+		line.width = lerp(12.0, 0.0, t)
+
+		await get_tree().process_frame
+
+	line.queue_free()
+
+# ---------------- RECIBIR DAÑO ----------------
+func recibir_daño(cantidad):
+
 	if invulnerable:
 		return
-	
+
 	hp -= cantidad
 	hp = max(hp, 0)
+
 	invulnerable = true
-	
+
 	await get_tree().create_timer(0.5).timeout
-	
+
 	invulnerable = false
-	
+
 	if hp <= 0:
 		morir()
 
-
-func morir() -> void:
+# ---------------- MORIR ----------------
+func morir():
 	print("Moriste")
