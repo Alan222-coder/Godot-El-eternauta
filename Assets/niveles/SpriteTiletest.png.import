@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6124tuan7m7"
-path="res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"
+uid="uid://d4elvyaads1tv"
+path="res://.godot/imported/SpriteTiletest.png-043b9ed34b81410ef80ba50ae4aeb6bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"]
+source_file="res://Assets/niveles/SpriteTiletest.png"
+dest_files=["res://.godot/imported/SpriteTiletest.png-043b9ed34b81410ef80ba50ae4aeb6bf.ctex"]
 
 [params]
 

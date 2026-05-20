@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6124tuan7m7"
-path="res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"
+uid="uid://b3rapfnic33ui"
+path="res://.godot/imported/muelto.png-1772efda4eedb36f36fac38b0184f486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"]
+source_file="res://Assets/muelto_pantalla/muelto.png"
+dest_files=["res://.godot/imported/muelto.png-1772efda4eedb36f36fac38b0184f486.ctex"]
 
 [params]
 

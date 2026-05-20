@@ -68,3 +68,8 @@ func _get_portal_en_mi_nivel() -> Node2D:
 				distancia_min = dist 
 				portal_mas_cercano = portal
 	return portal_mas_cercano
+	
+	
+	
+	
+	

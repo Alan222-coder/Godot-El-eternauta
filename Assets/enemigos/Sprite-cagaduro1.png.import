@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6124tuan7m7"
-path="res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"
+uid="uid://5m234yvxmuec"
+path="res://.godot/imported/Sprite-cagaduro1.png-57a62b3cea3fba2fc43cb69ee2e8cf6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"]
+source_file="res://Assets/enemigos/Sprite-cagaduro1.png"
+dest_files=["res://.godot/imported/Sprite-cagaduro1.png-57a62b3cea3fba2fc43cb69ee2e8cf6f.ctex"]
 
 [params]
 
