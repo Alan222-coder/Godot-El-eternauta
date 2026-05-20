@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cr88jh3qe7miw"]
 
-[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://Assets/Tiles/Buildings.png" id="1_k0f8o"]
-[ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://Assets/enemigos/enemy.gd" id="2_x7rhx"]
-[ext_resource type="Texture2D" uid="uid://c6xkiwnfuomwn" path="res://Assets/enemigos/01b6b7ec-ae62-4610-bd3b-8b046b358d7c.png" id="3_sa1gl"]
-[ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://Assets/Personaje/PlayerMovimiento.gd" id="4_c1g4o"]
+[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://Buildings.png" id="1_k0f8o"]
+[ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_x7rhx"]
+[ext_resource type="Texture2D" uid="uid://5m234yvxmuec" path="res://Assets/enemigos/Sprite-cagaduro1.png" id="3_sa1gl"]
+[ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="4_c1g4o"]
 [ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/Personaje/ElEternauta16SpriteSheet.png" id="5_peqbr"]
-[ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://Assets/puertas/door.gd" id="6_ra5y7"]
-[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://Assets/puertas/png-clipart-door-door.png" id="7_pj374"]
-[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://Assets/escaleras/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="8_ep5eb"]
+[ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_ra5y7"]
+[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="7_pj374"]
+[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="8_ep5eb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qpwqs"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
