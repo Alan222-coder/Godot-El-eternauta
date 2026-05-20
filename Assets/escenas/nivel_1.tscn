@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dt11lj0v1oi5h" path="res://Assets/escenas/escena_personaje.tscn" id="7_d6qud"]
 [ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="8_q3jd1"]
 [ext_resource type="PackedScene" uid="uid://ba0lteo47cyhs" path="res://Assets/escenas/puerta_escena.tscn" id="9_b666k"]
+[ext_resource type="Script" uid="uid://c22x3tdqh3cl8" path="res://Assets/escenas/portal_escalera.gd" id="10_bkc4m"]
 [ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://Assets/escaleras/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="10_k7ese"]
+[ext_resource type="PackedScene" uid="uid://b3877n1pepa5t" path="res://Assets/niveles/score.tscn" id="11_or2es"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pf44s"]
 texture = ExtResource("1_c7pma")
@@ -540,369 +542,15 @@ physics_layer_2/collision_layer = 4
 physics_layer_2/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_pf44s")
 
-[sub_resource type="GDScript" id="GDScript_or2es"]
-script/source = "extends Area2D
-@export var landing_zone : Area2D
-@export var lower_zone : Area2D
-var body_inside := false
-var body_ref : Node2D = null
-var enemies_inside : Array = []          # ✅ lista de enemigos dentro
-static var position_stack : Array = []
-var can_use := true
-
-func _on_body_entered(body: Node2D) -> void:
-	if !can_use:
-		return
-	if body.is_in_group(\"player\"):
-		body_inside = true
-		body_ref = body
-	elif body.is_in_group(\"enemy\"):
-		if !enemies_inside.has(body):
-			enemies_inside.append(body)   # ✅ registrar enemigo
-		procesar_enemigo(body)
-
-func _on_body_exited(body: Node2D) -> void:
-	if body == body_ref:
-		body_inside = false
-		body_ref = null
-	enemies_inside.erase(body)            # ✅ quitar enemigo si sale físicamente
-
-func _process(delta):
-	# Verificación cada frame para el jugador
-	if body_ref != null and !overlaps_body(body_ref):
-		body_inside = false
-		body_ref = null
-
-	# ✅ Verificación cada frame para cada enemigo
-	for enemy in enemies_inside.duplicate():
-		if !overlaps_body(enemy):
-			enemies_inside.erase(enemy)
-		else:
-			procesar_enemigo(enemy)
-
-	if !body_inside or !can_use or !body_ref:
-		return
-
-	if body_ref.is_in_group(\"player\"):
-		if Input.is_action_just_pressed(\"teleport\"):
-			subir(body_ref)
-		if position_stack.size() > 0 and Input.is_action_just_pressed(\"bajar\"):
-			bajar()
-
-func procesar_enemigo(body: Node2D):
-	if !can_use:
-		return                            # ✅ respetar can_use
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	if player.global_position.y < body.global_position.y - 50:
-		subir(body)
-	elif player.global_position.y > body.global_position.y + 50:
-		bajar_enemigo(body)
-
-func subir(body: Node2D):
-	if !landing_zone:
-		return
-	var marker = landing_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	if body.is_in_group(\"player\"):
-		if position_stack.is_empty() or position_stack.back() != body.global_position:
-			position_stack.push_back(body.global_position)
-	var pos = marker.global_position
-	if body.is_in_group(\"enemy\"):
-		pos.x += 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	if body.is_in_group(\"enemy\"):
-		await get_tree().process_frame
-		procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar():
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	can_use = false
-	var last_pos = position_stack.pop_back()
-	player.global_position = last_pos
-	if player is CharacterBody2D:
-		player.velocity = Vector2.ZERO
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar_enemigo(body: Node2D):
-	if !lower_zone:
-		return
-	var marker = lower_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	var pos = marker.global_position
-	pos.x -= 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	await get_tree().process_frame
-	procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-"
-
 [sub_resource type="QuadMesh" id="QuadMesh_bkc4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gf1"]
 size = Vector2(50, 50.5)
 
-[sub_resource type="GDScript" id="GDScript_khk0m"]
-script/source = "extends Area2D
-@export var landing_zone : Area2D
-@export var lower_zone : Area2D
-var body_inside := false
-var body_ref : Node2D = null
-var enemies_inside : Array = []          # ✅ lista de enemigos dentro
-static var position_stack : Array = []
-var can_use := true
-
-func _on_body_entered(body: Node2D) -> void:
-	if !can_use:
-		return
-	if body.is_in_group(\"player\"):
-		body_inside = true
-		body_ref = body
-	elif body.is_in_group(\"enemy\"):
-		if !enemies_inside.has(body):
-			enemies_inside.append(body)   # ✅ registrar enemigo
-		procesar_enemigo(body)
-
-func _on_body_exited(body: Node2D) -> void:
-	if body == body_ref:
-		body_inside = false
-		body_ref = null
-	enemies_inside.erase(body)            # ✅ quitar enemigo si sale físicamente
-
-func _process(delta):
-	# Verificación cada frame para el jugador
-	if body_ref != null and !overlaps_body(body_ref):
-		body_inside = false
-		body_ref = null
-
-	# ✅ Verificación cada frame para cada enemigo
-	for enemy in enemies_inside.duplicate():
-		if !overlaps_body(enemy):
-			enemies_inside.erase(enemy)
-		else:
-			procesar_enemigo(enemy)
-
-	if !body_inside or !can_use or !body_ref:
-		return
-
-	if body_ref.is_in_group(\"player\"):
-		if Input.is_action_just_pressed(\"teleport\"):
-			subir(body_ref)
-		if position_stack.size() > 0 and Input.is_action_just_pressed(\"bajar\"):
-			bajar()
-
-func procesar_enemigo(body: Node2D):
-	if !can_use:
-		return                            # ✅ respetar can_use
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	if player.global_position.y < body.global_position.y - 50:
-		subir(body)
-	elif player.global_position.y > body.global_position.y + 50:
-		bajar_enemigo(body)
-
-func subir(body: Node2D):
-	if !landing_zone:
-		return
-	var marker = landing_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	if body.is_in_group(\"player\"):
-		if position_stack.is_empty() or position_stack.back() != body.global_position:
-			position_stack.push_back(body.global_position)
-	var pos = marker.global_position
-	if body.is_in_group(\"enemy\"):
-		pos.x += 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	if body.is_in_group(\"enemy\"):
-		await get_tree().process_frame
-		procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar():
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	can_use = false
-	var last_pos = position_stack.pop_back()
-	player.global_position = last_pos
-	if player is CharacterBody2D:
-		player.velocity = Vector2.ZERO
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar_enemigo(body: Node2D):
-	if !lower_zone:
-		return
-	var marker = lower_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	var pos = marker.global_position
-	pos.x -= 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	await get_tree().process_frame
-	procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-"
-
 [sub_resource type="QuadMesh" id="QuadMesh_oxwwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3h3s"]
 size = Vector2(50, 50.5)
-
-[sub_resource type="GDScript" id="GDScript_xvcmo"]
-script/source = "extends Area2D
-@export var landing_zone : Area2D
-@export var lower_zone : Area2D
-var body_inside := false
-var body_ref : Node2D = null
-var enemies_inside : Array = []          # ✅ lista de enemigos dentro
-static var position_stack : Array = []
-var can_use := true
-
-func _on_body_entered(body: Node2D) -> void:
-	if !can_use:
-		return
-	if body.is_in_group(\"player\"):
-		body_inside = true
-		body_ref = body
-	elif body.is_in_group(\"enemy\"):
-		if !enemies_inside.has(body):
-			enemies_inside.append(body)   # ✅ registrar enemigo
-		procesar_enemigo(body)
-
-func _on_body_exited(body: Node2D) -> void:
-	if body == body_ref:
-		body_inside = false
-		body_ref = null
-	enemies_inside.erase(body)            # ✅ quitar enemigo si sale físicamente
-
-func _process(delta):
-	# Verificación cada frame para el jugador
-	if body_ref != null and !overlaps_body(body_ref):
-		body_inside = false
-		body_ref = null
-
-	# ✅ Verificación cada frame para cada enemigo
-	for enemy in enemies_inside.duplicate():
-		if !overlaps_body(enemy):
-			enemies_inside.erase(enemy)
-		else:
-			procesar_enemigo(enemy)
-
-	if !body_inside or !can_use or !body_ref:
-		return
-
-	if body_ref.is_in_group(\"player\"):
-		if Input.is_action_just_pressed(\"teleport\"):
-			subir(body_ref)
-		if position_stack.size() > 0 and Input.is_action_just_pressed(\"bajar\"):
-			bajar()
-
-func procesar_enemigo(body: Node2D):
-	if !can_use:
-		return                            # ✅ respetar can_use
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	if player.global_position.y < body.global_position.y - 50:
-		subir(body)
-	elif player.global_position.y > body.global_position.y + 50:
-		bajar_enemigo(body)
-
-func subir(body: Node2D):
-	if !landing_zone:
-		return
-	var marker = landing_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	if body.is_in_group(\"player\"):
-		if position_stack.is_empty() or position_stack.back() != body.global_position:
-			position_stack.push_back(body.global_position)
-	var pos = marker.global_position
-	if body.is_in_group(\"enemy\"):
-		pos.x += 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	if body.is_in_group(\"enemy\"):
-		await get_tree().process_frame
-		procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar():
-	var player = get_tree().get_first_node_in_group(\"player\")
-	if !player:
-		return
-	can_use = false
-	var last_pos = position_stack.pop_back()
-	player.global_position = last_pos
-	if player is CharacterBody2D:
-		player.velocity = Vector2.ZERO
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-
-func bajar_enemigo(body: Node2D):
-	if !lower_zone:
-		return
-	var marker = lower_zone.get_node_or_null(\"Marker2D\")
-	if !marker:
-		return
-	can_use = false
-	var pos = marker.global_position
-	pos.x -= 24
-	body.global_position = pos
-	if body is CharacterBody2D:
-		body.velocity = Vector2.ZERO
-	body_inside = false
-	body_ref = null
-	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
-	await get_tree().process_frame
-	procesar_enemigo(body)
-	await get_tree().create_timer(0.3).timeout
-	can_use = true
-"
 
 [sub_resource type="QuadMesh" id="QuadMesh_01vg7"]
 
@@ -998,9 +646,9 @@ tile_map_data = PackedByteArray("AAAAACYAAAAIAAEAAAAAACcAAAAIAAIAAAABACYAAAAJAAE
 tile_set = SubResource("TileSet_fwsm6")
 
 [node name="Portal_Escalera" type="Area2D" parent="." unique_id=390485731 node_paths=PackedStringArray("landing_zone")]
-position = Vector2(-233, -34)
+position = Vector2(-249, -34)
 collision_layer = 2
-script = SubResource("GDScript_or2es")
+script = ExtResource("10_bkc4m")
 landing_zone = NodePath("../Portal_Escalera2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Portal_Escalera" unique_id=280668849]
@@ -1018,9 +666,9 @@ shape = SubResource("RectangleShape2D_c1gf1")
 position = Vector2(437, 614)
 
 [node name="Portal_Escalera2" type="Area2D" parent="." unique_id=1907317516 node_paths=PackedStringArray("landing_zone", "lower_zone")]
-position = Vector2(-151, -174)
+position = Vector2(-139, -174)
 collision_layer = 2
-script = SubResource("GDScript_khk0m")
+script = ExtResource("10_bkc4m")
 landing_zone = NodePath("../Portal_Escalera3")
 lower_zone = NodePath("../Portal_Escalera")
 
@@ -1039,9 +687,9 @@ shape = SubResource("RectangleShape2D_q3h3s")
 position = Vector2(438, 616)
 
 [node name="Portal_Escalera3" type="Area2D" parent="." unique_id=1136347991 node_paths=PackedStringArray("lower_zone")]
-position = Vector2(-249, -252)
+position = Vector2(-203, -252)
 collision_layer = 2
-script = SubResource("GDScript_xvcmo")
+script = ExtResource("10_bkc4m")
 lower_zone = NodePath("../Portal_Escalera2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Portal_Escalera3" unique_id=1081485856]
@@ -1057,6 +705,22 @@ shape = SubResource("RectangleShape2D_gkjc2")
 
 [node name="Marker2D" type="Marker2D" parent="Portal_Escalera3" unique_id=596100099]
 position = Vector2(438, 616)
+
+[node name="Score" parent="." unique_id=1485198779 instance=ExtResource("11_or2es")]
+position = Vector2(684, 451)
+
+[node name="Score2" parent="." unique_id=1919378409 instance=ExtResource("11_or2es")]
+position = Vector2(450, 530)
+
+[node name="Score3" parent="." unique_id=1186702875 instance=ExtResource("11_or2es")]
+position = Vector2(999, 453)
+
+[node name="Score4" parent="." unique_id=1109358128 instance=ExtResource("11_or2es")]
+position = Vector2(859, 453)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1335077173]
+visible = false
+color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Portal_Escalera" to="Portal_Escalera" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal_Escalera" to="Portal_Escalera" method="_on_portal_escalera_body_exited"]

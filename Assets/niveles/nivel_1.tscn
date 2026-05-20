@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccms33mwaxenh" path="res://Assets/Tiles/sprite sheet/Grass_background_2.png" id="4_d6qud"]
 [ext_resource type="Texture2D" uid="uid://bm5hhple8wm3a" path="res://Assets/Tiles/sprite sheet/Salt.png" id="6_q3jd1"]
 [ext_resource type="PackedScene" path="res://Assets/Personaje/escena_personaje.tscn" id="7_d6qud"]
-[ext_resource type="PackedScene" path="res://Assets/enemigos/enemigos_escena.tscn" id="8_q3jd1"]
+[ext_resource type="PackedScene" uid="uid://2svjhgne66xi" path="res://Assets/enemigos/enemigos_escena.tscn" id="8_q3jd1"]
 [ext_resource type="PackedScene" path="res://Assets/puertas/puerta_escena.tscn" id="9_b666k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pf44s"]

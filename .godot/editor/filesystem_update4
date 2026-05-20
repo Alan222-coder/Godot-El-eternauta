@@ -3,3 +3,7 @@ res://Assets/escenas/nivel_1.tscn
 res://PlayerMovimiento.gd
 res://enemy.gd
 res://Assets/niveles/node_2d.tscn
+res://Assets/niveles/score.tscn
+res://Assets/niveles/scorecoll.gd
+res://Assets/escenas/portal_escalera.gd
+res://Assets/niveles/nivel_1.tscn

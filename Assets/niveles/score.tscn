@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b3877n1pepa5t"]
+
+[ext_resource type="Script" uid="uid://brxsa78h6ew1x" path="res://Assets/niveles/scorecoll.gd" id="1_p6bww"]
+[ext_resource type="Texture2D" uid="uid://dao3b8dy5h1tf" path="res://360_F_30697057_YvZ7f1LAl3JzDtUEbhVGo5mAxZGI5NuU.jpg" id="2_2ffrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ffrt"]
+
+[node name="Score" type="Node2D" unique_id=1485198779]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1633867084]
+scale = Vector2(2.880376, 2.6239061)
+script = ExtResource("1_p6bww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=84770328]
+scale = Vector2(0.9733181, 1.0141666)
+shape = SubResource("RectangleShape2D_2ffrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=228419926]
+scale = Vector2(-0.039997593, 0.05529299)
+texture = ExtResource("2_2ffrt")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

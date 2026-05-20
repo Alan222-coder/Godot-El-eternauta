@@ -9,11 +9,16 @@ const JUMP_VELOCITY = -400.0
 @onready var raycast = $Marker2D/RayCast2D
 @onready var hp_bar = $CanvasLayer/TextureProgressBar
 @onready var camara_shake = $Camera2D
+
 var game_over_scene = preload("res://Assets/muelto_pantalla/muerte.tscn")
+
 # ---------------- HP ----------------
 var hp_max := 100
 var hp := 100
 var invulnerable := false
+
+# ---------------- SCORE ----------------
+var score := 0
 
 # ---------------- AIM ----------------
 var apuntando := false
@@ -21,10 +26,11 @@ var apuntando := false
 @onready var hp_label = $CanvasLayer/TextureProgressBar
 
 func _ready():
+
 	if hp_bar:
 		hp_bar.max_value = hp_max
 		hp_bar.value = hp
-	
+
 func _physics_process(delta):
 
 	# ---------------- GRAVEDAD ----------------
@@ -34,7 +40,7 @@ func _physics_process(delta):
 	# ---------------- SALTO ----------------
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+
 	# ---------------- MOVIMIENTO ----------------
 	var direction := 0.0
 
@@ -77,9 +83,7 @@ func _physics_process(delta):
 		apuntando = false
 		disparar()
 
-	# ---------------- HP ----------------
-	#hp_label.text = "HP: " + str(hp)
-
+# ---------------- DISPARAR ----------------
 func disparar():
 
 	raycast.force_raycast_update()
@@ -128,7 +132,6 @@ func draw_linea(start, end):
 	get_tree().current_scene.add_child(line)
 
 	# ---------------- ANIMACIÓN ----------------
-
 	var duration = 0.08
 	var elapsed = 0.0
 
@@ -151,6 +154,13 @@ func draw_linea(start, end):
 
 	line.queue_free()
 
+# ---------------- SCORE ----------------
+func add_score(value):
+
+	score += value
+
+	print("Score actual:", score)
+
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):
 
@@ -159,19 +169,23 @@ func recibir_daño(cantidad):
 
 	hp -= cantidad
 	hp = max(hp, 0)
+
 	hp_bar.value = hp
+
 	invulnerable = true
+
 	screen_shake()
+
 	await get_tree().create_timer(1).timeout
-	
+
 	invulnerable = false
 
 	if hp <= 0:
 		morir()
-	return cantidad
-	
 
-#-----------------Shake de la camara--------------
+	return cantidad
+
+# ---------------- SHAKE DE LA CAMARA ----------------
 func screen_shake():
 
 	var original_offset = camara_shake.offset
@@ -189,8 +203,9 @@ func screen_shake():
 
 # ---------------- MORIR ----------------
 func morir():
+
 	print("Moriste")
-	
+
 	var game_over = game_over_scene.instantiate()
 
 	get_tree().current_scene.add_child(game_over)
