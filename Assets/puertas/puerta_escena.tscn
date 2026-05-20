@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ba0lteo47cyhs"]
+
+[ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://Assets/puertas/door.gd" id="1_82woa"]
+[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://Assets/puertas/png-clipart-door-door.png" id="2_cllf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poccc"]
+size = Vector2(28, 85.714264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_516i8"]
+size = Vector2(60, 88.09525)
+
+[node name="Puerta" type="Node2D" unique_id=1384213509]
+
+[node name="Puerta3" type="StaticBody2D" parent="." unique_id=227555616]
+position = Vector2(272, 222)
+scale = Vector2(1, 0.84000003)
+script = ExtResource("1_82woa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Puerta3" unique_id=25388611]
+position = Vector2(-1.0000019, 1.9299927)
+scale = Vector2(0.031, 0.046)
+texture = ExtResource("2_cllf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta3" unique_id=854574472]
+position = Vector2(-1, 2.380951)
+shape = SubResource("RectangleShape2D_poccc")
+
+[node name="Area2D" type="Area2D" parent="Puerta3" unique_id=547368265]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta3/Area2D" unique_id=2115411940]
+position = Vector2(0, 2.3809814)
+shape = SubResource("RectangleShape2D_516i8")
