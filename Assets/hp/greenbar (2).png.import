@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6124tuan7m7"
-path="res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"
+uid="uid://b8dcqao53ixy4"
+path="res://.godot/imported/greenbar (2).png-e17fb3e41dd3d46305103f0fc9b465fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"]
+source_file="res://Assets/hp/greenbar (2).png"
+dest_files=["res://.godot/imported/greenbar (2).png-e17fb3e41dd3d46305103f0fc9b465fb.ctex"]
 
 [params]
 

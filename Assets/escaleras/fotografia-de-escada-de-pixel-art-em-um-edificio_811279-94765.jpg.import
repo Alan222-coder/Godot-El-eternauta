@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de6124tuan7m7"
-path="res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"
+uid="uid://dtt0jex6wsi3y"
+path="res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-daf8ad2c8e63a77ecdf7e343caf2f438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-825b95a5145508fffe81ba0fc1c92c0b.ctex"]
+source_file="res://Assets/escaleras/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg"
+dest_files=["res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-daf8ad2c8e63a77ecdf7e343caf2f438.ctex"]
 
 [params]
 
