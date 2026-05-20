@@ -1,0 +1,5 @@
+res://Assets/enemigos/enemigos_escena.tscn
+res://Assets/escenas/nivel_1.tscn
+res://PlayerMovimiento.gd
+res://enemy.gd
+res://Assets/niveles/node_2d.tscn

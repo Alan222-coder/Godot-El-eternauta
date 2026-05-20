@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ci2ibwg8d2gle"]
+
+[ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="1_yl8x5"]
+[ext_resource type="Texture2D" uid="uid://5m234yvxmuec" path="res://Assets/enemigos/Sprite-cagaduro1.png" id="2_yl8x5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
+radius = 23.0
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
+size = Vector2(63, 41)
+
+[node name="Enemigos" type="Node2D" unique_id=977153608]
+position = Vector2(0, -400.07)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=985434679 groups=["enemy"]]
+z_index = 2
+position = Vector2(476, 617)
+script = ExtResource("1_yl8x5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1437415314]
+shape = SubResource("CapsuleShape2D_qpwqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1286883614]
+position = Vector2(0.65247095, 0.24058971)
+rotation = -3.1415927
+scale = Vector2(-1.464, -1.121)
+texture = ExtResource("2_yl8x5")
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=263950857]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=173771241]
+position = Vector2(0, -1.9299927)
+shape = SubResource("RectangleShape2D_qpwqs")
+
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]

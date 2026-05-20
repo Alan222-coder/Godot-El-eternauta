@@ -18,6 +18,8 @@ config/icon="res://Assets/no_se_que_es/icon.svg"
 [global_group]
 
 player=""
+portales=""
+enemy=""
 
 [input]
 
