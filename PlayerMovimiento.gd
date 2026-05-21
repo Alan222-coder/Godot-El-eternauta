@@ -36,12 +36,25 @@ var apuntando := false
 var cargador_max := 6
 var cargador := 6
 
-var reserva_balas := 24
+var reserva_balas := 12
 var recargando := false
 
+#--------------------tiempo---------------------
+@onready var time_label = $CanvasLayer/TimeLabel
+
+#-----------------------Pasos------------------
+
+@onready var audio_paso = $AudioPaso
+var puede_paso := true
+var tiempo_paso := 0.35
+
+#------------------------Musica_puntos----------------------------
+@onready var audio_score = $AudioScore
 
 func _ready():
-
+	
+	GameManager.player = self
+	
 	if hp_bar:
 		hp_bar.max_value = hp_max
 		hp_bar.value = hp
@@ -55,7 +68,7 @@ func _physics_process(delta):
 	# ---------------- GRAVEDAD ----------------
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# ---------------- SALTO ----------------
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -70,7 +83,10 @@ func _physics_process(delta):
 
 	if direction != 0:
 		velocity.x = direction * SPEED
+		
 		anim.play("Caminar")
+		if puede_paso and is_on_floor():
+			sonido_paso()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.stop()
@@ -129,22 +145,40 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("reload"):
 		recargar()
 
+	actualizar_hud()
+	
+#--------------------Funcion_Paso----------------
+
+func sonido_paso():
+
+	puede_paso = false
+
+	audio_paso.play()
+
+	await get_tree().create_timer(tiempo_paso).timeout
+
+	puede_paso = true
 
 # ---------------- HUD ----------------
 func actualizar_hud():
 
-	if ammo_label:
-		ammo_label.text = str(cargador) + " / " + str(reserva_balas)
+	ammo_label.text = str(cargador) + " / " + str(reserva_balas)
 
+	score_label.text = str(score)
+
+	var tiempo_restante = int(GameManager.tiempo)
+
+	var minutos = tiempo_restante / 60
+	var segundos = tiempo_restante % 60
+
+	time_label.text = "%02d:%02d" % [minutos, segundos]
 
 # ---------------- SCORE ----------------
-func add_score(value):
+func sumar_score(cantidad):
 
-	score += value
-
-	actualizar_score()
-
-	print("Score actual:", score)
+	score += cantidad
+	audio_score.play()
+	actualizar_hud()
 
 
 func actualizar_score():

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var score_value := 1
+@export var score_value := 500
 
 var collected := false
 
@@ -15,7 +15,7 @@ func _on_body_entered(body):
 		collected = true
 
 		# Sumar score
-		body.add_score(score_value)
+		body.sumar_score(score_value)
 
 		# Desaparecer sprite
 		$Sprite2D.visible = false

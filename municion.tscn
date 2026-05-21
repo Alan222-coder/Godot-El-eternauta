@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://csxaqu2ij8rx3" path="res://municion.gd" id="1_04wg6"]
 [ext_resource type="Texture2D" uid="uid://6uyx336h7q5p" path="res://fc694e14673041abafb3449a1c6f5625_1-removebg-preview_32x32_original-size.png" id="2_uw3h1"]
+[ext_resource type="AudioStream" uid="uid://yqe3g7aryqf2" path="res://Assets/efectos_sonido/Municion_ruido/municion.mp3" id="3_uw3h1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhm6b"]
 size = Vector2(14.383787, 9.860313)
 
 [node name="Municion" type="Node2D" unique_id=2010957656]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953743052]
+position = Vector2(1.6365144e-07, 0)
+rotation = 3.1415927
+scale = Vector2(0.14039235, -0.14040521)
+texture = ExtResource("2_uw3h1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=81399720]
 scale = Vector2(1.3728077, 1.5516356)
@@ -17,7 +24,8 @@ position = Vector2(2.3841858e-07, 0)
 scale = Vector2(0.9733181, 1.0141666)
 shape = SubResource("RectangleShape2D_bhm6b")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=953743052]
-position = Vector2(1.1920929e-07, 0)
-scale = Vector2(-0.10226658, 0.090488516)
-texture = ExtResource("2_uw3h1")
+[node name="AudioPickUp" type="AudioStreamPlayer2D" parent="." unique_id=1007948359]
+stream = ExtResource("3_uw3h1")
+volume_db = 11.7
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

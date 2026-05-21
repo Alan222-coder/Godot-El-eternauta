@@ -1,9 +1,10 @@
+AudioStreamPlayer2D
+Node
+Label
 Button
 TextureRect
 Panel
 VBoxContainer
 Area2D
-AudioStreamPlayer2D
 TextureProgressBar
-Label
 CanvasLayer

@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8dcqao53ixy4" path="res://Assets/hp/greenbar (2).png" id="4_u03bn"]
 [ext_resource type="AudioStream" uid="uid://du4x117x0b5cq" path="res://universfield-gunshot-352466.mp3" id="5_k2s2n"]
 [ext_resource type="AudioStream" uid="uid://vs05o1356bwj" path="res://melbeebelbee-gun-full-reload-384507.mp3" id="6_ovbl0"]
+[ext_resource type="AudioStream" uid="uid://b5skhn8nnfjet" path="res://Assets/efectos_sonido/pasos/pasos_nieve.mp3" id="7_ovbl0"]
+[ext_resource type="AudioStream" uid="uid://b8b5xbawvg8cr" path="res://Assets/efectos_sonido/Puntos/floraphonic-classic-game-action-positive-5-224402.mp3" id="8_8dwby"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -120,8 +122,22 @@ offset_bottom = 42.0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=262926434]
+offset_left = 366.0
+offset_top = 2.0
+offset_right = 406.00006
+offset_bottom = 25.0
+
 [node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=464395759]
 stream = ExtResource("5_k2s2n")
 
 [node name="AudioRecarga" type="AudioStreamPlayer2D" parent="." unique_id=646788346]
 stream = ExtResource("6_ovbl0")
+
+[node name="AudioPaso" type="AudioStreamPlayer2D" parent="." unique_id=128144787]
+stream = ExtResource("7_ovbl0")
+volume_db = 10.06
+
+[node name="AudioScore" type="AudioStreamPlayer2D" parent="." unique_id=512142727]
+stream = ExtResource("8_8dwby")
+volume_db = -6.5

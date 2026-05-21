@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="1_yl8x5"]
 [ext_resource type="Texture2D" uid="uid://5m234yvxmuec" path="res://Assets/enemigos/Sprite-cagaduro1.png" id="2_yl8x5"]
+[ext_resource type="AudioStream" uid="uid://cjbwq8jws4k42" path="res://Assets/efectos_sonido/enemigos/cagaduro_grito.mp3" id="3_2fqel"]
+[ext_resource type="AudioStream" uid="uid://dvqbuok5sj2rb" path="res://Assets/efectos_sonido/enemigos/cagaduro_sonido.mp3" id="3_ojaye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
 radius = 23.0
@@ -17,6 +19,7 @@ position = Vector2(0, -400.07)
 z_index = 2
 position = Vector2(476, 617)
 script = ExtResource("1_yl8x5")
+sonidos_enemigo = Array[AudioStream]([ExtResource("3_2fqel"), ExtResource("3_ojaye")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1437415314]
 shape = SubResource("CapsuleShape2D_qpwqs")
@@ -32,5 +35,11 @@ texture = ExtResource("2_yl8x5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=173771241]
 position = Vector2(0, 1.0700073)
 shape = SubResource("RectangleShape2D_qpwqs")
+
+[node name="AudioEnemigo" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=796048740]
+volume_db = -3.9
+max_distance = 327.0
+attenuation = 0.5547849
+max_polyphony = 29
 
 [connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]

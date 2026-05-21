@@ -2,7 +2,7 @@ extends Area2D
 
 @export var cantidad_balas := 7
 @export var score_value := 200
-
+@onready var audio_pickup = $"../AudioPickUp"
 var collected := false
 
 func _ready():
@@ -12,29 +12,20 @@ func _ready():
 
 func _on_body_entered(body):
 
-	if collected:
-		return
-
-	# Solo el jugador
 	if body.is_in_group("player"):
 
-		collected = true
-
-		# Dar balas
 		body.reserva_balas += cantidad_balas
 
-		# Actualizar HUD
+		body.sumar_score(200)
+
 		body.actualizar_hud()
 
-		# Dar score
-		body.add_score(score_value)
+		audio_pickup.play()
 
-		print("Munición recogida")
+		get_parent().get_node("Sprite2D").visible = false
 
-		# Ocultar visual
-		$Sprite2D.visible = false
+		monitoring = false
 
-		# Desactivar colisión
-		$CollisionShape2D.disabled = true
+		await audio_pickup.finished
 
 		queue_free()

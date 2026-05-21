@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://tcv7afjg4qvi" path="res://Assets/escaleras/Sprite-0005.png" id="3_d2x84"]
 [ext_resource type="PackedScene" uid="uid://dt11lj0v1oi5h" path="res://Assets/escenas/escena_personaje.tscn" id="4_1yug7"]
 [ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
-[ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="6_d2x84"]
 [ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
+[ext_resource type="PackedScene" uid="uid://2svjhgne66xi" path="res://Assets/enemigos/enemigos_escena.tscn" id="8_878ji"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -222,14 +222,17 @@ tile_map_data = PackedByteArray("AAAHAAAAAAABAAEAAAAGAAAAAAABAAEAAAAFAAAAAAABAAE
 tile_set = SubResource("TileSet_1yug7")
 occlusion_enabled = false
 
-[node name="Enemigos" parent="." unique_id=977153608 instance=ExtResource("6_d2x84")]
-position = Vector2(-464, -741)
-
 [node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_1yug7")]
 position = Vector2(122, -37)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1526971268]
 color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+
+[node name="Enemigos2" parent="." unique_id=1246557377 instance=ExtResource("8_878ji")]
+position = Vector2(-116, -774)
+
+[node name="Enemigos3" parent="." unique_id=385752047 instance=ExtResource("8_878ji")]
+position = Vector2(-118, -711)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]
