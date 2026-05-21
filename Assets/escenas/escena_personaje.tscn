@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="1_vcr1b"]
 [ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/Personaje/ElEternauta16SpriteSheet.png" id="2_mylxt"]
+[ext_resource type="Texture2D" uid="uid://bthxs0asc3sgd" path="res://Assets/hp/greenbar (3).png" id="3_hkl16"]
+[ext_resource type="Texture2D" uid="uid://b8dcqao53ixy4" path="res://Assets/hp/greenbar (2).png" id="4_u03bn"]
+[ext_resource type="AudioStream" uid="uid://du4x117x0b5cq" path="res://universfield-gunshot-352466.mp3" id="5_k2s2n"]
+[ext_resource type="AudioStream" uid="uid://vs05o1356bwj" path="res://melbeebelbee-gun-full-reload-384507.mp3" id="6_ovbl0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -90,3 +94,31 @@ libraries/ = SubResource("AnimationLibrary_lnvlo")
 
 [node name="RayCast2D" type="RayCast2D" parent="Marker2D" unique_id=784463018]
 target_position = Vector2(1000, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1944860173]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1361457195]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 167
+stretch_margin_top = 79
+texture_under = ExtResource("3_hkl16")
+texture_progress = ExtResource("4_u03bn")
+texture_progress_offset = Vector2(0, 14.87)
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=2015574208]
+offset_top = 19.0
+offset_right = 40.0
+offset_bottom = 42.0
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=663793358]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=464395759]
+stream = ExtResource("5_k2s2n")
+
+[node name="AudioRecarga" type="AudioStreamPlayer2D" parent="." unique_id=646788346]
+stream = ExtResource("6_ovbl0")

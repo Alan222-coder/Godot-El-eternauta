@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dt11lj0v1oi5h" path="res://Assets/escenas/escena_personaje.tscn" id="4_1yug7"]
 [ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
 [ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="6_d2x84"]
+[ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -115,6 +116,9 @@ tile_set = SubResource("TileSet_1yug7")
 
 [node name="Enemigos" parent="." unique_id=977153608 instance=ExtResource("6_d2x84")]
 position = Vector2(-467, -720)
+
+[node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_1yug7")]
+position = Vector2(119, -16)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

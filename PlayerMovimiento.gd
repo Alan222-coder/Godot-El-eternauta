@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+
 @onready var hp_bar = get_node_or_null("CanvasLayer/TextureProgressBar")
 @onready var anim = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
@@ -9,6 +10,14 @@ const JUMP_VELOCITY = -400.0
 @onready var raycast = $Marker2D/RayCast2D
 
 @onready var camara_shake = $Camera2D
+
+# AUDIO
+@onready var audio_disparo = get_node_or_null("AudioDisparo")
+@onready var audio_recarga = get_node_or_null("AudioRecarga")
+
+# UI
+@onready var ammo_label = get_node_or_null("CanvasLayer/AmmoLabel")
+@onready var score_label = get_node_or_null("CanvasLayer/ScoreLabel")
 
 var game_over_scene = preload("res://Assets/muelto_pantalla/muerte.tscn")
 
@@ -23,12 +32,23 @@ var score := 0
 # ---------------- AIM ----------------
 var apuntando := false
 
+# ---------------- MUNICIÓN ----------------
+var cargador_max := 6
+var cargador := 6
+
+var reserva_balas := 24
+var recargando := false
+
 
 func _ready():
 
 	if hp_bar:
 		hp_bar.max_value = hp_max
 		hp_bar.value = hp
+
+	actualizar_hud()
+	actualizar_score()
+
 
 func _physics_process(delta):
 
@@ -67,7 +87,7 @@ func _physics_process(delta):
 		muzzle.position.x = -abs(muzzle.position.x)
 
 	# ---------------- APUNTAR ----------------
-	if Input.is_action_pressed("aim"):
+	if Input.is_action_pressed("aim") and not recargando:
 
 		apuntando = true
 
@@ -77,10 +97,81 @@ func _physics_process(delta):
 		raycast.target_position = direccion
 
 	# ---------------- DISPARAR ----------------
-	if apuntando and Input.is_action_just_released("aim"):
+	if apuntando and Input.is_action_just_released("aim") and not recargando:
 
 		apuntando = false
-		disparar()
+
+		if cargador > 0:
+
+			cargador -= 1
+
+			actualizar_hud()
+
+			if audio_disparo:
+				audio_disparo.play()
+
+			disparar()
+
+	# ---------------- RECARGAR ----------------
+	if Input.is_action_just_pressed("reload"):
+		recargar()
+
+
+# ---------------- HUD ----------------
+func actualizar_hud():
+
+	if ammo_label:
+		ammo_label.text = str(cargador) + " / " + str(reserva_balas)
+
+
+# ---------------- SCORE ----------------
+func add_score(value):
+
+	score += value
+
+	actualizar_score()
+
+	print("Score actual:", score)
+
+
+func actualizar_score():
+
+	if score_label:
+		score_label.text = str(score)
+
+
+# ---------------- RECARGA ----------------
+func recargar():
+
+	if recargando:
+		return
+
+	if reserva_balas <= 0:
+		return
+
+	if cargador == cargador_max:
+		return
+
+	recargando = true
+
+	apuntando = false
+
+	if audio_recarga:
+		audio_recarga.play()
+
+	await get_tree().create_timer(1.5).timeout
+
+	var faltan = cargador_max - cargador
+
+	var cantidad_a_recargar = min(faltan, reserva_balas)
+
+	cargador += cantidad_a_recargar
+	reserva_balas -= cantidad_a_recargar
+
+	actualizar_hud()
+
+	recargando = false
+
 
 # ---------------- DISPARAR ----------------
 func disparar():
@@ -106,6 +197,7 @@ func disparar():
 
 	else:
 		draw_linea(inicio, fin)
+
 
 # ---------------- EFECTO VISUAL DEL DISPARO ----------------
 func draw_linea(start, end):
@@ -153,12 +245,6 @@ func draw_linea(start, end):
 
 	line.queue_free()
 
-# ---------------- SCORE ----------------
-func add_score(value):
-
-	score += value
-
-	print("Score actual:", score)
 
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):
@@ -186,6 +272,7 @@ func recibir_daño(cantidad):
 
 	return cantidad
 
+
 # ---------------- SHAKE DE LA CAMARA ----------------
 func screen_shake():
 
@@ -201,6 +288,7 @@ func screen_shake():
 		await get_tree().process_frame
 
 	camara_shake.offset = original_offset
+
 
 # ---------------- MORIR ----------------
 func morir():
