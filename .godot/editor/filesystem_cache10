@@ -1,14 +1,12 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1779335343
+::res://::1779338488
 360_F_30697057_YvZ7f1LAl3JzDtUEbhVGo5mAxZGI5NuU.jpg::CompressedTexture2D::7189866940263320011::1779321698::1779321717::1::::<><><>0<>0<>0d449bdaa38eeb82825cec4336c4e20a<>res://.godot/imported/360_F_30697057_YvZ7f1LAl3JzDtUEbhVGo5mAxZGI5NuU.jpg-a0c97fa4d097cd928e739fe3ef23d20a.ctex::
 assets-removebg-preview.png::CompressedTexture2D::5466385015333222368::1777936562::1779321717::1::::<><><>0<>0<>4be8450d78921e03f4b8e322d3fc90da<>res://.godot/imported/assets-removebg-preview.png-ac1377e41c733de04a784f170b4d5d64.ctex::
-automata.gd::GDScript::1446584791284400513::1779326789::0::1::::<>CharacterBody2D<><>0<>0<><>::
-automata.tscn::PackedScene::5780972716409275909::1779328397::0::1::::<><><>0<>0<><>::uid://uu0bmouj74o8::::res://automata.gd<>uid://dwmnkuydeewav::::res://Assets/enemigos/automatadora.png
 Bonito.tscn::PackedScene::710180338863942770::1779321698::0::1::::<><><>0<>0<><>::uid://fcagk6lesrxf::::res://Assets/Personaje/PlayerMovimiento.gd
 Buildings.png::CompressedTexture2D::7610320003029735357::1777936562::1779321717::1::::<><><>0<>0<>dc8f11d333ee9b46cabfe0596a209474<>res://.godot/imported/Buildings.png-e7aba4e00ee988394ac014d0c2f98805.ctex::
 Controles.png::CompressedTexture2D::833393434181975542::1779331653::1779331666::1::::<><><>0<>0<>d7798d1e4cfe2a4c047aea519b8ee138<>res://.godot/imported/Controles.png-978e12b53600b8b325eec37d0e5a5dc9.ctex::
 door.gd::GDScript::8440857052180203623::1777936177::0::1::::<>Node2D<><>0<>0<><>::
-enemy.gd::GDScript::3385020951503374287::1779327326::0::1::::<>CharacterBody2D<><>0<>0<><>::
+enemy.gd::GDScript::3385020951503374287::1779338488::0::1::::<>CharacterBody2D<><>0<>0<><>::
 fc694e14673041abafb3449a1c6f5625_1-removebg-preview_32x32_original-size.png::CompressedTexture2D::2218641504273864603::1779324026::1779324027::1::::<><><>0<>0<>b1b103bcb83bb6778b0af41b0f86fa28<>res://.godot/imported/fc694e14673041abafb3449a1c6f5625_1-removebg-preview_32x32_original-size.png-90f12b0c830ea5f641096b23b1669e35.ctex::
 fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg::CompressedTexture2D::8533607501555877248::1779335201::1779335275::0::::<><><>0<>0<>dcce471fc99369d23b5151a9f2bce0d9<>::
 icon.svg::CompressedTexture2D::2100952176018003477::1777936077::1779321717::1::::<><><>0<>0<>9d11e9674496896bb5308ed500fcb5ff<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -21,10 +19,10 @@ municion.gd::GDScript::6083750906470188230::1779324502::0::1::::<>Area2D<><>0<>0
 municion.tscn::PackedScene::4769189283282535599::1779324502::0::1::::<><><>0<>0<><>::uid://csxaqu2ij8rx3::::res://municion.gd<>uid://6uyx336h7q5p::::res://fc694e14673041abafb3449a1c6f5625_1-removebg-preview_32x32_original-size.png
 Nivel1.tscn::PackedScene::3609293185862775594::1779321698::0::1::::<><><>0<>0<><>::uid://dgoq4grfvwm2x::::res://Assets/Tiles/Buildings.png<>uid://bohy2hnna0tr0::::res://Assets/enemigos/enemy.gd<>uid://fcagk6lesrxf::::res://Assets/Personaje/PlayerMovimiento.gd<>uid://c6xkiwnfuomwn::::res://Assets/enemigos/01b6b7ec-ae62-4610-bd3b-8b046b358d7c.png<>uid://cjpb3rkrfdiwc::::res://Assets/Personaje/ElEternauta16SpriteSheet.png<>uid://dtt0jex6wsi3y::::res://Assets/escaleras/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dsi2xg5a1jalj::::res://Assets/puertas/door.gd<>uid://cfrprfwdw14m6::::res://Assets/puertas/png-clipart-door-door.png
 NIVEL 1 2.tscn::PackedScene::3219543052665101581::1779328079::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://d4elvyaads1tv::::res://Assets/niveles/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn
-NIVEL 1.tscn::PackedScene::4537962649433115920::1779327863::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://d4elvyaads1tv::::res://Assets/niveles/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn<>uid://coml1nda6ocr2::::res://automata.tscn
+NIVEL 1.tscn::PackedScene::4537962649433115920::1779338282::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://d4elvyaads1tv::::res://Assets/niveles/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn<>uid://coml1nda6ocr2::::res://Assets/enemigos/automata.tscn
 Nivel 2.tscn::PackedScene::2908143981228698423::1779327706::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://ch6teav7hcgxd::::res://Assets/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn
 placeholder-300x300.png::CompressedTexture2D::2415043960182302480::1777936562::1779321717::1::::<><><>0<>0<>37bdc762684f77208053307b74ed4c25<>res://.godot/imported/placeholder-300x300.png-9f29dd7a4072a9adb96b15b7daed3a04.ctex::
-PlayerMovimiento.gd::GDScript::355084262090012103::1779324737::0::1::::<>CharacterBody2D<><>0<>0<><>::
+PlayerMovimiento.gd::GDScript::355084262090012103::1779335460::0::1::::<>CharacterBody2D<><>0<>0<><>::
 png-clipart-door-door.png::CompressedTexture2D::5159821417552469819::1777936562::1779321717::1::::<><><>0<>0<>184e89fedc1d78891ced65b2cfe2e9db<>res://.godot/imported/png-clipart-door-door.png-9566607808a5540f8da0b58f089d21de.ctex::
 portal_escalera.gd::GDScript::7584715341677579273::1779310893::0::1::::<>Area2D<><>0<>0<><>::
 Props-01.png::CompressedTexture2D::4190689932954857770::1777936562::1779321717::1::::<><><>0<>0<>9b960501419790e38bf5530648b19443<>res://.godot/imported/Props-01.png-c0d23e831ccc05493d30162576963637.ctex::
@@ -35,12 +33,14 @@ universfield-gunshot-352466.mp3::AudioStreamMP3::8624350216302182596::1779323647
 ::res://Assets/::1779333650
 Menu.png::CompressedTexture2D::7884348222137458458::1779331631::1779333381::1::::<><><>0<>0<>e30d34d8ba3a0631110e85392bd8baa0<>res://.godot/imported/Menu.png-7fcda867a95227eebbff7bfcc5700325.ctex::
 SpriteTiletest.png::CompressedTexture2D::5329319783170731241::1779321698::1779321717::1::::<><><>0<>0<>71faf92f1d94f7428a8fbdd48fd05a24<>res://.godot/imported/SpriteTiletest.png-e0e74e034e92668d7ce651a134211511.ctex::
-::res://Assets/enemigos/::1779328109
-automatadora.png::CompressedTexture2D::8728997410693889069::1779328107::1779328109::1::::<><><>0<>0<>af47ac6d7938feeaeb05fc454db8e2b3<>res://.godot/imported/automatadora.png-ec11ed04933fd1b4988c1ab5095428b7.ctex::
-enemigos_escena.tscn::PackedScene::1933549084322728554::1779321698::0::1::::<><><>0<>0<><>::uid://bohy2hnna0tr0::::res://enemy.gd<>uid://5m234yvxmuec::::res://Assets/enemigos/Sprite-cagaduro1.png
+::res://Assets/enemigos/::1779338767
+automata.gd::GDScript::1446584791284400513::1779338679::0::1::::<>CharacterBody2D<><>0<>0<><>::
+automata.tscn::PackedScene::5780972716409275909::1779338679::0::1::::<><><>0<>0<><>::uid://uu0bmouj74o8::::res://Assets/enemigos/automata.gd<>uid://dwmnkuydeewav::::res://Assets/enemigos/automatadora.png
+automatadora.png::CompressedTexture2D::8728997410693889069::1779338609::1779338610::1::::<><><>0<>0<>af47ac6d7938feeaeb05fc454db8e2b3<>res://.godot/imported/automatadora.png-ec11ed04933fd1b4988c1ab5095428b7.ctex::
+enemigos_escena.tscn::PackedScene::1933549084322728554::1779338767::0::1::::<><><>0<>0<><>::uid://bohy2hnna0tr0::::res://enemy.gd<>uid://5m234yvxmuec::::res://Assets/enemigos/Sprite-cagaduro1.png
 enemy.gd::GDScript::3385020951503374287::1779321698::0::1::::<>CharacterBody2D<><>0<>0<><>::
 Sprite-cagaduro1.png::CompressedTexture2D::2132128764461555146::1779321698::1779321717::1::::<><><>0<>0<>5c33f9182f004625e2c362531dd2e875<>res://.godot/imported/Sprite-cagaduro1.png-57a62b3cea3fba2fc43cb69ee2e8cf6f.ctex::
-::res://Assets/escaleras/::1779335359
+::res://Assets/escaleras/::1779335360
 fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg::CompressedTexture2D::8533607501555877248::1779321698::1779321718::1::::<><><>0<>0<>080343373daeb2921ff40ac8e273e5cb<>res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-daf8ad2c8e63a77ecdf7e343caf2f438.ctex::
 portal_escalera.gd::GDScript::7584715341677579273::1779321698::0::1::::<>Area2D<><>0<>0<><>::
 Sprite-0005.png::CompressedTexture2D::1339048995025905210::1779335359::1779335360::1::::<><><>0<>0<>3c07f0fca07ba16d414454e31ba2e8ef<>res://.godot/imported/Sprite-0005.png-082e5c2b99c78909a3258db55b34399c.ctex::
@@ -67,20 +67,21 @@ node_2d.tscn::PackedScene::3202795639767407802::1779321698::0::1::::<><><>0<>0<>
 score.tscn::PackedScene::4421833584271397927::1779321698::0::1::::<><><>0<>0<><>::uid://brxsa78h6ew1x::::res://Assets/niveles/scorecoll.gd<>uid://dao3b8dy5h1tf::::res://360_F_30697057_YvZ7f1LAl3JzDtUEbhVGo5mAxZGI5NuU.jpg
 scorecoll.gd::GDScript::3628206351838231059::1779323711::0::1::::<>Area2D<><>0<>0<><>::
 SpriteTiletest.png::CompressedTexture2D::9203702676756065987::1779321698::1779321717::1::::<><><>0<>0<>7cddd8e85c1151db7939137a485018a8<>res://.godot/imported/SpriteTiletest.png-043b9ed34b81410ef80ba50ae4aeb6bf.ctex::
-::res://Assets/niveles reales/::1779335277
+::res://Assets/niveles reales/::1779338440
 Nivel1.tscn::PackedScene::-1::1779333684::0::1::::<><><>0<>0<><>::
-NIVEL 1.tscn::PackedScene::7151231384591879453::1779335277::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://dtt0jex6wsi3y::::res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://d4elvyaads1tv::::res://Assets/niveles/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn
-Nivel 2.tscn::PackedScene::-1::1779333684::0::1::::<><><>0<>0<><>::
-NIVEL 3.tscn::PackedScene::-1::1779333684::0::1::::<><><>0<>0<><>::
+NIVEL 1.tscn::PackedScene::7151231384591879453::1779338440::0::1::::<><><>0<>0<><>::uid://b3877n1pepa5t::::res://Assets/niveles/score.tscn<>uid://c22x3tdqh3cl8::::res://Assets/escenas/portal_escalera.gd<>uid://tcv7afjg4qvi::::res://Assets/escaleras/Sprite-0005.png<>uid://dt11lj0v1oi5h::::res://Assets/escenas/escena_personaje.tscn<>uid://coml1nda6ocr2::::res://Assets/enemigos/automata.tscn<>uid://d4elvyaads1tv::::res://Assets/niveles/SpriteTiletest.png<>uid://ci2ibwg8d2gle::::res://Assets/escenas/enemigos_escena.tscn<>uid://b87h36oiilyhj::::res://municion.tscn
+Nivel 2.tscn::PackedScene::-1::1779335585::0::1::::<><><>0<>0<><>::
+NIVEL 3.tscn::PackedScene::-1::1779335602::0::1::::<><><>0<>0<><>::
 ::res://Assets/no_se_que_es/::1779321717
 assets-removebg-preview.png::CompressedTexture2D::5466385015333222368::1779321698::1779321717::1::::<><><>0<>0<>9f83e355c879620dcfadb05abc7c94d7<>res://.godot/imported/assets-removebg-preview.png-699f718604221cad176ef2ce000c5e4d.ctex::
 icon.svg::CompressedTexture2D::2100952176018003477::1779321698::1779321717::1::::<><><>0<>0<>f198fb200eb22fd52cf211c591c603cb<>res://.godot/imported/icon.svg-ca5a17f146e25e94abbc196fb4dff469.ctex::
 images.jpg::CompressedTexture2D::5698235170758831769::1779321698::1779321717::1::::<><><>0<>0<>ddf67a6cc47cd08c8eb99d34e6863113<>res://.godot/imported/images.jpg-8d1fcb0df49d94214e8a6a9c558e12c4.ctex::
 placeholder-300x300.png::CompressedTexture2D::2415043960182302480::1779321698::1779321717::1::::<><><>0<>0<>3baf36989f9858ad5ab0e82f3f7ab747<>res://.godot/imported/placeholder-300x300.png-81716712b5b8fe90ed87b974fcebb75d.ctex::
 README.md::TextFile::-1::1779321698::0::1::::<><><>0<>0<><>::
-::res://Assets/Personaje/::1779321717
+::res://Assets/Personaje/::1779338968
 ElEternauta16SpriteSheet.png::CompressedTexture2D::5435618254785702166::1779321698::1779321717::1::::<><><>0<>0<>f3b007d5e8cd4102d5e2267da1e35c83<>res://.godot/imported/ElEternauta16SpriteSheet.png-bab836bb1fe2f492c5bf2a1a1da58177.ctex::
 PlayerMovimiento.gd::GDScript::355084262090012103::1779321698::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Sprite-porno.png::CompressedTexture2D::3780464809044455051::1779338968::1779338970::1::::<><><>0<>0<>c9157d280c33a44da80ec7e66dddeb09<>res://.godot/imported/Sprite-porno.png-26f5527436fbe8e1148c655c80477281.ctex::
 ::res://Assets/puertas/::1779321717
 door.gd::GDScript::8440857052180203623::1779321698::0::1::::<>Node2D<><>0<>0<><>::
 png-clipart-door-door.png::CompressedTexture2D::5159821417552469819::1779321698::1779321717::1::::<><><>0<>0<>d79abea4eed8fa7a164462f71537bfa2<>res://.godot/imported/png-clipart-door-door.png-06a529df06b3fd93b2e69a559ea9f1e9.ctex::

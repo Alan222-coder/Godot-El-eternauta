@@ -1,1 +1,6 @@
 res://PlayerMovimiento.gd
+res://Assets/enemigos/automata.tscn
+res://Assets/niveles reales/NIVEL 1.tscn
+res://enemy.gd
+res://Assets/enemigos/automata.gd
+res://Assets/enemigos/enemigos_escena.tscn

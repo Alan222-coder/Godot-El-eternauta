@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://coml1nda6ocr2"]
 
-[ext_resource type="Script" uid="uid://uu0bmouj74o8" path="res://automata.gd" id="1_66334"]
-[ext_resource type="Texture2D" uid="uid://dwmnkuydeewav" path="res://Assets/enemigos/automatadora.png" id="2_66334"]
+[ext_resource type="Script" uid="uid://uu0bmouj74o8" path="res://Assets/enemigos/automata.gd" id="1_hx1xv"]
+[ext_resource type="Texture2D" uid="uid://dwmnkuydeewav" path="res://Assets/enemigos/automatadora.png" id="2_8rq8m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66334"]
 height = 30.125488
@@ -13,9 +13,9 @@ size = Vector2(63, 41)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1046090623 groups=["enemy"]]
 z_index = 2
-position = Vector2(476, 617)
-scale = Vector2(0.35500485, 1.1949999)
-script = ExtResource("1_66334")
+position = Vector2(5, -6.000061)
+scale = Vector2(0.35500485, 0.9549995)
+script = ExtResource("1_hx1xv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=48046705]
 position = Vector2(0, 6.694555)
@@ -23,10 +23,10 @@ scale = Vector2(1, 1.0000001)
 shape = SubResource("CapsuleShape2D_66334")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1163287313]
-position = Vector2(56.337265, 23.430988)
+position = Vector2(2.8168628, 6.2827907)
 rotation = -3.1415927
 scale = Vector2(-2.140047, -1.0224546)
-texture = ExtResource("2_66334")
+texture = ExtResource("2_8rq8m")
 
 [node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=350407333]
 position = Vector2(0, 6.694562)
