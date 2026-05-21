@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://coml1nda6ocr2"]
+
+[ext_resource type="Script" uid="uid://uu0bmouj74o8" path="res://automata.gd" id="1_66334"]
+[ext_resource type="Texture2D" uid="uid://dwmnkuydeewav" path="res://Assets/enemigos/automatadora.png" id="2_66334"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66334"]
+height = 30.125488
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwim"]
+size = Vector2(63, 41)
+
+[node name="Automata" type="Node2D" unique_id=406052800]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1046090623 groups=["enemy"]]
+z_index = 2
+position = Vector2(476, 617)
+scale = Vector2(0.35500485, 1.1949999)
+script = ExtResource("1_66334")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=48046705]
+position = Vector2(0, 6.694555)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("CapsuleShape2D_66334")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1163287313]
+position = Vector2(56.337265, 23.430988)
+rotation = -3.1415927
+scale = Vector2(-2.140047, -1.0224546)
+texture = ExtResource("2_66334")
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=350407333]
+position = Vector2(0, 6.694562)
+scale = Vector2(0.77465093, 0.832636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=1602484557]
+position = Vector2(0, -1.9299927)
+shape = SubResource("RectangleShape2D_5vwim")
+
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]

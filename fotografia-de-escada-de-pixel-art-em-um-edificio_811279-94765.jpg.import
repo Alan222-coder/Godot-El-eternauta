@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtt0jex6wsi3y"
-path="res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-2b2cb3970943f1bf7995ecc5e912422c.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg"
-dest_files=["res://.godot/imported/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg-2b2cb3970943f1bf7995ecc5e912422c.ctex"]
 
 [params]
 

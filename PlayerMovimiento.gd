@@ -78,14 +78,27 @@ func _physics_process(delta):
 	move_and_slide()
 
 	# ---------------- FLIP ----------------
-	if direction > 0:
-		sprite2d.flip_h = false
-		muzzle.position.x = abs(muzzle.position.x)
+	if apuntando:
 
-	elif direction < 0:
-		sprite2d.flip_h = true
-		muzzle.position.x = -abs(muzzle.position.x)
+		# Mirar hacia el mouse
+		if get_global_mouse_position().x > global_position.x:
+			sprite2d.flip_h = false
+			muzzle.position.x = abs(muzzle.position.x)
 
+		else:
+			sprite2d.flip_h = true
+			muzzle.position.x = -abs(muzzle.position.x)
+
+	else:
+
+		# Mirar hacia la dirección de movimiento
+		if direction > 0:
+			sprite2d.flip_h = false
+			muzzle.position.x = abs(muzzle.position.x)
+
+		elif direction < 0:
+			sprite2d.flip_h = true
+			muzzle.position.x = -abs(muzzle.position.x)
 	# ---------------- APUNTAR ----------------
 	if Input.is_action_pressed("aim") and not recargando:
 

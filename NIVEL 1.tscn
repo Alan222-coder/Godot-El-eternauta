@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
 [ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="6_d2x84"]
 [ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
+[ext_resource type="PackedScene" uid="uid://coml1nda6ocr2" path="res://automata.tscn" id="8_ierfq"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -119,6 +120,9 @@ position = Vector2(-467, -720)
 
 [node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_1yug7")]
 position = Vector2(119, -16)
+
+[node name="Automata" parent="." unique_id=406052800 instance=ExtResource("8_ierfq")]
+position = Vector2(-63, -646)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

@@ -1,3 +1,7 @@
+Button
+TextureRect
+Panel
+VBoxContainer
 Area2D
 AudioStreamPlayer2D
 TextureProgressBar

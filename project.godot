@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="El eternauta2"
-run/main_scene="uid://b5wht1ukn63p1"
+run/main_scene="uid://c3cl1l7bmevfj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/no_se_que_es/icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 
