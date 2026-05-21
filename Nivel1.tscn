@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://bromscl8r4wsw"]
 
-[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://assets/Buildings.png" id="1_8cp3p"]
+[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://Buildings.png" id="1_8cp3p"]
 [ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_hv2ca"]
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_ydtn4"]
-[ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets/assets-removebg-preview.png" id="3_hv2ca"]
-[ext_resource type="Texture2D" uid="uid://ban4ok5eqtviu" path="res://assets/placeholder-300x300.png" id="3_s48l2"]
-[ext_resource type="Script" uid="uid://dgcdfhqus126p" path="res://portal_escalera.gd" id="4_s48l2"]
-[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://assets/fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
+[ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/Personaje/ElEternauta16SpriteSheet.png" id="5_afh24"]
+[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_qpwqs"]
-[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://assets/png-clipart-door-door.png" id="7_afh24"]
+[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="7_afh24"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qpwqs"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -402,106 +400,63 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lf6j1")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
+size = Vector2(37, 44)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
 
-[sub_resource type="Animation" id="Animation_opwex"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_hv2ca")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_3vf8r"]
-resource_name = "Test"
-length = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_hv2ca")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [3, 2, 1]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_88etw"]
-_data = {
-&"RESET": SubResource("Animation_opwex"),
-&"Test": SubResource("Animation_3vf8r")
-}
-
-[sub_resource type="Gradient" id="Gradient_afh24"]
-offsets = PackedFloat32Array(0.32463768, 0.9971014)
-colors = PackedColorArray(1, 1, 1, 1, 0.56078434, 0.56078434, 0.56078434, 0)
+[sub_resource type="Gradient" id="Gradient_hv2ca"]
+offsets = PackedFloat32Array(0.3253012, 0.9971014)
+colors = PackedColorArray(0.36464202, 0.5727995, 0.5719281, 1, 0.56078434, 0.56078434, 0.56078434, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_poccc"]
-gradient = SubResource("Gradient_afh24")
+gradient = SubResource("Gradient_hv2ca")
 width = 1000
 height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.75213677, 0.26923078)
+
+[sub_resource type="Animation" id="Animation_poccc"]
+resource_name = "Caminar"
+length = 0.26667002
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_516i8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnvlo"]
+_data = {
+&"Caminar": SubResource("Animation_poccc"),
+&"RESET": SubResource("Animation_516i8")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poccc"]
 size = Vector2(18, 58.00003)
@@ -817,6 +772,124 @@ texture = ExtResource("1_8cp3p")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_opwex")
 
+[sub_resource type="GDScript" id="GDScript_s48l2"]
+script/source = "extends Area2D
+@export var landing_zone : Area2D
+@export var lower_zone : Area2D
+var body_inside := false
+var body_ref : Node2D = null
+var enemies_inside : Array = []          # ✅ lista de enemigos dentro
+static var position_stack : Array = []
+var can_use := true
+
+func _on_body_entered(body: Node2D) -> void:
+	if !can_use:
+		return
+	if body.is_in_group(\"player\"):
+		body_inside = true
+		body_ref = body
+	elif body.is_in_group(\"enemy\"):
+		if !enemies_inside.has(body):
+			enemies_inside.append(body)   # ✅ registrar enemigo
+		procesar_enemigo(body)
+
+func _on_body_exited(body: Node2D) -> void:
+	if body == body_ref:
+		body_inside = false
+		body_ref = null
+	enemies_inside.erase(body)            # ✅ quitar enemigo si sale físicamente
+
+func _process(delta):
+	# Verificación cada frame para el jugador
+	if body_ref != null and !overlaps_body(body_ref):
+		body_inside = false
+		body_ref = null
+
+	# ✅ Verificación cada frame para cada enemigo
+	for enemy in enemies_inside.duplicate():
+		if !overlaps_body(enemy):
+			enemies_inside.erase(enemy)
+		else:
+			procesar_enemigo(enemy)
+
+	if !body_inside or !can_use or !body_ref:
+		return
+
+	if body_ref.is_in_group(\"player\"):
+		if Input.is_action_just_pressed(\"teleport\"):
+			subir(body_ref)
+		if position_stack.size() > 0 and Input.is_action_just_pressed(\"bajar\"):
+			bajar()
+
+func procesar_enemigo(body: Node2D):
+	if !can_use:
+		return                            # ✅ respetar can_use
+	var player = get_tree().get_first_node_in_group(\"player\")
+	if !player:
+		return
+	if player.global_position.y < body.global_position.y - 50:
+		subir(body)
+	elif player.global_position.y > body.global_position.y + 50:
+		bajar_enemigo(body)
+
+func subir(body: Node2D):
+	if !landing_zone:
+		return
+	var marker = landing_zone.get_node_or_null(\"Marker2D\")
+	if !marker:
+		return
+	can_use = false
+	if body.is_in_group(\"player\"):
+		if position_stack.is_empty() or position_stack.back() != body.global_position:
+			position_stack.push_back(body.global_position)
+	var pos = marker.global_position
+	if body.is_in_group(\"enemy\"):
+		pos.x += 24
+	body.global_position = pos
+	if body is CharacterBody2D:
+		body.velocity = Vector2.ZERO
+	body_inside = false
+	body_ref = null
+	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
+	if body.is_in_group(\"enemy\"):
+		await get_tree().process_frame
+		procesar_enemigo(body)
+	await get_tree().create_timer(0.3).timeout
+	can_use = true
+
+func bajar():
+	var player = get_tree().get_first_node_in_group(\"player\")
+	if !player:
+		return
+	can_use = false
+	var last_pos = position_stack.pop_back()
+	player.global_position = last_pos
+	if player is CharacterBody2D:
+		player.velocity = Vector2.ZERO
+	await get_tree().create_timer(0.3).timeout
+	can_use = true
+
+func bajar_enemigo(body: Node2D):
+	if !lower_zone:
+		return
+	var marker = lower_zone.get_node_or_null(\"Marker2D\")
+	if !marker:
+		return
+	can_use = false
+	var pos = marker.global_position
+	pos.x -= 24
+	body.global_position = pos
+	if body is CharacterBody2D:
+		body.velocity = Vector2.ZERO
+	body_inside = false
+	body_ref = null
+	enemies_inside.erase(body)            # ✅ limpiar de la lista al teletransportar
+	await get_tree().process_frame
+	procesar_enemigo(body)
+	await get_tree().create_timer(0.3).timeout
+	can_use = true
+"
+
 [sub_resource type="QuadMesh" id="QuadMesh_3vf8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opwex"]
@@ -846,23 +919,28 @@ script = ExtResource("2_hv2ca")
 shape = SubResource("CapsuleShape2D_qpwqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Enemigos/CharacterBody2D" unique_id=100298368]
-position = Vector2(-0.5, -0.9999924)
-scale = Vector2(0.09, 0.11333331)
-texture = ExtResource("3_s48l2")
+position = Vector2(1.0000153, -1.9073486e-05)
+rotation = -0.0028588243
+scale = Vector2(-0.041850626, -0.034326382)
+
+[node name="Hitbox" type="Area2D" parent="World/Enemigos/CharacterBody2D" unique_id=1973877797]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Enemigos/CharacterBody2D/Hitbox" unique_id=1444536893]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_qpwqs")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="World" unique_id=931044742 groups=["player"]]
 z_index = 1
-position = Vector2(40, 79.92999)
+position = Vector2(40, 217.93)
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
 script = ExtResource("2_ydtn4")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/CharacterBody2D" unique_id=1037754744]
-position = Vector2(-0.9999943, 3)
-scale = Vector2(0.14600001, 0.13049999)
-texture = ExtResource("3_hv2ca")
-hframes = 4
-frame = 3
+position = Vector2(-1.9073486e-06, 0.99999976)
+scale = Vector2(0.586, 1.010461)
+texture = ExtResource("5_afh24")
+hframes = 8
 
 [node name="Camera2D" type="Camera2D" parent="World/CharacterBody2D" unique_id=341942309]
 
@@ -870,14 +948,21 @@ frame = 3
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_snpaj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=868760418]
-libraries/ = SubResource("AnimationLibrary_88etw")
-
 [node name="PointLight2D2" type="PointLight2D" parent="World/CharacterBody2D" unique_id=953639077]
 position = Vector2(1, 2)
-energy = 1.21
+scale = Vector2(1, 1.0063285)
+color = Color(0.55455405, 0.554554, 0.5545539, 1)
+energy = 3.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_poccc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/CharacterBody2D" unique_id=1513631104]
+libraries/ = SubResource("AnimationLibrary_lnvlo")
+
+[node name="Marker2D" type="Marker2D" parent="World/CharacterBody2D" unique_id=1200470030]
+
+[node name="RayCast2D" type="RayCast2D" parent="World/CharacterBody2D/Marker2D" unique_id=356701956]
+target_position = Vector2(1000, 0)
 
 [node name="Puerta" type="Node2D" parent="World" unique_id=1864310790]
 
@@ -974,7 +1059,7 @@ layer_0/tile_data = PackedInt32Array(2555943, 262144, 7, 2490407, 458752, 10, 24
 [node name="Portal_Escalera" type="Area2D" parent="." unique_id=301782737 node_paths=PackedStringArray("landing_zone")]
 position = Vector2(-68, 2)
 collision_layer = 2
-script = ExtResource("4_s48l2")
+script = SubResource("GDScript_s48l2")
 landing_zone = NodePath("../Portal_Escalera2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Portal_Escalera" unique_id=1518014784]
@@ -984,7 +1069,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera" unique_id=1419139355]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera" unique_id=1419139355 groups=["portales"]]
 position = Vector2(438, 615)
 shape = SubResource("RectangleShape2D_opwex")
 
@@ -994,7 +1079,7 @@ position = Vector2(437, 614)
 [node name="Portal_Escalera2" type="Area2D" parent="." unique_id=1546821666 node_paths=PackedStringArray("landing_zone", "lower_zone")]
 position = Vector2(2, -66)
 collision_layer = 2
-script = ExtResource("4_s48l2")
+script = SubResource("GDScript_s48l2")
 landing_zone = NodePath("../Portal_Escalera3")
 lower_zone = NodePath("../Portal_Escalera")
 
@@ -1005,7 +1090,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera2" unique_id=1881143293]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera2" unique_id=1881143293 groups=["portales"]]
 position = Vector2(438, 616)
 shape = SubResource("RectangleShape2D_opwex")
 
@@ -1015,7 +1100,7 @@ position = Vector2(438, 616)
 [node name="Portal_Escalera3" type="Area2D" parent="." unique_id=1672418353 node_paths=PackedStringArray("lower_zone")]
 position = Vector2(2, -137)
 collision_layer = 2
-script = ExtResource("4_s48l2")
+script = SubResource("GDScript_s48l2")
 lower_zone = NodePath("../Portal_Escalera2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Portal_Escalera3" unique_id=619295714]
@@ -1025,7 +1110,7 @@ scale = Vector2(49.645405, 47.502045)
 mesh = SubResource("QuadMesh_3vf8r")
 texture = ExtResource("5_qpwqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera3" unique_id=327686917]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal_Escalera3" unique_id=327686917 groups=["portales"]]
 position = Vector2(438, 617)
 shape = SubResource("RectangleShape2D_opwex")
 
@@ -1052,9 +1137,18 @@ scroll_fit_content_height = true
 scroll_fit_content_width = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1207510458]
-visible = false
 color = Color(0, 0, 0, 1)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1576883842]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=97800350]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 27.0
+text = "Test"
+
+[connection signal="body_entered" from="World/Enemigos/CharacterBody2D/Hitbox" to="World/Enemigos/CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Portal_Escalera" to="Portal_Escalera" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal_Escalera" to="Portal_Escalera" method="_on_portal_escalera_body_exited"]
 [connection signal="body_entered" from="Portal_Escalera2" to="Portal_Escalera2" method="_on_body_entered"]

@@ -1,0 +1,195 @@
+[gd_scene format=4 uid="uid://druovbohxtde0"]
+
+[ext_resource type="PackedScene" uid="uid://b3877n1pepa5t" path="res://Assets/niveles/score.tscn" id="1_2pc3p"]
+[ext_resource type="Script" uid="uid://c22x3tdqh3cl8" path="res://Assets/escenas/portal_escalera.gd" id="2_mrds7"]
+[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="3_plmuo"]
+[ext_resource type="PackedScene" uid="uid://dt11lj0v1oi5h" path="res://Assets/escenas/escena_personaje.tscn" id="4_wjvqw"]
+[ext_resource type="Texture2D" uid="uid://ch6teav7hcgxd" path="res://Assets/SpriteTiletest.png" id="5_h1ynw"]
+[ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="6_jq2hg"]
+[ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_n4odg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ljg1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h06wa"]
+size = Vector2(50, 50.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pc3p"]
+texture = ExtResource("5_h1ynw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_dhm8r"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2pc3p")
+
+[node name="Nivel2" type="Node2D" unique_id=1473430065]
+
+[node name="Score" parent="." unique_id=1485198779 instance=ExtResource("1_2pc3p")]
+position = Vector2(-101, -36)
+
+[node name="Portal de medio" type="Area2D" parent="." unique_id=1654585049 node_paths=PackedStringArray("landing_zone", "lower_zone")]
+position = Vector2(-1221, -724)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+landing_zone = NodePath("../primer piso")
+lower_zone = NodePath("../Sotano")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Portal de medio" unique_id=1978068347]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal de medio" unique_id=100069234 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="Portal de medio" unique_id=478922888]
+position = Vector2(437, 614)
+
+[node name="primer piso" type="Area2D" parent="." unique_id=841235190 node_paths=PackedStringArray("lower_zone")]
+position = Vector2(-1220, -803)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+lower_zone = NodePath("../Portal de medio")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="primer piso" unique_id=1672332296]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="primer piso" unique_id=682627208 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="primer piso" unique_id=735796509]
+position = Vector2(437, 614)
+
+[node name="Sotano" type="Area2D" parent="." unique_id=1225380672 node_paths=PackedStringArray("landing_zone")]
+position = Vector2(-1221, -643)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+landing_zone = NodePath("../Portal de medio")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Sotano" unique_id=1196107987]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sotano" unique_id=1911397974 groups=["portales"]]
+position = Vector2(438, 614)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="Sotano" unique_id=1436828328]
+position = Vector2(437, 614)
+
+[node name="piso3" type="Area2D" parent="." unique_id=737119139 node_paths=PackedStringArray("landing_zone", "lower_zone")]
+position = Vector2(-983, -880)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+landing_zone = NodePath("../piso2")
+lower_zone = NodePath("../piso1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso3" unique_id=710582240]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso3" unique_id=1911870850 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="piso3" unique_id=1465172517]
+position = Vector2(437, 614)
+
+[node name="piso2" type="Area2D" parent="." unique_id=950886230 node_paths=PackedStringArray("lower_zone")]
+position = Vector2(-984, -977)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+lower_zone = NodePath("../piso3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso2" unique_id=1551703541]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso2" unique_id=2022746116 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="piso2" unique_id=11860241]
+position = Vector2(437, 614)
+
+[node name="piso1" type="Area2D" parent="." unique_id=653171823 node_paths=PackedStringArray("landing_zone")]
+position = Vector2(-983, -800)
+collision_layer = 2
+script = ExtResource("2_mrds7")
+landing_zone = NodePath("../piso3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso1" unique_id=1364681429]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_ljg1x")
+texture = ExtResource("3_plmuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso1" unique_id=619193510 groups=["portales"]]
+position = Vector2(438, 614)
+shape = SubResource("RectangleShape2D_h06wa")
+
+[node name="Marker2D" type="Marker2D" parent="piso1" unique_id=1062545514]
+position = Vector2(437, 614)
+
+[node name="CharacterBody2D" parent="." unique_id=158334402 instance=ExtResource("4_wjvqw")]
+position = Vector2(-1251, -45.999996)
+scale = Vector2(0.94, 0.94)
+
+[node name="MAPA" type="Node2D" parent="." unique_id=1962232750]
+
+[node name="Suelo_Paredes" type="TileMapLayer" parent="MAPA" unique_id=1456232412]
+tile_map_data = PackedByteArray("AADv/wAAAAABAAEAAADu/wAAAAABAAEAAADt/wAAAAABAAEAAADs/wAAAAABAAEAAADr/wAAAAABAAEAAADq/wAAAAABAAEAAADp/wAAAAABAAEAAADo/wAAAAABAAEAAADn/wAAAAABAAEAAADm/wAAAAABAAEAAADl/wAAAAABAAEAAADk/wAAAAABAAEAAADj/wAAAAABAAEAAADi/wAAAAABAAEAAADh/wAAAAABAAEAAADg/wAAAAABAAEAAADf/wAAAAABAAEAAADe/wAAAAABAAEAAADd/wAAAAABAAEAAADc/wAAAAABAAEAAADb/wAAAAABAAEAAADa/wAAAAABAAEAAADZ/wAAAAABAAEAAADY/wAAAAABAAEAAADX/wAAAAABAAEAAADW/wAAAAABAAEAAADV/wAAAAABAAEAAADU/wAAAAABAAEAAADT/wAAAAABAAEAAADS/wAAAAABAAEAAADR/wAAAAABAAEAAADQ/wAAAAABAAEAAADP/wAAAAABAAEAAADO/wAAAAABAAEAAADN/wAAAAABAAEAAADM/wAAAAABAAEAAADL/wAAAAABAAEAAADK/wAAAAABAAEAAADJ/wAAAAABAAEAAADI/wAAAAABAAEAAADH/wAAAAABAAEAAADG/wAAAAABAAEAAADF/wAAAAABAAEAAADE/wAAAAABAAEAAADD/wAAAAABAAEAAADC/wAAAAABAAEAAADC//3/AAABAAEAAADC//z/AAABAAEAAADC//v/AAABAAEAAADC//b/AAABAAEAAADC//H/AAABAAEAAADC/+3/AAABAAEAAADC/+z/AAABAAEAAADC/+v/AAABAAEAAADv/+v/AAABAAEAAADv/+z/AAABAAEAAADv/+3/AAABAAEAAADv/+7/AAABAAEAAADv/+//AAABAAEAAADv//D/AAABAAEAAADv//H/AAABAAEAAADv//L/AAABAAEAAADv//P/AAABAAEAAADv//T/AAABAAEAAADv//X/AAABAAEAAADv//b/AAABAAEAAADv//f/AAABAAEAAADv//j/AAABAAEAAADv//n/AAABAAEAAADv//r/AAABAAEAAADv//v/AAABAAEAAADv//z/AAABAAEAAADv//3/AAABAAEAAADu/+v/AAABAAEAAADt/+v/AAABAAEAAADs/+v/AAABAAEAAADr/+v/AAABAAEAAADq/+v/AAABAAEAAADp/+v/AAABAAEAAADo/+v/AAABAAEAAADn/+v/AAABAAEAAADm/+v/AAABAAEAAADl/+v/AAABAAEAAADk/+v/AAABAAEAAADj/+v/AAABAAEAAADi/+v/AAABAAEAAADh/+v/AAABAAEAAADg/+v/AAABAAEAAADf/+v/AAABAAEAAADe/+v/AAABAAEAAADd/+v/AAABAAEAAADc/+v/AAABAAEAAADb/+v/AAABAAEAAADa/+v/AAABAAEAAADZ/+v/AAABAAEAAADY/+v/AAABAAEAAADX/+v/AAABAAEAAADW/+v/AAABAAEAAADV/+v/AAABAAEAAADU/+v/AAABAAEAAADT/+v/AAABAAEAAADS/+v/AAABAAEAAADR/+v/AAABAAEAAADQ/+v/AAABAAEAAADP/+v/AAABAAEAAADO/+v/AAABAAEAAADN/+v/AAABAAEAAADM/+v/AAABAAEAAADL/+v/AAABAAEAAADK/+v/AAABAAEAAADJ/+v/AAABAAEAAADI/+v/AAABAAEAAADH/+v/AAABAAEAAADG/+v/AAABAAEAAADF/+v/AAABAAEAAADE/+v/AAABAAEAAADD/+v/AAABAAEAAADi/+r/AAABAAEAAADi/+n/AAABAAEAAADi/+j/AAABAAEAAADi/+f/AAABAAEAAADi/+b/AAABAAEAAADi/+X/AAABAAEAAADh/+X/AAABAAEAAADg/+X/AAABAAEAAADf/+X/AAABAAEAAADe/+X/AAABAAEAAADd/+X/AAABAAEAAADc/+X/AAABAAEAAADb/+X/AAABAAEAAADa/+X/AAABAAEAAADZ/+X/AAABAAEAAADY/+X/AAABAAEAAADX/+X/AAABAAEAAADW/+X/AAABAAEAAADV/+X/AAABAAEAAADU/+X/AAABAAEAAADT/+X/AAABAAEAAADS/+X/AAABAAEAAADR/+X/AAABAAEAAADQ/+X/AAABAAEAAADP/+X/AAABAAEAAADO/+X/AAABAAEAAADN/+X/AAABAAEAAADM/+X/AAABAAEAAADL/+X/AAABAAEAAADK/+X/AAABAAEAAADJ/+X/AAABAAEAAADI/+X/AAABAAEAAADH/+X/AAABAAEAAADG/+X/AAABAAEAAADF/+X/AAABAAEAAADE/+X/AAABAAEAAADD/+X/AAABAAEAAADC/+X/AAABAAEAAADB/+X/AAABAAEAAADA/+X/AAABAAEAAAC//+X/AAABAAEAAAC+/+X/AAABAAEAAAC9/+X/AAABAAEAAAC8/+X/AAABAAEAAAC7/+X/AAABAAEAAAC6/+X/AAABAAEAAAC6/+b/AAABAAEAAAC6/+f/AAABAAEAAAC6/+j/AAABAAEAAAC6/+n/AAABAAEAAAC6/+r/AAABAAEAAAC6/+v/AAABAAEAAAC6/+z/AAABAAEAAAC6/+3/AAABAAEAAAC6/+7/AAABAAEAAAC6/+//AAABAAEAAAC6//D/AAABAAEAAAC6//H/AAABAAEAAAC6//L/AAABAAEAAAC6//P/AAABAAEAAAC6//T/AAABAAEAAAC6//X/AAABAAEAAAC6//b/AAABAAEAAAC6//f/AAABAAEAAAC6//j/AAABAAEAAAC6//n/AAABAAEAAAC6//r/AAABAAEAAAC6//v/AAABAAEAAAC6//z/AAABAAEAAAC6//3/AAABAAEAAAC6/wAAAAABAAEAAAC7/wAAAAABAAEAAAC8/wAAAAABAAEAAAC9/wAAAAABAAEAAAC+/wAAAAABAAEAAAC//wAAAAABAAEAAADA/wAAAAABAAEAAADB/wAAAAABAAEAAADu//v/AAABAAEAAADt//v/AAABAAEAAADs//v/AAABAAEAAADr//v/AAABAAEAAADq//v/AAABAAEAAADp//v/AAABAAEAAADo//v/AAABAAEAAADn//v/AAABAAEAAADm//v/AAABAAEAAADl//v/AAABAAEAAADk//v/AAABAAEAAADj//v/AAABAAEAAADi//v/AAABAAEAAADh//v/AAABAAEAAADg//v/AAABAAEAAADf//v/AAABAAEAAADe//v/AAABAAEAAADd//v/AAABAAEAAADc//v/AAABAAEAAADb//v/AAABAAEAAADa//v/AAABAAEAAADZ//v/AAABAAEAAADY//v/AAABAAEAAADX//v/AAABAAEAAADW//v/AAABAAEAAADV//v/AAABAAEAAADU//v/AAABAAEAAADT//v/AAABAAEAAADS//v/AAABAAEAAADR//v/AAABAAEAAADQ//v/AAABAAEAAADP//v/AAABAAEAAADO//v/AAABAAEAAADN//v/AAABAAEAAADM//v/AAABAAEAAADL//v/AAABAAEAAADK//v/AAABAAEAAADJ//v/AAABAAEAAADI//v/AAABAAEAAADH//v/AAABAAEAAADG//v/AAABAAEAAADF//v/AAABAAEAAADE//v/AAABAAEAAADD//v/AAABAAEAAADu//b/AAABAAEAAADt//b/AAABAAEAAADs//b/AAABAAEAAADr//b/AAABAAEAAADq//b/AAABAAEAAADp//b/AAABAAEAAADo//b/AAABAAEAAADn//b/AAABAAEAAADm//b/AAABAAEAAADl//b/AAABAAEAAADk//b/AAABAAEAAADj//b/AAABAAEAAADi//b/AAABAAEAAADh//b/AAABAAEAAADg//b/AAABAAEAAADf//b/AAABAAEAAADe//b/AAABAAEAAADd//b/AAABAAEAAADc//b/AAABAAEAAADb//b/AAABAAEAAADa//b/AAABAAEAAADZ//b/AAABAAEAAADY//b/AAABAAEAAADX//b/AAABAAEAAADW//b/AAABAAEAAADV//b/AAABAAEAAADU//b/AAABAAEAAADT//b/AAABAAEAAADS//b/AAABAAEAAADR//b/AAABAAEAAADQ//b/AAABAAEAAADP//b/AAABAAEAAADO//b/AAABAAEAAADN//b/AAABAAEAAADM//b/AAABAAEAAADL//b/AAABAAEAAADK//b/AAABAAEAAADJ//b/AAABAAEAAADI//b/AAABAAEAAADH//b/AAABAAEAAADG//b/AAABAAEAAADF//b/AAABAAEAAADE//b/AAABAAEAAADD//b/AAABAAEAAADu//H/AAABAAEAAADt//H/AAABAAEAAADs//H/AAABAAEAAADr//H/AAABAAEAAADq//H/AAABAAEAAADp//H/AAABAAEAAADo//H/AAABAAEAAADn//H/AAABAAEAAADm//H/AAABAAEAAADl//H/AAABAAEAAADk//H/AAABAAEAAADj//H/AAABAAEAAADi//H/AAABAAEAAADh//H/AAABAAEAAADg//H/AAABAAEAAADf//H/AAABAAEAAADe//H/AAABAAEAAADd//H/AAABAAEAAADc//H/AAABAAEAAADb//H/AAABAAEAAADa//H/AAABAAEAAADZ//H/AAABAAEAAADY//H/AAABAAEAAADX//H/AAABAAEAAADW//H/AAABAAEAAADV//H/AAABAAEAAADU//H/AAABAAEAAADT//H/AAABAAEAAADS//H/AAABAAEAAADR//H/AAABAAEAAADQ//H/AAABAAEAAADP//H/AAABAAEAAADO//H/AAABAAEAAADN//H/AAABAAEAAADM//H/AAABAAEAAADL//H/AAABAAEAAADK//H/AAABAAEAAADJ//H/AAABAAEAAADI//H/AAABAAEAAADH//H/AAABAAEAAADG//H/AAABAAEAAADF//H/AAABAAEAAADE//H/AAABAAEAAADD//H/AAABAAEAAADl//z/AAABAAEAAADl//3/AAABAAEAAADX//z/AAABAAEAAADX//3/AAABAAEAAADM//z/AAABAAEAAADM//3/AAABAAEAAADI//f/AAABAAEAAADI//j/AAABAAEAAADS//f/AAABAAEAAADS//j/AAABAAEAAADe//f/AAABAAEAAADe//j/AAABAAEAAADn//f/AAABAAEAAADn//j/AAABAAEAAADl//L/AAABAAEAAADl//P/AAABAAEAAADV//L/AAABAAEAAADV//P/AAABAAEAAADI//L/AAABAAEAAADI//P/AAABAAEAAADL/+3/AAABAAEAAADL/+z/AAABAAEAAADZ/+z/AAABAAEAAADZ/+3/AAABAAEAAADm/+z/AAABAAEAAADm/+3/AAABAAEAAADa/+b/AAABAAEAAADa/+f/AAABAAEAAADR/+b/AAABAAEAAADR/+f/AAABAAEAAADE/+b/AAABAAEAAADE/+f/AAABAAEAAADB/+v/AAABAAEAAADA/+v/AAABAAEAAAC//+v/AAABAAEAAAC+/+v/AAABAAEAAAC9/+v/AAABAAEAAAC8/+v/AAABAAEAAAC7/+v/AAABAAEAAADB//H/AAABAAEAAADA//H/AAABAAEAAAC///H/AAABAAEAAAC+//H/AAABAAEAAAC9//H/AAABAAEAAAC8//H/AAABAAEAAAC7//H/AAABAAEAAADB//b/AAABAAEAAADA//b/AAABAAEAAAC///b/AAABAAEAAAC+//b/AAABAAEAAAC9//b/AAABAAEAAAC8//b/AAABAAEAAAC7//b/AAABAAEAAADB//v/AAABAAEAAADA//v/AAABAAEAAAC///v/AAABAAEAAAC+//v/AAABAAEAAAC9//v/AAABAAEAAAC8//v/AAABAAEAAAC7//v/AAABAAEAAAC///f/AAABAAEAAAC///j/AAABAAEAAAC5/wAAAAABAAEAAAC4/wAAAAABAAEAAAC3/wAAAAABAAEAAAC2/wAAAAABAAEAAAC1/wAAAAABAAEAAAC0/wAAAAABAAEAAACz/wAAAAABAAEAAACy/wAAAAABAAEAAACx/wAAAAABAAEAAACw/wAAAAABAAEAAACv/wAAAAABAAEAAACu/wAAAAABAAEAAACt/wAAAAABAAEAAACs/wAAAAABAAEAAACr/wAAAAABAAEAAACq/wAAAAABAAEAAACp/wAAAAABAAEAAACp////AAABAAEAAACp//7/AAABAAEAAACp//3/AAABAAEAAACp//z/AAABAAEAAACp//v/AAABAAEAAACp//r/AAABAAEAAACp//n/AAABAAEAAACp//j/AAABAAEAAACp//f/AAABAAEAAACp//b/AAABAAEAAACp//X/AAABAAEAAACp//T/AAABAAEAAACp//P/AAABAAEAAACp//L/AAABAAEAAACp//H/AAABAAEAAACp//D/AAABAAEAAACp/+//AAABAAEAAACp/+7/AAABAAEAAACp/+3/AAABAAEAAACp/+z/AAABAAEAAACp/+v/AAABAAEAAACp/+r/AAABAAEAAACp/+n/AAABAAEAAACp/+j/AAABAAEAAACp/+f/AAABAAEAAACp/+b/AAABAAEAAACp/+X/AAABAAEAAACp/+T/AAABAAEAAADv//7/AAABAAEAAADv////AAABAAEAAAA=")
+tile_set = SubResource("TileSet_dhm8r")
+
+[node name="Enemigos" parent="." unique_id=977153608 instance=ExtResource("6_jq2hg")]
+position = Vector2(-467, -720)
+
+[node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_n4odg")]
+position = Vector2(119, -16)
+
+[connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
+[connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="primer piso" to="primer piso" method="_on_body_entered"]
+[connection signal="body_exited" from="primer piso" to="primer piso" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="Sotano" to="Sotano" method="_on_body_entered"]
+[connection signal="body_exited" from="Sotano" to="Sotano" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso3" to="piso3" method="_on_body_entered"]
+[connection signal="body_exited" from="piso3" to="piso3" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso2" to="piso2" method="_on_body_entered"]
+[connection signal="body_exited" from="piso2" to="piso2" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso1" to="piso1" method="_on_body_entered"]
+[connection signal="body_exited" from="piso1" to="piso1" method="_on_portal_escalera_body_exited"]

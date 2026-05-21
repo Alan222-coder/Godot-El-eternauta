@@ -1,0 +1,245 @@
+[gd_scene format=4 uid="uid://b5wht1ukn63p1"]
+
+[ext_resource type="PackedScene" uid="uid://b3877n1pepa5t" path="res://Assets/niveles/score.tscn" id="1_2jiwm"]
+[ext_resource type="Script" uid="uid://c22x3tdqh3cl8" path="res://Assets/escenas/portal_escalera.gd" id="2_2jiwm"]
+[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="3_d2x84"]
+[ext_resource type="PackedScene" uid="uid://dt11lj0v1oi5h" path="res://Assets/escenas/escena_personaje.tscn" id="4_1yug7"]
+[ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
+[ext_resource type="PackedScene" uid="uid://ci2ibwg8d2gle" path="res://Assets/escenas/enemigos_escena.tscn" id="6_d2x84"]
+[ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iymy1"]
+size = Vector2(50, 50.5)
+
+[sub_resource type="Gradient" id="Gradient_1yug7"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.18072289, 0.43975905, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.07016479, 0.07016479, 0.07016479, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ierfq"]
+gradient = SubResource("Gradient_1yug7")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.49130434, 0.5217391)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1yug7"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ierfq"]
+polygon = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8, 8, -8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yug7"]
+texture = ExtResource("5_2jiwm")
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+0:0/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+1:0/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+2:0/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+0:1/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+1:1/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+2:1/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+0:2/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+1:2/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_1yug7")
+2:2/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_ierfq")
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1yug7"]
+uv_clipping = true
+occlusion_layer_0/light_mask = 1023
+occlusion_layer_0/sdf_collision = true
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1yug7")
+
+[node name="Nivel1" type="Node2D" unique_id=911187017]
+
+[node name="Score" parent="." unique_id=1485198779 instance=ExtResource("1_2jiwm")]
+position = Vector2(-98, -57)
+
+[node name="Portal de medio" type="Area2D" parent="." unique_id=553871123 node_paths=PackedStringArray("landing_zone", "lower_zone")]
+position = Vector2(-810, -662)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+landing_zone = NodePath("../primer piso")
+lower_zone = NodePath("../Sotano")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Portal de medio" unique_id=92897212]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal de medio" unique_id=1841000123 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="Portal de medio" unique_id=1755977026]
+position = Vector2(437, 614)
+
+[node name="primer piso" type="Area2D" parent="." unique_id=226020780 node_paths=PackedStringArray("lower_zone")]
+position = Vector2(-810, -741)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+lower_zone = NodePath("../Portal de medio")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="primer piso" unique_id=684825116]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="primer piso" unique_id=2867180 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="primer piso" unique_id=159145926]
+position = Vector2(437, 614)
+
+[node name="Sotano" type="Area2D" parent="." unique_id=1114882063 node_paths=PackedStringArray("landing_zone")]
+position = Vector2(-810, -581)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+landing_zone = NodePath("../Portal de medio")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Sotano" unique_id=12529258]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sotano" unique_id=1164731517 groups=["portales"]]
+position = Vector2(438, 614)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="Sotano" unique_id=1879886233]
+position = Vector2(437, 614)
+
+[node name="piso3" type="Area2D" parent="." unique_id=1307408075 node_paths=PackedStringArray("landing_zone", "lower_zone")]
+position = Vector2(179, -741)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+landing_zone = NodePath("../piso2")
+lower_zone = NodePath("../piso1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso3" unique_id=1364318460]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso3" unique_id=685402434 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="piso3" unique_id=982794295]
+position = Vector2(437, 614)
+
+[node name="piso2" type="Area2D" parent="." unique_id=1463179702 node_paths=PackedStringArray("lower_zone")]
+position = Vector2(181, -822)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+lower_zone = NodePath("../piso3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso2" unique_id=618636522]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso2" unique_id=1993380082 groups=["portales"]]
+position = Vector2(438, 615)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="piso2" unique_id=1811715762]
+position = Vector2(437, 614)
+
+[node name="piso1" type="Area2D" parent="." unique_id=44638262 node_paths=PackedStringArray("landing_zone")]
+position = Vector2(179, -660)
+collision_layer = 2
+script = ExtResource("2_2jiwm")
+landing_zone = NodePath("../piso3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="piso1" unique_id=560407777]
+position = Vector2(437.73578, 616.6729)
+rotation = -3.1403446
+scale = Vector2(49.645405, 47.502045)
+mesh = SubResource("QuadMesh_5hvt6")
+texture = ExtResource("3_d2x84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso1" unique_id=1614982758 groups=["portales"]]
+position = Vector2(438, 614)
+shape = SubResource("RectangleShape2D_iymy1")
+
+[node name="Marker2D" type="Marker2D" parent="piso1" unique_id=1245448202]
+position = Vector2(437, 614)
+
+[node name="CharacterBody2D" parent="." unique_id=158334402 instance=ExtResource("4_1yug7")]
+position = Vector2(310, -39)
+scale = Vector2(0.94, 0.94)
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=248069935]
+shadow_enabled = true
+shadow_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+texture = SubResource("GradientTexture2D_ierfq")
+
+[node name="MAPA" type="Node2D" parent="." unique_id=2097543358]
+position = Vector2(3, -21)
+
+[node name="Suelo_Paredes" type="TileMapLayer" parent="MAPA" unique_id=1106435757]
+tile_map_data = PackedByteArray("AAAHAAAAAAABAAEAAAAGAAAAAAABAAEAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAADAAAAAAABAAEAAAACAAAAAAABAAEAAAABAAAAAAABAAEAAAAAAAAAAAABAAEAAAD//wAAAAABAAEAAAD+/wAAAAABAAEAAAD9/wAAAAABAAEAAAAHAPz/AAACAAEAAAAHAPv/AAACAAAAAAAGAPv/AAABAAAAAAAFAPv/AAABAAAAAAAEAPv/AAABAAAAAAADAPv/AAABAAAAAAACAPv/AAABAAAAAAABAPv/AAABAAAAAAAAAPv/AAABAAAAAAD///v/AAABAAAAAAD+//v/AAABAAAAAAD9//v/AAABAAAAAAD8//v/AAABAAAAAAD8/wAAAAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD5/wAAAAABAAAAAAD4/wAAAAABAAAAAAD7//v/AAABAAAAAAD6//v/AAABAAAAAAD5//v/AAABAAAAAAD4//v/AAABAAAAAAD3//v/AAABAAAAAAD3/wAAAAABAAAAAAD2/wAAAAABAAAAAAD1/wAAAAABAAAAAAD0/wAAAAABAAAAAADz/wAAAAABAAAAAADy/wAAAAABAAAAAADx/wAAAAABAAAAAADw/wAAAAABAAAAAADv/wAAAAABAAAAAADu/wAAAAABAAAAAADt/wAAAAABAAAAAADr/wAAAAABAAAAAADq/wAAAAABAAAAAADp/wAAAAABAAAAAADo/wAAAAABAAAAAADn/wAAAAABAAAAAADm/wMAAAAAAAEAAADm/wIAAAAAAAEAAADm/wEAAAAAAAEAAADm/wAAAAAAAAEAAADm////AAAAAAEAAADm//7/AAAAAAEAAADm//3/AAAAAAEAAADm//z/AAAAAAEAAADm//v/AAAAAAEAAADm//r/AAAAAAEAAADm//n/AAAAAAEAAADm//j/AAAAAAEAAADm//f/AAAAAAEAAAD2//v/AAABAAAAAAD1//v/AAABAAAAAAD0//v/AAABAAAAAADz//v/AAABAAAAAADy//v/AAABAAAAAADx//v/AAABAAAAAADw//v/AAABAAAAAADv//v/AAABAAAAAADu//v/AAABAAAAAADt//v/AAABAAAAAADs//v/AAABAAAAAADr//v/AAABAAAAAADq//v/AAABAAAAAADp//v/AAABAAAAAADo//v/AAABAAAAAADn//v/AAABAAAAAADm//b/AAABAAAAAADn//b/AAABAAAAAADo//b/AAABAAAAAADp//b/AAABAAAAAADq//b/AAABAAAAAADr//b/AAABAAAAAADs//b/AAABAAAAAADt//b/AAABAAAAAADu//b/AAABAAAAAADv//b/AAABAAAAAADw//b/AAABAAAAAADx//b/AAABAAAAAADy//b/AAABAAAAAADz//b/AAABAAAAAAD0//b/AAABAAAAAAD1//b/AAABAAAAAAD2//b/AAABAAAAAAD3//b/AAABAAAAAAD4//b/AAABAAAAAAD5//b/AAABAAAAAAD6//b/AAABAAAAAAD7//b/AAABAAAAAAD8//b/AAABAAAAAAD9//b/AAABAAAAAAD+//b/AAABAAAAAAD///b/AAABAAAAAAAAAPb/AAABAAAAAAABAPb/AAABAAAAAAACAPb/AAABAAAAAAADAPb/AAABAAAAAAAEAPb/AAABAAAAAAAFAPb/AAABAAAAAAAGAPb/AAABAAAAAAAHAPb/AAABAAAAAAAHAPf/AAABAAAAAAAHAPj/AAABAAAAAAAHAPn/AAABAAAAAAAHAPr/AAABAAAAAAAHAAEAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAHAAQAAAABAAAAAADm/wQAAAABAAAAAAAHAAUAAAABAAAAAADm/wUAAAABAAAAAAAGAAUAAAABAAAAAADn/wUAAAABAAAAAADo/wUAAAABAAAAAADp/wUAAAABAAAAAADq/wUAAAABAAAAAADr/wUAAAABAAAAAADs/wUAAAABAAAAAADt/wUAAAABAAAAAADu/wUAAAABAAAAAADv/wUAAAABAAAAAADw/wUAAAABAAAAAADx/wUAAAABAAAAAADy/wUAAAABAAAAAADz/wUAAAABAAAAAAD0/wUAAAABAAAAAAD1/wUAAAABAAAAAAD2/wUAAAABAAAAAAD3/wUAAAABAAAAAAD4/wUAAAABAAAAAAD5/wUAAAABAAAAAAD6/wUAAAABAAAAAAD7/wUAAAABAAAAAAD8/wUAAAABAAAAAAD9/wUAAAABAAAAAAD+/wUAAAABAAAAAAD//wUAAAABAAAAAAAAAAUAAAABAAAAAAABAAUAAAABAAAAAAACAAUAAAABAAAAAAADAAUAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAALAAAAAAABAAAAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAAOAAAAAAABAAAAAAAPAAAAAAABAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAABAAEAAAATAAAAAAABAAEAAAAUAAAAAAABAAEAAAAVAAAAAAABAAEAAAAWAAAAAAABAAEAAAAXAAAAAAABAAAAAAAYAAAAAAABAAAAAAAZAAAAAAABAAAAAAAaAAAAAAABAAAAAAAHAP3/AAABAAAAAAD///z/AAABAAAAAAD///3/AAABAAAAAAD1//z/AAABAAAAAAD1//3/AAABAAAAAADw/wEAAAABAAAAAADw/wIAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAD6//f/AAABAAAAAAD6//j/AAABAAAAAADr//z/AAABAAAAAADr//3/AAABAAAAAADr/wEAAAABAAAAAADr/wIAAAABAAAAAADr//f/AAABAAAAAADr//j/AAABAAAAAADw//f/AAABAAAAAADw//j/AAABAAAAAADs/wAAAAABAAAAAAAcAAAAAAABAAAAAAAdAAAAAAABAAAAAAAeAAAAAAABAAAAAAAbAAAAAAABAAAAAAAfAAAAAAABAAAAAAAgAAAAAAABAAAAAAAhAAAAAAABAAAAAAAiAAAAAAABAAAAAAAaAP3/AAABAAAAAAAaAPz/AAABAAAAAAAaAPv/AAABAAAAAAAaAPr/AAABAAAAAAAaAPn/AAABAAAAAAAaAPj/AAABAAAAAAAaAPf/AAABAAAAAAAaAPb/AAABAAAAAAAbAPb/AAABAAAAAAAcAPb/AAABAAAAAAAdAPb/AAABAAAAAAAeAPb/AAABAAAAAAAfAPb/AAABAAAAAAAgAPb/AAABAAAAAAAhAPb/AAABAAAAAAAiAPb/AAABAAAAAAAjAPb/AAABAAAAAAAkAPb/AAABAAAAAAAlAPb/AAABAAAAAAAmAPb/AAABAAAAAAAcAPX/AAABAAAAAAAcAPT/AAABAAAAAAAcAPP/AAABAAAAAAAcAPL/AAABAAAAAAAcAPH/AAABAAAAAAAcAPD/AAABAAAAAAAdAPD/AAABAAAAAAAeAPD/AAABAAAAAAAfAPD/AAABAAAAAAAgAPD/AAABAAAAAAAhAPD/AAABAAAAAAAiAPD/AAABAAAAAAAjAPD/AAABAAAAAAAkAPD/AAABAAAAAAAlAPD/AAABAAAAAAAmAPD/AAABAAAAAAAnAPD/AAABAAAAAAAbAPv/AAABAAAAAAAcAPv/AAABAAAAAAAdAPv/AAABAAAAAAAeAPv/AAABAAAAAAAfAPv/AAABAAAAAAAgAPv/AAABAAAAAAAhAPv/AAABAAAAAAAiAPv/AAABAAAAAAAjAPv/AAABAAAAAAAkAPv/AAABAAAAAAAjAAAAAAABAAAAAAAkAAAAAAABAAAAAAAlAAAAAAABAAAAAAAmAAAAAAABAAAAAAAnAAAAAAABAAAAAAAoAAAAAAABAAAAAAApAAAAAAABAAAAAAAqAAAAAAABAAAAAAArAAAAAAABAAAAAAAsAAAAAAABAAAAAAAtAAAAAAABAAAAAAAuAAAAAAABAAAAAAAvAAAAAAABAAAAAAAwAAAAAAABAAAAAAAxAAAAAAABAAAAAAAyAAAAAAABAAAAAAAzAAAAAAABAAAAAAA0AAAAAAABAAAAAAA1AAAAAAABAAAAAAA2AAAAAAABAAAAAAA3AAAAAAABAAAAAAA4AAAAAAABAAAAAAA5AAAAAAABAAAAAAA5AP//AAABAAAAAAA5AP7/AAABAAAAAAA5AP3/AAABAAAAAAA5APz/AAABAAAAAAAoAPv/AAABAAAAAAApAPv/AAABAAAAAAAqAPv/AAABAAAAAAArAPv/AAABAAAAAAAsAPv/AAABAAAAAAAtAPv/AAABAAAAAAAuAPv/AAABAAAAAAAvAPv/AAABAAAAAAAwAPv/AAABAAAAAAAxAPv/AAABAAAAAAAyAPv/AAABAAAAAAAzAPv/AAABAAAAAAA0APv/AAABAAAAAAA1APv/AAABAAAAAAA2APv/AAABAAAAAAA3APv/AAABAAAAAAA4APv/AAABAAAAAAA5APv/AAABAAAAAAAwAPz/AAABAAAAAAAwAP3/AAABAAAAAAAoAPz/AAABAAAAAAAoAP3/AAABAAAAAAAkAPz/AAABAAAAAAAkAP3/AAABAAAAAAAkAPf/AAABAAAAAAAkAPj/AAABAAAAAAAoAPf/AAABAAAAAAAoAPj/AAABAAAAAAAnAPb/AAABAAAAAAAoAPb/AAABAAAAAAApAPb/AAABAAAAAAAqAPb/AAABAAAAAAArAPb/AAABAAAAAAAsAPb/AAABAAAAAAAtAPb/AAABAAAAAAAoAPD/AAABAAAAAAApAPD/AAABAAAAAAAqAPD/AAABAAAAAAArAPD/AAABAAAAAAAsAPD/AAABAAAAAAAtAPD/AAABAAAAAAAuAPD/AAABAAAAAAAvAPD/AAABAAAAAAAwAPD/AAABAAAAAAAxAPD/AAABAAAAAAAyAPD/AAABAAAAAAAzAPD/AAABAAAAAAA0APD/AAABAAAAAAA1APD/AAABAAAAAAA2APD/AAABAAAAAAA3APD/AAABAAAAAAA4APD/AAABAAAAAAA5APD/AAABAAAAAAA5APr/AAABAAAAAAA5APn/AAABAAAAAAA5APj/AAABAAAAAAA5APf/AAABAAAAAAA5APb/AAABAAAAAAA5APX/AAABAAAAAAA5APT/AAABAAAAAAA5APP/AAABAAAAAAA5APL/AAABAAAAAAA5APH/AAABAAAAAAAuAPb/AAABAAAAAAAvAPb/AAABAAAAAAAwAPb/AAABAAAAAAAxAPb/AAABAAAAAAAyAPb/AAABAAAAAAAzAPb/AAABAAAAAAA0APb/AAABAAAAAAA1APb/AAABAAAAAAA2APb/AAABAAAAAAA3APb/AAABAAAAAAA4APb/AAABAAAAAAAkAPL/AAABAAAAAAAkAPH/AAABAAAAAAAoAPH/AAABAAAAAAAoAPL/AAABAAAAAAAxAPH/AAABAAAAAAAxAPL/AAABAAAAAAAyAPf/AAABAAAAAAAyAPj/AAABAAAAAAAlAPv/AAABAAAAAAAmAPv/AAABAAAAAAAnAPv/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_1yug7")
+occlusion_enabled = false
+
+[node name="Enemigos" parent="." unique_id=977153608 instance=ExtResource("6_d2x84")]
+position = Vector2(-464, -741)
+
+[node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_1yug7")]
+position = Vector2(122, -37)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1526971268]
+color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+
+[connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
+[connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="primer piso" to="primer piso" method="_on_body_entered"]
+[connection signal="body_exited" from="primer piso" to="primer piso" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="Sotano" to="Sotano" method="_on_body_entered"]
+[connection signal="body_exited" from="Sotano" to="Sotano" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso3" to="piso3" method="_on_body_entered"]
+[connection signal="body_exited" from="piso3" to="piso3" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso2" to="piso2" method="_on_body_entered"]
+[connection signal="body_exited" from="piso2" to="piso2" method="_on_portal_escalera_body_exited"]
+[connection signal="body_entered" from="piso1" to="piso1" method="_on_body_entered"]
+[connection signal="body_exited" from="piso1" to="piso1" method="_on_portal_escalera_body_exited"]
