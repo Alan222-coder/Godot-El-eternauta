@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cebrb02x3data"]
+
+[ext_resource type="Texture2D" uid="uid://dwomm04yeam1s" path="res://Assets/arma/balas-municion/fc694e14673041abafb3449a1c6f5625.jpeg" id="1_26dbc"]
+[ext_resource type="Script" uid="uid://oknbkjhahgq4" path="res://Assets/arma/ammo_pick_up.gd" id="1_njeab"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njeab"]
+radius = 20.024984
+
+[node name="AmmoPickUp" type="Node2D" unique_id=1754930318]
+script = ExtResource("1_njeab")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1051336803]
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_26dbc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=749361706]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1060795937]
+shape = SubResource("CircleShape2D_njeab")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

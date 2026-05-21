@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://bromscl8r4wsw"]
+[gd_scene format=3 uid="uid://keati1wx4n2q"]
 
-[ext_resource type="Texture2D" uid="uid://dgoq4grfvwm2x" path="res://assets/Buildings.png" id="1_wmpsc"]
-[ext_resource type="Texture2D" uid="uid://cj47teku0sfqm" path="res://assets/assets-removebg-preview.png" id="2_lf6j1"]
-[ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_snpaj"]
+[ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://Assets/Personaje/PlayerMovimiento.gd" id="2_snpaj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wmpsc"]
+load_path = "res://.godot/imported/Buildings.png-3232ebba3b1023af5aa1994dd356270e.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lf6j1"]
-texture = ExtResource("1_wmpsc")
+texture = SubResource("CompressedTexture2D_wmpsc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -295,7 +296,7 @@ texture = ExtResource("1_wmpsc")
 sources/0 = SubResource("TileSetAtlasSource_lf6j1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opwex"]
-texture = ExtResource("1_wmpsc")
+texture = SubResource("CompressedTexture2D_wmpsc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -589,6 +590,9 @@ sources/0 = SubResource("TileSetAtlasSource_opwex")
 
 [sub_resource type="TileSet" id="TileSet_88etw"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lf6j1"]
+load_path = "res://.godot/imported/assets-removebg-preview.png-697997f4c1093ced7b3f778b6553a18a.ctex"
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
 
@@ -604,7 +608,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_lf6j1")]
+"values": [SubResource("CompressedTexture2D_lf6j1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -644,7 +648,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_lf6j1")]
+"values": [SubResource("CompressedTexture2D_lf6j1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -707,7 +711,7 @@ script = ExtResource("2_snpaj")
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=1037754744]
 position = Vector2(-0.9999943, 3)
 scale = Vector2(0.14600001, 0.13049999)
-texture = ExtResource("2_lf6j1")
+texture = SubResource("CompressedTexture2D_lf6j1")
 hframes = 4
 frame = 3
 
