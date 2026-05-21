@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bohy2hnna0tr0" path="res://enemy.gd" id="2_hv2ca"]
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="2_ydtn4"]
 [ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/Personaje/ElEternauta16SpriteSheet.png" id="5_afh24"]
-[ext_resource type="Texture2D" uid="uid://dtt0jex6wsi3y" path="res://fotografia-de-escada-de-pixel-art-em-um-edificio_811279-94765.jpg" id="5_qpwqs"]
+[ext_resource type="Texture2D" uid="uid://5m234yvxmuec" path="res://Assets/enemigos/Sprite-cagaduro1.png" id="5_qpwqs"]
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="6_qpwqs"]
 [ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="7_afh24"]
 

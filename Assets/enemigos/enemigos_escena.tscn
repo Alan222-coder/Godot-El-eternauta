@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://5m234yvxmuec" path="res://Assets/enemigos/Sprite-cagaduro1.png" id="2_yl8x5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpwqs"]
-radius = 23.0
-height = 46.0
+radius = 13.636475
+height = 27.27295
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
 size = Vector2(63, 41)
@@ -16,15 +16,17 @@ position = Vector2(0, -400.07)
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=985434679 groups=["enemy"]]
 z_index = 2
 position = Vector2(476, 617)
+scale = Vector2(0.92, 0.8799927)
 script = ExtResource("1_yl8x5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1437415314]
+position = Vector2(0, 8.034165)
 shape = SubResource("CapsuleShape2D_qpwqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1286883614]
 position = Vector2(5.1259995e-06, 5.070011)
 rotation = -3.1415927
-scale = Vector2(-1.464, -1.121)
+scale = Vector2(-1.2031304, -1.121)
 texture = ExtResource("2_yl8x5")
 
 [node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=263950857]

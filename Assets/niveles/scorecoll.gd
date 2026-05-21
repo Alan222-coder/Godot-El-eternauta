@@ -16,10 +16,10 @@ func _on_body_entered(body):
 
 		# Sumar score
 		body.add_score(score_value)
+		body.set_completable()
 
 		# Desaparecer sprite
 		$Sprite2D.visible = false
 
 		# Desactivar colisión
 		$CollisionShape2D.disabled = true
-		print("RESCATADOOOOOOOOOAHUAJIKOA")

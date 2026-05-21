@@ -28,7 +28,7 @@ var invulnerable := false
 
 # ---------------- SCORE ----------------
 var score := 0
-
+var completable := false
 # ---------------- AIM ----------------
 var apuntando := false
 
@@ -146,11 +146,14 @@ func add_score(value):
 
 	print("Score actual:", score)
 
-
 func actualizar_score():
 
 	if score_label:
 		score_label.text = str(score)
+
+func set_completable():
+	completable = true
+	print("Completable")
 
 
 # ---------------- RECARGA ----------------

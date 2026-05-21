@@ -68,7 +68,7 @@ func _physics_process(delta):
 	for body in $Hitbox.get_overlapping_bodies():
 		# SOLO dañar al jugador
 		if body.is_in_group("player"):
-			body.recibir_daño(10)
+			body.recibir_daño(30)
 
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):

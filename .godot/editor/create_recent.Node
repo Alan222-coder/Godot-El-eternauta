@@ -1,9 +1,12 @@
-Button
+Sprite2D
 TextureRect
+CanvasLayer
+Node
+CollisionShape2D
+Area2D
+Button
 Panel
 VBoxContainer
-Area2D
 AudioStreamPlayer2D
 TextureProgressBar
 Label
-CanvasLayer

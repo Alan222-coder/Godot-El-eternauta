@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://evr4otcwqg46"]
+
+[ext_resource type="Texture2D" uid="uid://depkoi3d6of1x" path="res://Assets/no_se_que_es/comet-1779324193532-4un8jkm.png" id="1_mnfeq"]
+
+[node name="Node2D" type="Node2D" unique_id=1632855984]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2100717669]
+z_index = -10
+scale = Vector2(1.4530238, 1.9080064)
+texture = ExtResource("1_mnfeq")
