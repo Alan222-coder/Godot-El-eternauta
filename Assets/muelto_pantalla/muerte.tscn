@@ -24,19 +24,19 @@ stretch_mode = 6
 [node name="muerto" type="TextureRect" parent="." unique_id=337190506]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 62.0
-offset_top = 338.0
-offset_right = -159.0
-offset_bottom = 543.0
+offset_left = 105.0
+offset_top = 174.0
+offset_right = -116.0
+offset_bottom = 379.0
 grow_horizontal = 2
 texture = ExtResource("2_qj8eb")
 
 [node name="Button" type="Button" parent="." unique_id=735775620]
 process_mode = 2
-offset_left = 607.0
-offset_top = 741.0
-offset_right = 737.0
-offset_bottom = 795.0
+offset_left = 537.0
+offset_top = 739.0
+offset_right = 667.0
+offset_bottom = 793.0
 text = "Reintentar"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

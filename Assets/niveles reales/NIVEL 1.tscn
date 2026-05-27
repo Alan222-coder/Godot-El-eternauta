@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c85d0a6r6di18"]
 
 [ext_resource type="PackedScene" uid="uid://b3877n1pepa5t" path="res://Assets/niveles/score.tscn" id="1_2jiwm"]
+[ext_resource type="Script" uid="uid://3q1uu002nbhk" path="res://Assets/niveles reales/nivel_1.gd" id="1_efs66"]
 [ext_resource type="Script" uid="uid://c22x3tdqh3cl8" path="res://Assets/escenas/portal_escalera.gd" id="2_2jiwm"]
 [ext_resource type="PackedScene" uid="uid://ba0lteo47cyhs" path="res://Assets/escenas/puerta_escena.tscn" id="2_65kf8"]
 [ext_resource type="Texture2D" uid="uid://tcv7afjg4qvi" path="res://Assets/escaleras/Sprite-0005.png" id="3_d2x84"]
@@ -9,9 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
 [ext_resource type="PackedScene" uid="uid://2svjhgne66xi" path="res://Assets/enemigos/enemigos_escena.tscn" id="6_d2x84"]
 [ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
-[ext_resource type="Script" path="res://Assets/niveles reales/acabarse.gd" id="9_3yvv0"]
+[ext_resource type="Script" uid="uid://j1m8r246rcxh" path="res://Assets/niveles reales/acabarse.gd" id="9_3yvv0"]
 [ext_resource type="Texture2D" uid="uid://cngjdopqips54" path="res://Assets/no_se_que_es/images.jpg" id="10_65kf8"]
-[ext_resource type="PackedScene" uid="uid://bo4leh0sndicf" path="res://nieve.tscn" id="12_efs66"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -87,6 +87,11 @@ sources/0 = SubResource("TileSetAtlasSource_1yug7")
 size = Vector2(48, 48)
 
 [node name="Nivel1" type="Node2D" unique_id=911187017]
+script = ExtResource("1_efs66")
+enemigo_scene = ExtResource("6_d2x84")
+
+[node name="SpawnEnemigos" type="Marker2D" parent="." unique_id=245913469]
+position = Vector2(286, -98)
 
 [node name="Score" parent="." unique_id=1485198779 instance=ExtResource("1_2jiwm")]
 position = Vector2(-165, -35)
@@ -234,7 +239,7 @@ occlusion_enabled = false
 position = Vector2(-464, -741)
 
 [node name="Municion" parent="." unique_id=2010957656 instance=ExtResource("7_1yug7")]
-position = Vector2(122, -37)
+position = Vector2(81, 48)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1526971268]
 color = Color(0.1728327, 0.17283267, 0.17283267, 1)
@@ -273,9 +278,6 @@ position = Vector2(539, -342)
 
 [node name="Puerta7" parent="." unique_id=1230836711 instance=ExtResource("2_65kf8")]
 position = Vector2(378, -422)
-
-[node name="Nieve" parent="." unique_id=488977062 instance=ExtResource("12_efs66")]
-position = Vector2(316, -549)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

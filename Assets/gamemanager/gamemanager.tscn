@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bctuoidigr37v"]
+
+[ext_resource type="Script" uid="uid://crh7jhaju1kox" path="res://gamemanager2.gd" id="1_5wwn4"]
+[ext_resource type="AudioStream" uid="uid://ck687qkrtjcvs" path="res://Assets/efectos_sonido/ruido_fondo/nuclear_fondo_random.mp3" id="2_jl8ap"]
+[ext_resource type="AudioStream" uid="uid://tmcbofhbf7dw" path="res://Assets/efectos_sonido/ruido_fondo/ruido_monstruo_gigante_fondo.mp3" id="3_5wwn4"]
+[ext_resource type="AudioStream" uid="uid://j75iqyrvjmvd" path="res://Assets/efectos_sonido/ruido_fondo/tiro_fondo_random.mp3" id="4_xpjm7"]
+[ext_resource type="AudioStream" uid="uid://0t3anu124qus" path="res://Assets/efectos_sonido/ruido_fondo/zumbido_pesado_fondo_random.mp3" id="5_wq7n5"]
+[ext_resource type="AudioStream" uid="uid://csg6g1k5o8r6p" path="res://Assets/efectos_sonido/ruido_fondo/tiro_fondo_random_2.mp3" id="6_xt52d"]
+[ext_resource type="AudioStream" uid="uid://cs1d5tjdocxqy" path="res://Assets/efectos_sonido/Musica_Fondo/you_re-the-last-person-on-earth-during-nuclear-winter-_playlist_-_1_.mp3" id="7_5wwn4"]
+
+[node name="GameManager" type="Node" unique_id=479476722]
+script = ExtResource("1_5wwn4")
+sonidos_ambiente = Array[AudioStream]([ExtResource("2_jl8ap"), ExtResource("3_5wwn4"), ExtResource("4_xpjm7"), ExtResource("6_xt52d"), ExtResource("5_wq7n5")])
+
+[node name="AmbientAudio" type="AudioStreamPlayer2D" parent="." unique_id=1379530122]
+volume_db = -2.8
+
+[node name="MusicAudio" type="AudioStreamPlayer2D" parent="." unique_id=1475372481]
+stream = ExtResource("7_5wwn4")
+volume_db = -7.95

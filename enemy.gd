@@ -6,16 +6,24 @@ extends CharacterBody2D
 # Distancia máxima horizontal para perseguir
 @export var max_distancia_horizontal := 400
 
+#---------------Audio_Ruidos---------------
+@onready var audio_enemigo = $AudioEnemigo
+
+@export var sonidos_enemigo : Array[AudioStream]
+
+@onready var golpe_sonido = $AudioStreamPlayer2D
 # ---------------- VIDA ----------------
 var vida := 100
 var player: Node2D = null
 
 var _timer_portal := 0.0
 var _yendo_a_portal := false
-
+var puede_golpear := true
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-
+	
+	random_sonidos()
+	
 func _physics_process(delta):
 	if player == null:
 		return
@@ -76,14 +84,22 @@ func _physics_process(delta):
 	# ---------------- DAÑO AL JUGADOR ----------------
 	for body in $Hitbox.get_overlapping_bodies():
 		# SOLO dañar al jugador
-		if body.is_in_group("player"):
-			body.recibir_daño(10)
+		if body.is_in_group("player") and puede_golpear:
 
+			puede_golpear = false
+
+			golpe_sonido.play()
+
+			body.recibir_daño(10)
+	
+			await get_tree().create_timer(1).timeout
+	
+			puede_golpear = true
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):
 	vida -= cantidad
 	print("Vida enemigo:", vida)
-
+	
 	if vida <= 0:
 		morir()
 
@@ -108,3 +124,25 @@ func _get_portal_en_mi_nivel() -> Node2D:
 				portal_mas_cercano = portal
 
 	return portal_mas_cercano
+	
+#------------------------Funcion_Sonidos----------------------
+func reproducir_sonido():
+
+	if sonidos_enemigo.is_empty():
+		return
+
+	audio_enemigo.stream = sonidos_enemigo.pick_random()
+
+	audio_enemigo.play()
+	
+#------------------------Funcion_Loop--------------------
+
+func random_sonidos():
+
+	while true:
+
+		var espera = randf_range(5.0, 15.0)
+
+		await get_tree().create_timer(espera).timeout
+
+		reproducir_sonido()

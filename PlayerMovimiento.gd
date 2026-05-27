@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 @onready var sprite2d = $Sprite2D
 @onready var muzzle = $Marker2D
 @onready var raycast = $Marker2D/RayCast2D
-
+var completable := false
 @onready var camara_shake = $Camera2D
 
 # AUDIO
@@ -28,20 +28,33 @@ var invulnerable := false
 
 # ---------------- SCORE ----------------
 var score := 0
-var completable := false
+
 # ---------------- AIM ----------------
 var apuntando := false
 
 # ---------------- MUNICIÓN ----------------
-var cargador_max := 6
-var cargador := 6
+#var cargador_max := 6
+#var cargador := 6
 
-var reserva_balas := 24
+#var reserva_balas := 12
 var recargando := false
 
+#--------------------tiempo---------------------
+@onready var time_label = $CanvasLayer/TimeLabel
+
+#-----------------------Pasos------------------
+
+@onready var audio_paso = $AudioPaso
+var puede_paso := true
+var tiempo_paso := 0.35
+
+#------------------------Musica_puntos----------------------------
+@onready var audio_score = $AudioScore
 
 func _ready():
-
+	
+	Gamemanager.player = self
+	
 	if hp_bar:
 		hp_bar.max_value = hp_max
 		hp_bar.value = hp
@@ -55,7 +68,7 @@ func _physics_process(delta):
 	# ---------------- GRAVEDAD ----------------
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# ---------------- SALTO ----------------
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -70,7 +83,10 @@ func _physics_process(delta):
 
 	if direction != 0:
 		velocity.x = direction * SPEED
+		
 		anim.play("Caminar")
+		if puede_paso and is_on_floor():
+			sonido_paso()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.stop()
@@ -114,9 +130,9 @@ func _physics_process(delta):
 
 		apuntando = false
 
-		if cargador > 0:
+		if Gamemanager.cargador > 0:
 
-			cargador -= 1
+			Gamemanager.cargador -= 1
 
 			actualizar_hud()
 
@@ -129,21 +145,42 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("reload"):
 		recargar()
 
+	actualizar_hud()
+	
+#--------------------Funcion_Paso----------------
+
+func sonido_paso():
+
+	puede_paso = false
+
+	audio_paso.play()
+
+	await get_tree().create_timer(tiempo_paso).timeout
+
+	puede_paso = true
 
 # ---------------- HUD ----------------
 func actualizar_hud():
 
-	if ammo_label:
-		ammo_label.text = str(cargador) + " / " + str(reserva_balas)
+	ammo_label.text = str(Gamemanager.cargador) + " / " + str(Gamemanager.reserva_balas)
 
+	score_label.text = str(score)
+
+	var tiempo_restante = int(Gamemanager.tiempo)
+
+	var minutos = tiempo_restante / 60
+	var segundos = tiempo_restante % 60
+
+	time_label.text = "%02d:%02d" % [minutos, segundos]
 
 # ---------------- SCORE ----------------
-func add_score(value):
+
+func sumar_score(value):
 
 	score += value
 
 	actualizar_score()
-
+	audio_score.play()
 	print("Score actual:", score)
 
 func actualizar_score():
@@ -162,10 +199,10 @@ func recargar():
 	if recargando:
 		return
 
-	if reserva_balas <= 0:
+	if Gamemanager.reserva_balas <= 0:
 		return
 
-	if cargador == cargador_max:
+	if Gamemanager.cargador == Gamemanager.cargador_max:
 		return
 
 	recargando = true
@@ -177,12 +214,12 @@ func recargar():
 
 	await get_tree().create_timer(1.5).timeout
 
-	var faltan = cargador_max - cargador
+	var faltan = Gamemanager.cargador_max - Gamemanager.cargador
 
-	var cantidad_a_recargar = min(faltan, reserva_balas)
+	var cantidad_a_recargar = min(faltan, Gamemanager.reserva_balas)
 
-	cargador += cantidad_a_recargar
-	reserva_balas -= cantidad_a_recargar
+	Gamemanager.cargador += cantidad_a_recargar
+	Gamemanager.reserva_balas -= cantidad_a_recargar
 
 	actualizar_hud()
 

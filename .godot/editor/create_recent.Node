@@ -1,13 +1,13 @@
-GPUParticles2D
+AudioStreamPlayer2D
 Sprite2D
+Marker2D
+Label
+Node
 TextureRect
 CanvasLayer
-Node
 CollisionShape2D
 Area2D
 Button
 Panel
 VBoxContainer
-AudioStreamPlayer2D
 TextureProgressBar
-Label

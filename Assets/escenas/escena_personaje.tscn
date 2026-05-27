@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8dcqao53ixy4" path="res://Assets/hp/greenbar (2).png" id="4_u03bn"]
 [ext_resource type="AudioStream" uid="uid://du4x117x0b5cq" path="res://universfield-gunshot-352466.mp3" id="5_k2s2n"]
 [ext_resource type="AudioStream" uid="uid://vs05o1356bwj" path="res://melbeebelbee-gun-full-reload-384507.mp3" id="6_ovbl0"]
+[ext_resource type="AudioStream" uid="uid://b5skhn8nnfjet" path="res://Assets/efectos_sonido/pasos/pasos_nieve.mp3" id="7_8dwby"]
+[ext_resource type="AudioStream" uid="uid://b8b5xbawvg8cr" path="res://Assets/efectos_sonido/Puntos/floraphonic-classic-game-action-positive-5-224402.mp3" id="8_o7s1h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -102,7 +104,7 @@ offset_left = -21.999998
 offset_top = -73.0
 offset_right = 145.0
 offset_bottom = 6.0
-scale = Vector2(2.4000022, 2.5200007)
+scale = Vector2(4.3236694, 4.5148315)
 value = 100.0
 nine_patch_stretch = true
 stretch_margin_left = 167
@@ -120,8 +122,28 @@ offset_bottom = 42.0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=2095244574]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(2.245, 2.245)
+text = "ejemplo"
+vertical_alignment = 1
+
 [node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=464395759]
 stream = ExtResource("5_k2s2n")
 
 [node name="AudioRecarga" type="AudioStreamPlayer2D" parent="." unique_id=646788346]
 stream = ExtResource("6_ovbl0")
+
+[node name="AudioPaso" type="AudioStreamPlayer2D" parent="." unique_id=2105056622]
+stream = ExtResource("7_8dwby")
+volume_db = 10.09
+
+[node name="AudioScore" type="AudioStreamPlayer2D" parent="." unique_id=847461592]
+stream = ExtResource("8_o7s1h")
+volume_db = -6.5

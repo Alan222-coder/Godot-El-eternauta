@@ -1,0 +1,25 @@
+res://Assets/enemigos/automata.tscn::e3986ca1876bd5e3aedc661f3046b70c::1779345221::res://.godot/exported/133200997/export-76972694872001b43270b5ca679f7388-automata.scn
+res://Assets/enemigos/enemigos_escena.tscn::cd382dda85b43a8737d793396cb7b72e::1779352677::res://.godot/exported/133200997/export-f30342053fef2fc43b74ed76b0b11bf3-enemigos_escena.scn
+res://Assets/escenas/escena_personaje.tscn::2c9d221bd5450060065a897664a89d0f::1779352383::res://.godot/exported/133200997/export-1140c665243a7c7669af4b14e3d14edf-escena_personaje.scn
+res://Assets/escenas/fondo.tscn::6c9f3a7e6bc447d7efec39f8510f32be::1779345221::res://.godot/exported/133200997/export-34d25d21b0a9a0a0309b4b335e468220-fondo.scn
+res://Assets/escenas/mapa_test.tscn::678bff6e2926db9baf7df7e6e538042d::1779345221::res://.godot/exported/133200997/export-bcb040108ca94b6f27cc404ff9b6dbe5-mapa_test.scn
+res://Assets/escenas/nivel_1.tscn::4c1b8825a86e77230c05e635434e7237::1779345221::res://.godot/exported/133200997/export-dd62a81437677b5c5217a716e67453c2-nivel_1.scn
+res://Assets/escenas/puerta_escena.tscn::e6d2cc1b3a0f8b65a67bb55233ad6721::1779345221::res://.godot/exported/133200997/export-225337a78dc01e3acd47aca068bb5308-puerta_escena.scn
+res://Assets/gamemanager/gamemanager.tscn::87c41d19792e6a2ca2930f830f5eb6ef::1779346312::res://.godot/exported/133200997/export-f5febe2119ab43e0f4cf45803e371349-gamemanager.scn
+res://Assets/muelto_pantalla/muerte.tscn::2b78866881bc749e792337deb4bd6e83::1779349465::res://.godot/exported/133200997/export-f1e2828e3cc88951fb763795231b5ac3-muerte.scn
+res://Assets/niveles/nivel_1.tscn::bcbd29d612e1fb52f6cd7436af8a4099::1779345221::res://.godot/exported/133200997/export-603a09697f29dda8e815f13af0610883-nivel_1.scn
+res://Assets/niveles/node_2d.tscn::b6f64cf3d9a41d4fcca501d74f963b88::1779345221::res://.godot/exported/133200997/export-141060525f6bd4f0189306622225c3bb-node_2d.scn
+res://Assets/niveles/score.tscn::5e28e0b8cf4e1edb3ccbdd328e9d1d3b::1779345221::res://.godot/exported/133200997/export-68deb9615f7d5bba2344e1440063ce23-score.scn
+res://Assets/niveles reales/Nivel1.tscn::e48feacca945c9bab6222b5c048c4eab::1779345221::res://.godot/exported/133200997/export-cdb097209e5ff60ea86e7d9e5b4da5d8-Nivel1.scn
+res://Assets/niveles reales/NIVEL 1.tscn::18bd6e9cb6ecebbbf9924692e3e9bc21::1779351259::res://.godot/exported/133200997/export-352e033c41731c8d5251fd269b2df5b9-NIVEL 1.scn
+res://Assets/niveles reales/Nivel 2.tscn::68791c7c32c0cb23e11773becad5496d::1779345221::res://.godot/exported/133200997/export-c5ceaf87ad5c755fa171958a56f599a6-Nivel 2.scn
+res://Assets/niveles reales/NIVEL 3.tscn::9393944b1d1d8a39cf4f6e313bbda2af::1779345221::res://.godot/exported/133200997/export-10cc3a5f3d44df1b93432ad58a7d31b2-NIVEL 3.scn
+res://Bonito.tscn::31554d0cb7cae37233528a28aad6883f::1779345221::res://.godot/exported/133200997/export-b3ca2b4177317af941da9dd4a00b9ad5-Bonito.scn
+res://main_menu.tscn::c8006befc10548834f09dc1165343377::1779345221::res://.godot/exported/133200997/export-8b03550a1e82db90fe95208a9e9dbb82-main_menu.scn
+res://MenuPrincipal.tscn::0bf168c7fb6021314236e68d6a224922::1779345221::res://.godot/exported/133200997/export-e36fb7175a4dada32bb8d249b28a32e2-MenuPrincipal.scn
+res://municion.tscn::87aff313add58b46f84e3909aa72d3c0::1779347063::res://.godot/exported/133200997/export-6e0d1f89dbc14d79d2fffd9932f0b8eb-municion.scn
+res://Nivel1.tscn::fa51785d2782cea6107c3950cfb83936::1779345221::res://.godot/exported/133200997/export-e7f609a791ad92f5be77e8cfc910f6eb-Nivel1.scn
+res://NIVEL 1 2.tscn::d25d11c1abd0ac47f11c74ce4a91f90a::1779345221::res://.godot/exported/133200997/export-b84ff5b65274c5049d58f59afc8bc7ed-NIVEL 1 2.scn
+res://NIVEL 1.tscn::0ce6143376aa41cd55c711b16cfdeb37::1779345221::res://.godot/exported/133200997/export-e026e666d074fb18430443a7aa184d75-NIVEL 1.scn
+res://Nivel 2.tscn::42d5f2215d45292050772669418e1c19::1779345221::res://.godot/exported/133200997/export-9a195db7eb76c6fc3ed7a2a0e3151b4c-Nivel 2.scn
+res://score.tscn::b337751a573eff659d12488fe83529dc::1779345221::res://.godot/exported/133200997/export-2262e171c9dde3f5c6077bef1c360ca8-score.scn
