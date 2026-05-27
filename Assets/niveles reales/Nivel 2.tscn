@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://coml1nda6ocr2" path="res://Assets/enemigos/automata.tscn" id="10_fk17p"]
 [ext_resource type="PackedScene" uid="uid://2svjhgne66xi" path="res://Assets/enemigos/enemigos_escena.tscn" id="11_04f34"]
 [ext_resource type="PackedScene" uid="uid://ba0lteo47cyhs" path="res://Assets/escenas/puerta_escena.tscn" id="11_pwp1h"]
+[ext_resource type="PackedScene" path="res://Assets/escenas/nieve.tscn" id="12_pwp1h"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ljg1x"]
 
@@ -265,6 +266,9 @@ position = Vector2(65, -84)
 
 [node name="Puerta" parent="Puerta/Puerta/Puerta/Puerta/Puerta/Puerta" unique_id=696138027 instance=ExtResource("11_pwp1h")]
 position = Vector2(-337, -94)
+
+[node name="Nieve" parent="." unique_id=488977062 instance=ExtResource("12_pwp1h")]
+position = Vector2(-777, -625)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
 [ext_resource type="Script" uid="uid://j1m8r246rcxh" path="res://Assets/niveles reales/acabarse.gd" id="9_3yvv0"]
 [ext_resource type="Texture2D" uid="uid://cngjdopqips54" path="res://Assets/no_se_que_es/images.jpg" id="10_65kf8"]
+[ext_resource type="PackedScene" path="res://Assets/escenas/nieve.tscn" id="13_5su50"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -278,6 +279,9 @@ position = Vector2(539, -342)
 
 [node name="Puerta7" parent="." unique_id=1230836711 instance=ExtResource("2_65kf8")]
 position = Vector2(378, -422)
+
+[node name="Nieve" parent="." unique_id=488977062 instance=ExtResource("13_5su50")]
+position = Vector2(304, -554)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

@@ -1,12 +1,4 @@
-res://Assets/enemigos/enemigos_escena.tscn
-res://enemy.gd
-res://municion.tscn
-res://gamemanager2.gd
 res://municion.gd
-res://Assets/gamemanager/gamemanager.tscn
-res://PlayerMovimiento.gd
-res://Assets/escenas/escena_personaje.tscn
-res://Assets/niveles/scorecoll.gd
-res://Assets/muelto_pantalla/muerte.tscn
 res://Assets/niveles reales/NIVEL 1.tscn
-res://Assets/niveles reales/nivel_1.gd
+res://Assets/niveles reales/Nivel 2.tscn
+res://Assets/niveles reales/NIVEL 3.tscn

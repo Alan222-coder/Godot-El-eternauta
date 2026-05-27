@@ -19,8 +19,6 @@ func _on_body_entered(body):
 		body.sumar_score(200)
 
 		body.actualizar_hud()
-		print("Intentando spawn")
-		get_tree().current_scene.spawn_enemigos()
 		audio_pickup.play()
 
 		get_parent().get_node("Sprite2D").visible = false
