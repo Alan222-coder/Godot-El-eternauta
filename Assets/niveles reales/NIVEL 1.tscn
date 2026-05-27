@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://d4elvyaads1tv" path="res://Assets/niveles/SpriteTiletest.png" id="5_2jiwm"]
 [ext_resource type="PackedScene" uid="uid://2svjhgne66xi" path="res://Assets/enemigos/enemigos_escena.tscn" id="6_d2x84"]
 [ext_resource type="PackedScene" uid="uid://b87h36oiilyhj" path="res://municion.tscn" id="7_1yug7"]
-[ext_resource type="Script" uid="uid://j1m8r246rcxh" path="res://Assets/niveles reales/acabarse.gd" id="9_3yvv0"]
+[ext_resource type="Script" path="res://Assets/niveles reales/acabarse.gd" id="9_3yvv0"]
 [ext_resource type="Texture2D" uid="uid://cngjdopqips54" path="res://Assets/no_se_que_es/images.jpg" id="10_65kf8"]
+[ext_resource type="PackedScene" uid="uid://bo4leh0sndicf" path="res://nieve.tscn" id="12_efs66"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5hvt6"]
 
@@ -272,6 +273,9 @@ position = Vector2(539, -342)
 
 [node name="Puerta7" parent="." unique_id=1230836711 instance=ExtResource("2_65kf8")]
 position = Vector2(378, -422)
+
+[node name="Nieve" parent="." unique_id=488977062 instance=ExtResource("12_efs66")]
+position = Vector2(316, -549)
 
 [connection signal="body_entered" from="Portal de medio" to="Portal de medio" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal de medio" to="Portal de medio" method="_on_portal_escalera_body_exited"]

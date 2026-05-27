@@ -1,8 +1,3 @@
-res://Assets/niveles reales/Nivel 2.tscn
 res://Assets/niveles reales/NIVEL 1.tscn
-res://Assets/escenas/fondo.tscn
-res://Assets/enemigos/automata.tscn
-res://Assets/enemigos/automata.gd
-res://Assets/niveles/score.tscn
-res://Assets/niveles reales/NIVEL 3.tscn
-res://Assets/escenas/puerta_escena.tscn
+res://nieve.tscn
+res://gpu_particles_2d.gd
