@@ -1,3 +1,4 @@
+# res://gamemanager2.gd
 extends Node
 
 @onready var death_music = $deathmusic
@@ -16,15 +17,23 @@ var reserva_balas := 12
 # SCORE GLOBAL
 var score := 0
 
+
 func _ready():
 
 	randomize()
 
 	music_audio.play()
 
+	# Guarda el score inicial
+	get_tree().set_meta("score", score)
+
 	ambiente_loop()
 
+
 func _process(delta):
+
+	# Actualiza el score global
+	get_tree().set_meta("score", score)
 
 	if tiempo > 0:
 
@@ -35,6 +44,7 @@ func _process(delta):
 	if tiempo <= 0 and player != null:
 
 		player.morir()
+
 
 func ambiente_loop():
 
@@ -50,6 +60,7 @@ func ambiente_loop():
 
 		await ambient_audio.finished
 
+
 func resetear_datos():
 
 	tiempo = 240.0
@@ -60,8 +71,24 @@ func resetear_datos():
 
 	score = 0
 
+	# Reinicia el score global
+	get_tree().set_meta("score", score)
+
+
 func reproducir_muerte():
 
 	music_audio.stop()
 
 	death_music.play()
+
+
+func bonus_tiempo():
+
+	var bonus = int(tiempo) * 10
+
+	score += bonus
+
+	# Actualiza el meta inmediatamente
+	get_tree().set_meta("score", score)
+
+	return bonus

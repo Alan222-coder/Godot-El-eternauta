@@ -5,7 +5,7 @@ extends Node
 @onready var click_hint: Label = $UI/ClickHint
 @onready var ui_layer: CanvasLayer = $UI
 
-@export var next_scene_path: String = "res://MenuPrincipal.tscn"
+@export var next_scene_path: String = "res://Assets/escenas/score_screen.tscn"
 @export var music: AudioStream = preload("res://Assets/All-dialogues-with-guests-in-the-house-No_-I_m-not-a-Human.mp3")
 ## Volumen en decibeles. 0 = 100%, -10 = ~30%, -20 = ~10%, -80 = silencio
 @export_range(-80, 0.0, 0.5) var volume_db: float = 10.0

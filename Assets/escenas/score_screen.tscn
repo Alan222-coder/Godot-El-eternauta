@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bbvwf5eecnb3i"]
+
+[ext_resource type="Script" uid="uid://cbiyibqgd1brw" path="res://Assets/escenas/score_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c3cl1l7bmevfj" path="res://MenuPrincipal.tscn" id="2_nj1y5"]
+
+[node name="ScoreScreen" type="Node" unique_id=555926198]
+script = ExtResource("1_script")
+siguiente_escena = ExtResource("2_nj1y5")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1450384682]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=627124504]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1132007952]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=99652720]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1931363559]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.95, 1)
+theme_override_font_sizes/font_size = 32
+text = "PUNTUACIÓN"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=105088076]
+layout_mode = 2
+
+[node name="ScoreSection" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1881598857]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ScoreSection" unique_id=1706561450]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+theme_override_font_sizes/font_size = 16
+text = "PUNTAJE TOTAL"
+horizontal_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ScoreSection" unique_id=892058217]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1357100781]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=449880181]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continuar"

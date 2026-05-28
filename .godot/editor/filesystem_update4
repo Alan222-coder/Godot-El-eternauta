@@ -17,3 +17,10 @@ res://Assets/ScorePopup.tscn
 res://Assets/escenas/escena_personaje.tscn
 res://PlayerMovimiento.gd
 res://Assets/niveles reales/acabarse_3.gd
+res://Assets/gamemanager/gamemanager.tscn
+res://Assets/niveles reales/NIVEL 1 cambio de mapa .tscn
+res://Assets/escenas/fondo.tscn
+res://Assets/niveles reales/Nivel 2 Cambio de mapa.tscn
+res://Assets/escenas/score_screen.tscn
+res://Assets/escenas/score_screen.gd
+res://Assets/niveles reales/acabarse.gd
