@@ -18,7 +18,7 @@ volume_db = -2.8
 
 [node name="MusicAudio" type="AudioStreamPlayer2D" parent="." unique_id=1475372481]
 stream = ExtResource("7_5wwn4")
-volume_db = -7.95
+volume_db = 2.5
 
 [node name="deathmusic" type="AudioStreamPlayer2D" parent="." unique_id=71246742]
 process_mode = 3

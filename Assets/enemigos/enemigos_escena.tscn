@@ -10,6 +10,9 @@
 radius = 13.636475
 height = 27.27295
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g7wpb"]
+light_mode = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
 size = Vector2(63, 41)
 
@@ -28,6 +31,9 @@ position = Vector2(0, 8.034165)
 shape = SubResource("CapsuleShape2D_qpwqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1286883614]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_g7wpb")
 position = Vector2(5.1259995e-06, 5.070011)
 rotation = -3.1415927
 scale = Vector2(-1.2031304, -1.121)

@@ -1,14 +1,7 @@
-res://Assets/escenas/escena_personaje.tscn
-res://Assets/gamemanager/gamemanager2.gd
-res://gamemanager2.gd
-res://Assets/muelto_pantalla/muerte.gd
-res://MenuPrincipal.tscn
-res://MenuPrincipal.gd
+res://Assets/niveles reales/NIVEL 1 cambio de mapa .tscn
+res://Assets/niveles reales/Nivel 2 Cambio de mapa.tscn
+res://Assets/niveles reales/Nivel 3 cambio de mapa.tscn
+res://Assets/niveles reales/acabarse.gd
+res://Assets/niveles reales/acabarse_2.gd
+res://Assets/cine/TypewriterLabel.gd
 res://Assets/gamemanager/gamemanager.tscn
-res://Assets/muelto_pantalla/muerte.tscn
-res://Assets/Personaje/PlayerMovimiento.gd
-res://PlayerMovimiento.gd
-res://Assets/enemigos/automata.tscn
-res://Assets/enemigos/automata.gd
-res://Assets/escenas/puerta_escena.tscn
-res://Assets/puertas/door.gd

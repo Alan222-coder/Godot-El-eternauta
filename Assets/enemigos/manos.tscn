@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://beexmg1atv30e"]
+
+[ext_resource type="Script" path="res://Assets/enemigos/manos.gd" id="1_g7xr3"]
+[ext_resource type="Texture2D" uid="uid://1c4f0d105jne" path="res://Assets/enemigos/elfavdelasmujeres.png" id="2_g7xr3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66334"]
+height = 30.125488
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g7xr3"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwim"]
+size = Vector2(63, 41)
+
+[node name="Manos" type="Node2D" unique_id=406052800]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1046090623 groups=["enemy"]]
+z_index = 2
+position = Vector2(5, -6.000061)
+scale = Vector2(0.35500485, 0.9549995)
+script = ExtResource("1_g7xr3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=48046705]
+position = Vector2(0, 6.694555)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("CapsuleShape2D_66334")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1163287313]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_g7xr3")
+position = Vector2(-4.7683716e-07, 4.188548)
+rotation = -3.1415927
+scale = Vector2(-0.9509771, -0.5608938)
+texture = ExtResource("2_g7xr3")
+
+[node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=350407333]
+position = Vector2(0, 6.694562)
+scale = Vector2(0.77465093, 0.832636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=1602484557]
+position = Vector2(0, -1.9299927)
+shape = SubResource("RectangleShape2D_5vwim")
+
+[connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]

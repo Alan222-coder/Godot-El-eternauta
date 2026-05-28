@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene := "res://Assets/niveles reales/Nivel 2.tscn"
+@export var next_scene := "res://Assets/niveles reales/Nivel 2 Cambio de mapa.tscn"
 
 func _on_body_entered(body):
 

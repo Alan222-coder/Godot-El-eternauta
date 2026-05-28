@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dklicff8j2ccg" path="res://Assets/Menu.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://l4x4rr3ger07" path="res://Controles.png" id="3_5dpk2"]
 [ext_resource type="AudioStream" uid="uid://bw5i61nfr50rb" path="res://Assets/efectos_sonido/efecto_boton/skyscraper_seven-click-buttons-ui-menu-sounds-effects-button-13-205396.mp3" id="4_pi62y"]
-[ext_resource type="Texture2D" uid="uid://baygnc2tlaxnj" path="res://Assets/menu_botones/Posible-menu.png" id="5_ectly"]
+[ext_resource type="Texture2D" uid="uid://bivunbuq4gt6p" path="res://Assets/START.png" id="6_start"]
+[ext_resource type="Texture2D" uid="uid://cv6syj66kruum" path="res://Assets/Controlles.png" id="7_ctrl"]
+[ext_resource type="Texture2D" uid="uid://couh8kbrhraqm" path="res://Assets/Salir.png" id="8_salir"]
 
 [node name="MenuPrincipal" type="Control" unique_id=569369930]
 layout_mode = 3
@@ -32,27 +34,32 @@ anchor_left = 0.05
 anchor_top = 0.55
 anchor_right = 0.35
 anchor_bottom = 0.95
+offset_left = -9.0
+offset_top = -260.0
+offset_right = -9.0
+offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.3999988)
 theme_override_constants/separation = 16
 
-[node name="BtnStart" type="Button" parent="PanelBotones" unique_id=1437640494]
-custom_minimum_size = Vector2(220, 55)
+[node name="BtnStart" type="TextureButton" parent="PanelBotones" unique_id=1437640494]
+custom_minimum_size = Vector2(220, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "START"
+texture_normal = ExtResource("6_start")
+stretch_mode = 0
 
-[node name="BtnControles" type="Button" parent="PanelBotones" unique_id=1141526203]
-custom_minimum_size = Vector2(220, 55)
+[node name="BtnControles" type="TextureButton" parent="PanelBotones" unique_id=1141526203]
+custom_minimum_size = Vector2(220, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "CONTROLES"
+texture_normal = ExtResource("7_ctrl")
+stretch_mode = 0
 
-[node name="BtnExit" type="Button" parent="PanelBotones" unique_id=1215999011]
-custom_minimum_size = Vector2(220, 55)
+[node name="BtnExit" type="TextureButton" parent="PanelBotones" unique_id=1215999011]
+custom_minimum_size = Vector2(220, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "EXIT"
+texture_normal = ExtResource("8_salir")
+stretch_mode = 0
 
 [node name="PantallaControles" type="Control" parent="." unique_id=1048588043]
 visible = false
@@ -84,7 +91,7 @@ grow_vertical = 2
 texture = ExtResource("3_5dpk2")
 stretch_mode = 5
 
-[node name="BtnCerrarControles" type="Button" parent="PantallaControles" unique_id=1862617583]
+[node name="BtnCerrarControles" type="TextureButton" parent="PantallaControles" unique_id=1862617583]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.35
@@ -93,13 +100,8 @@ anchor_right = 0.65
 anchor_bottom = 0.98
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "VOLVER"
+texture_normal = ExtResource("8_salir")
+stretch_mode = 0
 
 [node name="audio_boton" type="AudioStreamPlayer2D" parent="." unique_id=1179987966]
 stream = ExtResource("4_pi62y")
-
-[node name="PosibleMenu" type="Sprite2D" parent="." unique_id=1821167143]
-position = Vector2(273.5, 748.25)
-scale = Vector2(7.8593745, 5.4296875)
-texture = ExtResource("5_ectly")
