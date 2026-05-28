@@ -1,3 +1,4 @@
+VideoStreamPlayer
 TextureButton
 AudioStreamPlayer2D
 AnimatedSprite2D
@@ -12,4 +13,3 @@ Area2D
 Button
 Panel
 VBoxContainer
-TextureProgressBar

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://beexmg1atv30e"]
 
-[ext_resource type="Script" path="res://Assets/enemigos/manos.gd" id="1_g7xr3"]
+[ext_resource type="Script" uid="uid://bludeasyif737" path="res://Assets/enemigos/manos.gd" id="1_g7xr3"]
 [ext_resource type="Texture2D" uid="uid://1c4f0d105jne" path="res://Assets/enemigos/elfavdelasmujeres.png" id="2_g7xr3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66334"]

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene := "res://MenuPrincipal.tscn"
+@export var next_scene := "res://Assets/cine/TypewriterScene2.tscn"
 
 func _on_body_entered(body):
 

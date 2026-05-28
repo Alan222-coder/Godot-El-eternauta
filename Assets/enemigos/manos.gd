@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed := 100
-@export var speed_enojado := 170 # Velocidad cuando tiene poca vida
+@export var speed := 120
+@export var speed_enojado := 210 # Velocidad cuando tiene poca vida
 
 # Distancia máxima horizontal para perseguir
 @export var max_distancia_horizontal := 400
@@ -81,4 +81,5 @@ func recibir_daño(cantidad):
 # ---------------- MORIR ----------------
 func morir():
 	print("Enemigo muerto")
+	player.sumar_score(600)
 	queue_free()

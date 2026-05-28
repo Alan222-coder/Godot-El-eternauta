@@ -106,6 +106,7 @@ func recibir_daño(cantidad):
 # ---------------- MORIR ----------------
 func morir():
 	print("Enemigo muerto")
+	player.sumar_score(150)
 	queue_free()
 
 # ---------------- BUSCAR PORTAL ----------------

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr6rlvc1hl42s"]
+
+[ext_resource type="Script" path="res://Assets/score_popup.gd" id="1_586pr"]
+
+[node name="ScorePopup" type="Node2D" unique_id=1874715619]
+script = ExtResource("1_586pr")
+
+[node name="Texto" type="Label" parent="." unique_id=2051830631]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0

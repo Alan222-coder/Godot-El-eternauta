@@ -3,12 +3,16 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var popup_scene : PackedScene
+
 @onready var hp_bar = get_node_or_null("CanvasLayer/TextureProgressBar")
 @onready var anim = $AnimationPlayer
 @onready var sprite2d = $Sprite2D
 @onready var muzzle = $Marker2D
 @onready var raycast = $Marker2D/RayCast2D
+
 var completable := false
+
 @onready var camara_shake = $Camera2D
 
 # AUDIO
@@ -26,17 +30,10 @@ var hp_max := 100
 var hp := 100
 var invulnerable := false
 
-# ---------------- SCORE ----------------
-var score := 0
-
 # ---------------- AIM ----------------
 var apuntando := false
 
 # ---------------- MUNICIÓN ----------------
-#var cargador_max := 6
-#var cargador := 6
-
-#var reserva_balas := 12
 var recargando := false
 
 #--------------------tiempo---------------------
@@ -52,25 +49,27 @@ var tiempo_paso := 0.35
 @onready var audio_score = $AudioScore
 
 func _ready():
-	
+
 	Gamemanager.player = self
-	
+
 	if hp_bar:
+
 		hp_bar.max_value = hp_max
 		hp_bar.value = hp
 
 	actualizar_hud()
 	actualizar_score()
 
-
 func _physics_process(delta):
 
 	# ---------------- GRAVEDAD ----------------
 	if not is_on_floor():
+
 		velocity += get_gravity() * delta
-	
+
 	# ---------------- SALTO ----------------
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+
 		velocity.y = JUMP_VELOCITY
 
 	# ---------------- MOVIMIENTO ----------------
@@ -78,17 +77,24 @@ func _physics_process(delta):
 
 	# No permitir movimiento mientras apunta
 	if not apuntando:
+
 		direction = Input.get_axis("ui_left", "ui_right") + Input.get_axis("mizquierda", "mderecha")
 		direction = clamp(direction, -1, 1)
 
 	if direction != 0:
+
 		velocity.x = direction * SPEED
-		
+
 		anim.play("Caminar")
+
 		if puede_paso and is_on_floor():
+
 			sonido_paso()
+
 	else:
+
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
 		anim.stop()
 
 	move_and_slide()
@@ -98,10 +104,12 @@ func _physics_process(delta):
 
 		# Mirar hacia el mouse
 		if get_global_mouse_position().x > global_position.x:
+
 			sprite2d.flip_h = false
 			muzzle.position.x = abs(muzzle.position.x)
 
 		else:
+
 			sprite2d.flip_h = true
 			muzzle.position.x = -abs(muzzle.position.x)
 
@@ -109,12 +117,15 @@ func _physics_process(delta):
 
 		# Mirar hacia la dirección de movimiento
 		if direction > 0:
+
 			sprite2d.flip_h = false
 			muzzle.position.x = abs(muzzle.position.x)
 
 		elif direction < 0:
+
 			sprite2d.flip_h = true
 			muzzle.position.x = -abs(muzzle.position.x)
+
 	# ---------------- APUNTAR ----------------
 	if Input.is_action_pressed("aim") and not recargando:
 
@@ -137,16 +148,18 @@ func _physics_process(delta):
 			actualizar_hud()
 
 			if audio_disparo:
+
 				audio_disparo.play()
 
 			disparar()
 
 	# ---------------- RECARGAR ----------------
 	if Input.is_action_just_pressed("reload"):
+
 		recargar()
 
 	actualizar_hud()
-	
+
 #--------------------Funcion_Paso----------------
 
 func sonido_paso():
@@ -164,7 +177,7 @@ func actualizar_hud():
 
 	ammo_label.text = str(Gamemanager.cargador) + " / " + str(Gamemanager.reserva_balas)
 
-	score_label.text = str(score)
+	score_label.text = str(Gamemanager.score)
 
 	var tiempo_restante = int(Gamemanager.tiempo)
 
@@ -177,32 +190,41 @@ func actualizar_hud():
 
 func sumar_score(value):
 
-	score += value
+	Gamemanager.score += value
 
 	actualizar_score()
+
 	audio_score.play()
-	print("Score actual:", score)
+
+	mostrar_popup_score(value)
+
+	print("Score actual:", Gamemanager.score)
 
 func actualizar_score():
 
 	if score_label:
-		score_label.text = str(score)
+
+		score_label.text = str(Gamemanager.score)
 
 func set_completable():
-	completable = true
-	print("Completable")
 
+	completable = true
+
+	print("Completable")
 
 # ---------------- RECARGA ----------------
 func recargar():
 
 	if recargando:
+
 		return
 
 	if Gamemanager.reserva_balas <= 0:
+
 		return
 
 	if Gamemanager.cargador == Gamemanager.cargador_max:
+
 		return
 
 	recargando = true
@@ -210,6 +232,7 @@ func recargar():
 	apuntando = false
 
 	if audio_recarga:
+
 		audio_recarga.play()
 
 	await get_tree().create_timer(1.5).timeout
@@ -224,7 +247,6 @@ func recargar():
 	actualizar_hud()
 
 	recargando = false
-
 
 # ---------------- DISPARAR ----------------
 func disparar():
@@ -244,13 +266,14 @@ func disparar():
 
 		# Aplicar daño
 		if collider.has_method("recibir_daño"):
+
 			collider.recibir_daño(25)
 
 		draw_linea(inicio, punto)
 
 	else:
-		draw_linea(inicio, fin)
 
+		draw_linea(inicio, fin)
 
 # ---------------- EFECTO VISUAL DEL DISPARO ----------------
 func draw_linea(start, end):
@@ -265,6 +288,7 @@ func draw_linea(start, end):
 
 	# Punta más gruesa
 	var curve = Curve.new()
+
 	curve.add_point(Vector2(0, 0.15))
 	curve.add_point(Vector2(1, 1.0))
 
@@ -298,11 +322,11 @@ func draw_linea(start, end):
 
 	line.queue_free()
 
-
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):
 
 	if invulnerable:
+
 		return
 
 	hp -= cantidad
@@ -310,6 +334,7 @@ func recibir_daño(cantidad):
 
 	# Verificar si existe la barra
 	if hp_bar != null:
+
 		hp_bar.value = hp
 
 	invulnerable = true
@@ -321,10 +346,10 @@ func recibir_daño(cantidad):
 	invulnerable = false
 
 	if hp <= 0:
+
 		morir()
 
 	return cantidad
-
 
 # ---------------- SHAKE DE LA CAMARA ----------------
 func screen_shake():
@@ -342,7 +367,6 @@ func screen_shake():
 
 	camara_shake.offset = original_offset
 
-
 # ---------------- MORIR ----------------
 func morir():
 
@@ -355,3 +379,13 @@ func morir():
 	get_tree().current_scene.add_child(game_over)
 
 	get_tree().paused = true
+
+func mostrar_popup_score(cantidad):
+
+	var popup = popup_scene.instantiate()
+
+	popup.global_position = global_position + Vector2(0, -40)
+
+	popup.setup("+" + str(cantidad))
+
+	get_tree().current_scene.add_child(popup)

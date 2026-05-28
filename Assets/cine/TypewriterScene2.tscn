@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://xkhkl7maw6ur"]
+
+[ext_resource type="Script" uid="uid://82lfxfb54sfr" path="res://Assets/cine/typewriter_scene_2.gd" id="1_skfro"]
+[ext_resource type="Script" uid="uid://c43de8eovk1ry" path="res://Assets/cine/typewriter_label2.gd" id="2_skfro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.15, 0.12, 0.05, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.72, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0.85, 0.72, 0.35, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.9, 0.55, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 32.0
+content_margin_top = 28.0
+content_margin_right = 32.0
+content_margin_bottom = 28.0
+bg_color = Color(0.05, 0.05, 0.08, 0.82)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.7, 0.4, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_scene"]
+Button/colors/font_color = Color(0.9, 0.82, 0.5, 1)
+Button/colors/font_hover_color = Color(0.1, 0.07, 0.02, 1)
+Button/colors/font_pressed_color = Color(0.1, 0.07, 0.02, 1)
+Button/fonts/font = null
+Button/styles/focus = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_btn_normal")
+Panel/styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="TypewriterScene" type="Node" unique_id=1109102837]
+script = ExtResource("1_skfro")
+
+[node name="Background" type="TextureRect" parent="." unique_id=589392777]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BgColor" type="ColorRect" parent="Background" unique_id=1586127104]
+z_index = -1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2627451, 0, 0, 1)
+
+[node name="DoubleClickArea" type="Control" parent="." unique_id=1983269790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=769231425]
+layer = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=274458701]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer" unique_id=1512789373]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource("Theme_scene")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/PanelContainer" unique_id=1508013314]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="TypewriterLabel" type="RichTextLabel" parent="UI/MarginContainer/PanelContainer/VBoxContainer" unique_id=1355105722]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.92, 0.88, 0.72, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+scroll_active = false
+script = ExtResource("2_skfro")
+
+[node name="ContinueButton" type="Button" parent="UI/MarginContainer/PanelContainer/VBoxContainer" unique_id=1249250390]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_scene")
+theme_override_font_sizes/font_size = 18
+text = "▶  Continuar"
+
+[node name="ClickHint" type="Label" parent="UI" unique_id=530600055]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = -12.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.45)
+theme_override_font_sizes/font_size = 14
+text = "[ Doble click para saltar ]"
+horizontal_alignment = 1

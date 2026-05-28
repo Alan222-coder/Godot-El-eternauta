@@ -14,7 +14,7 @@ height = 27.27295
 light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwqs"]
-size = Vector2(63, 41)
+size = Vector2(46.73918, 37.39968)
 
 [node name="Enemigos" type="Node2D" unique_id=977153608]
 position = Vector2(0, -400.07)
@@ -42,7 +42,8 @@ texture = ExtResource("2_yl8x5")
 [node name="Hitbox" type="Area2D" parent="CharacterBody2D" unique_id=263950857]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=173771241]
-position = Vector2(0, 1.0700073)
+position = Vector2(-0.54345703, 2.870163)
+scale = Vector2(1, 1.0148857)
 shape = SubResource("RectangleShape2D_qpwqs")
 
 [node name="AudioEnemigo" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=187823876]

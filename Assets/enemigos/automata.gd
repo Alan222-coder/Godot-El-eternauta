@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var max_distancia_horizontal := 400
 @onready var golpe_sonido = $"../golpe_sonido"
 # ---------------- VIDA ----------------
-var vida := 100
+var vida := 90
 var vida_maxima := 100
 var puede_golpear := true
 var player: Node2D = null
@@ -90,4 +90,5 @@ func recibir_daño(cantidad):
 # ---------------- MORIR ----------------
 func morir():
 	print("Enemigo muerto")
+	player.sumar_score(300)
 	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ba0lteo47cyhs"]
 
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="1_82woa"]
-[ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="2_cllf1"]
+[ext_resource type="Texture2D" uid="uid://g5g2d2ptv4p6" path="res://Assets/efectos_sonido/puertas/Sprite-0003.png" id="2_0k0tc"]
 [ext_resource type="AudioStream" uid="uid://cs0tcxacge3m3" path="res://Assets/efectos_sonido/puertas/Efecto-de-sonido-puerta-abriendo-y-cerrando__Door-opening-and-closing-sound-effect.mp3" id="3_0k0tc"]
 [ext_resource type="AudioStream" uid="uid://dc0pecu07b83d" path="res://Assets/efectos_sonido/puertas/Efecto-de-sonido-puerta-cerrando__Door-opening-and-closing-sound-effect.mp3" id="4_j5qvu"]
 
@@ -20,9 +20,9 @@ script = ExtResource("1_82woa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Puerta3" unique_id=25388611]
 z_index = -1
-position = Vector2(-1.0000019, 1.9299927)
-scale = Vector2(0.031, 0.046)
-texture = ExtResource("2_cllf1")
+position = Vector2(-1.8537045e-05, 2.2528083)
+scale = Vector2(2.9544148, 2.6554556)
+texture = ExtResource("2_0k0tc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta3" unique_id=854574472]
 position = Vector2(-1, 2.380951)

@@ -1,13 +1,51 @@
 [gd_scene format=3 uid="uid://dt11lj0v1oi5h"]
 
 [ext_resource type="Script" uid="uid://fcagk6lesrxf" path="res://PlayerMovimiento.gd" id="1_vcr1b"]
-[ext_resource type="Texture2D" uid="uid://cjpb3rkrfdiwc" path="res://Assets/Personaje/ElEternauta16SpriteSheet.png" id="2_mylxt"]
+[ext_resource type="Texture2D" uid="uid://d1msji62d12yq" path="res://Assets/image.png" id="2_8dwby"]
+[ext_resource type="PackedScene" uid="uid://cr6rlvc1hl42s" path="res://Assets/ScorePopup.tscn" id="2_o7s1h"]
 [ext_resource type="Texture2D" uid="uid://bthxs0asc3sgd" path="res://Assets/hp/greenbar (3).png" id="3_hkl16"]
 [ext_resource type="Texture2D" uid="uid://b8dcqao53ixy4" path="res://Assets/hp/greenbar (2).png" id="4_u03bn"]
 [ext_resource type="AudioStream" uid="uid://du4x117x0b5cq" path="res://universfield-gunshot-352466.mp3" id="5_k2s2n"]
 [ext_resource type="AudioStream" uid="uid://vs05o1356bwj" path="res://melbeebelbee-gun-full-reload-384507.mp3" id="6_ovbl0"]
 [ext_resource type="AudioStream" uid="uid://b5skhn8nnfjet" path="res://Assets/efectos_sonido/pasos/pasos_nieve.mp3" id="7_8dwby"]
 [ext_resource type="AudioStream" uid="uid://b8b5xbawvg8cr" path="res://Assets/efectos_sonido/Puntos/floraphonic-classic-game-action-positive-5-224402.mp3" id="8_o7s1h"]
+
+[sub_resource type="Animation" id="Animation_o7s1h"]
+resource_name = "Caminar"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 3, 3]
+}
+
+[sub_resource type="Animation" id="Animation_7mplo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yn7gv"]
+_data = {
+&"Caminar": SubResource("Animation_o7s1h"),
+&"RESET": SubResource("Animation_7mplo")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_snpaj"]
 height = 32.0
@@ -24,55 +62,20 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.75213677, 0.26923078)
 
-[sub_resource type="Animation" id="Animation_poccc"]
-resource_name = "Caminar"
-length = 0.26667002
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-
-[sub_resource type="Animation" id="Animation_516i8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnvlo"]
-_data = {
-&"Caminar": SubResource("Animation_poccc"),
-&"RESET": SubResource("Animation_516i8")
-}
-
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=158334402 groups=["player"]]
 z_index = 1
 position = Vector2(42, 207)
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
 script = ExtResource("1_vcr1b")
+popup_scene = ExtResource("2_o7s1h")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=343829320]
-position = Vector2(-1.9073486e-06, 0.99999976)
-scale = Vector2(0.586, 1.010461)
-texture = ExtResource("2_mylxt")
-hframes = 8
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=402611040]
+texture = ExtResource("2_8dwby")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=176283808]
+libraries/ = SubResource("AnimationLibrary_yn7gv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1196801561]
 zoom = Vector2(1.74, 1.74)
@@ -89,9 +92,6 @@ energy = 1.21
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_poccc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=141565818]
-libraries/ = SubResource("AnimationLibrary_lnvlo")
-
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1243462634]
 
 [node name="RayCast2D" type="RayCast2D" parent="Marker2D" unique_id=784463018]
@@ -100,10 +100,10 @@ target_position = Vector2(1000, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1944860173]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1361457195]
-offset_left = -21.999998
-offset_top = -73.0
-offset_right = 145.0
-offset_bottom = 6.0
+offset_left = -68.0
+offset_top = -195.0
+offset_right = 99.0
+offset_bottom = -116.0
 scale = Vector2(4.3236694, 4.5148315)
 value = 100.0
 nine_patch_stretch = true
@@ -117,12 +117,10 @@ texture_progress_offset = Vector2(0, 14.87)
 offset_top = 19.0
 offset_right = 40.0
 offset_bottom = 42.0
-text = "ejemplo"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=663793358]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "ejemplo"
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=2095244574]
 anchors_preset = 5
