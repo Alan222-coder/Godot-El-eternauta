@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dsi2xg5a1jalj" path="res://door.gd" id="1_82woa"]
 [ext_resource type="Texture2D" uid="uid://cfrprfwdw14m6" path="res://png-clipart-door-door.png" id="2_cllf1"]
+[ext_resource type="AudioStream" uid="uid://cs0tcxacge3m3" path="res://Assets/efectos_sonido/puertas/Efecto-de-sonido-puerta-abriendo-y-cerrando__Door-opening-and-closing-sound-effect.mp3" id="3_0k0tc"]
+[ext_resource type="AudioStream" uid="uid://dc0pecu07b83d" path="res://Assets/efectos_sonido/puertas/Efecto-de-sonido-puerta-cerrando__Door-opening-and-closing-sound-effect.mp3" id="4_j5qvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_poccc"]
 size = Vector2(28, 85.714264)
@@ -31,3 +33,9 @@ shape = SubResource("RectangleShape2D_poccc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta3/Area2D" unique_id=2115411940]
 position = Vector2(0, 2.3809814)
 shape = SubResource("RectangleShape2D_516i8")
+
+[node name="AudioPuerta-Abierta" type="AudioStreamPlayer2D" parent="." unique_id=1194544604]
+stream = ExtResource("3_0k0tc")
+
+[node name="AudioPuerta-Cerrar" type="AudioStreamPlayer2D" parent="." unique_id=1983539346]
+stream = ExtResource("4_j5qvu")

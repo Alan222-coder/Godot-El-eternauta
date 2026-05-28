@@ -14,7 +14,7 @@ const ESCENA_NIVEL1 := "res://scenes/Nivel1.tscn"
 @onready var btn_controles      : Button = $PanelBotones/BtnControles
 @onready var btn_exit           : Button = $PanelBotones/BtnExit
 @onready var btn_cerrar         : Button = $PantallaControles/BtnCerrarControles
-
+@onready var boton = $audio_boton
 
 func _ready() -> void:
 	_aplicar_estilo_botones()
@@ -24,25 +24,28 @@ func _ready() -> void:
 	btn_controles.pressed.connect(_on_controles_pressed)
 	btn_exit.pressed.connect(_on_exit_pressed)
 	btn_cerrar.pressed.connect(_on_cerrar_controles_pressed)
+	if not Gamemanager.music_audio.playing:
 
+		Gamemanager.music_audio.play()
 
 # ── Navegación ──────────────────────────────
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Assets/niveles reales/NIVEL 1.tscn")
+	boton.play()
 
 
 func _on_controles_pressed() -> void:
 	pantalla_controles.visible = true
-
+	boton.play()
 
 func _on_cerrar_controles_pressed() -> void:
 	pantalla_controles.visible = false
-
+	boton.play()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-
+	boton.play()
 
 # ── Helpers ─────────────────────────────────
 

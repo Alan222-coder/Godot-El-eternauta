@@ -1,42 +1,32 @@
 [gd_scene format=3 uid="uid://djjx74tamg5hd"]
 
-[ext_resource type="Texture2D" uid="uid://b7kt61tk3o3x5" path="res://Assets/muelto_pantalla/mrd7stj7vtv71.png" id="1_n1m72"]
 [ext_resource type="Script" uid="uid://cs4oeimwqsdoq" path="res://Assets/muelto_pantalla/muerte.gd" id="1_qj8eb"]
-[ext_resource type="Texture2D" uid="uid://b3rapfnic33ui" path="res://Assets/muelto_pantalla/muelto.png" id="2_qj8eb"]
+[ext_resource type="Texture2D" uid="uid://bgi8pghs11mfa" path="res://Assets/muelto_pantalla/Deathscreen2.png" id="2_qj8eb"]
+[ext_resource type="AudioStream" uid="uid://bw5i61nfr50rb" path="res://Assets/efectos_sonido/efecto_boton/skyscraper_seven-click-buttons-ui-menu-sounds-effects-button-13-205396.mp3" id="4_nynqe"]
+[ext_resource type="AudioStream" uid="uid://cgwn6wxxc0r75" path="res://Assets/efectos_sonido/musica_muerte/Resident-Evil-4-HD-You-Are-Dead.mp3" id="4_u15fs"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=642660477]
 process_mode = 2
 script = ExtResource("1_qj8eb")
 
-[node name="FondoMenu" type="TextureRect" parent="." unique_id=2068904210]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 2720.0
-offset_bottom = 1420.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.52268475, 0.43497756)
-size_flags_stretch_ratio = 1.6
-texture = ExtResource("1_n1m72")
-stretch_mode = 6
-
-[node name="muerto" type="TextureRect" parent="." unique_id=337190506]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 105.0
-offset_top = 174.0
-offset_right = -116.0
-offset_bottom = 379.0
-grow_horizontal = 2
+[node name="Deathscreen2" type="Sprite2D" parent="." unique_id=1936563347]
+position = Vector2(956, 488)
+scale = Vector2(1.1369792, 1.1824074)
 texture = ExtResource("2_qj8eb")
 
 [node name="Button" type="Button" parent="." unique_id=735775620]
 process_mode = 2
-offset_left = 537.0
-offset_top = 739.0
-offset_right = 667.0
-offset_bottom = 793.0
+offset_left = 929.0
+offset_top = 637.0
+offset_right = 1059.0
+offset_bottom = 691.0
 text = "Reintentar"
+
+[node name="audio_boton" type="AudioStreamPlayer2D" parent="Button" unique_id=1870363675]
+position = Vector2(-537, -739)
+stream = ExtResource("4_nynqe")
+
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="." unique_id=352508362]
+stream = ExtResource("4_u15fs")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

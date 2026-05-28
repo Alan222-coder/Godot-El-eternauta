@@ -1,4 +1,14 @@
-res://municion.gd
-res://Assets/niveles reales/NIVEL 1.tscn
-res://Assets/niveles reales/Nivel 2.tscn
-res://Assets/niveles reales/NIVEL 3.tscn
+res://Assets/escenas/escena_personaje.tscn
+res://Assets/gamemanager/gamemanager2.gd
+res://gamemanager2.gd
+res://Assets/muelto_pantalla/muerte.gd
+res://MenuPrincipal.tscn
+res://MenuPrincipal.gd
+res://Assets/gamemanager/gamemanager.tscn
+res://Assets/muelto_pantalla/muerte.tscn
+res://Assets/Personaje/PlayerMovimiento.gd
+res://PlayerMovimiento.gd
+res://Assets/enemigos/automata.tscn
+res://Assets/enemigos/automata.gd
+res://Assets/escenas/puerta_escena.tscn
+res://Assets/puertas/door.gd

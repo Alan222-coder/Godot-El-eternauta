@@ -3,7 +3,8 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
 @onready var area = $Area2D
-
+@onready var cerrar = $"../AudioPuerta-Cerrar"
+@onready var abrir = $"../AudioPuerta-Abierta"
 var player_in_range = false
 var is_open = false
 
@@ -21,13 +22,13 @@ func toggle_door():
 	if is_open:
 		# Se vuelve translúcida
 		sprite.modulate.a = 0.4
-		
+		abrir.play()
 		# Desactiva colisión
 		collision.disabled = true
 	else:
 		# Vuelve a normal
 		sprite.modulate.a = 1.0
-		
+		cerrar.play()
 		# Activa colisión
 		collision.disabled = false
 

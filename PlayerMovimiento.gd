@@ -346,9 +346,11 @@ func screen_shake():
 # ---------------- MORIR ----------------
 func morir():
 
-	print("Moriste")
-
 	var game_over = game_over_scene.instantiate()
+
+	Gamemanager.reproducir_muerte()
+
+	game_over.visible = true
 
 	get_tree().current_scene.add_child(game_over)
 

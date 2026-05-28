@@ -5,11 +5,11 @@ extends CharacterBody2D
 
 # Distancia máxima horizontal para perseguir
 @export var max_distancia_horizontal := 400
-
+@onready var golpe_sonido = $"../golpe_sonido"
 # ---------------- VIDA ----------------
 var vida := 100
 var vida_maxima := 100
-
+var puede_golpear := true
 var player: Node2D = null
 
 func _ready():
@@ -67,8 +67,17 @@ func _physics_process(delta):
 	# ---------------- DAÑO AL JUGADOR ----------------
 	for body in $Hitbox.get_overlapping_bodies():
 		# SOLO dañar al jugador
-		if body.is_in_group("player"):
+		if body.is_in_group("player") and puede_golpear:
+
+			puede_golpear = false
+
+			golpe_sonido.play()
+
 			body.recibir_daño(30)
+	
+			await get_tree().create_timer(1).timeout
+	
+			puede_golpear = true
 
 # ---------------- RECIBIR DAÑO ----------------
 func recibir_daño(cantidad):

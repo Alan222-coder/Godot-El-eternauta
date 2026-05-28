@@ -117,10 +117,12 @@ texture_progress_offset = Vector2(0, 14.87)
 offset_top = 19.0
 offset_right = 40.0
 offset_bottom = 42.0
+text = "ejemplo"
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=663793358]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "ejemplo"
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=2095244574]
 anchors_preset = 5

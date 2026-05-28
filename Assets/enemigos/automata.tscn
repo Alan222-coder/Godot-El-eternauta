@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uu0bmouj74o8" path="res://Assets/enemigos/automata.gd" id="1_hx1xv"]
 [ext_resource type="Texture2D" uid="uid://dwmnkuydeewav" path="res://Assets/enemigos/automatadora.png" id="2_8rq8m"]
+[ext_resource type="AudioStream" uid="uid://dqnmibmum1y2" path="res://Assets/efectos_sonido/enemigos/INFLICTING-DAMAGE-SOUND-EFFECT-UNDERTALE.mp3" id="3_8rq8m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66334"]
 height = 30.125488
@@ -35,5 +36,8 @@ scale = Vector2(0.77465093, 0.832636)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hitbox" unique_id=1602484557]
 position = Vector2(0, -1.9299927)
 shape = SubResource("RectangleShape2D_5vwim")
+
+[node name="golpe_sonido" type="AudioStreamPlayer2D" parent="." unique_id=56295287]
+stream = ExtResource("3_8rq8m")
 
 [connection signal="body_entered" from="CharacterBody2D/Hitbox" to="CharacterBody2D" method="_on_area_2d_body_entered"]

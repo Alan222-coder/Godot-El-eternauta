@@ -1,10 +1,10 @@
 extends Node
-
+@onready var death_music = $deathmusic
 @onready var ambient_audio = $AmbientAudio
 @onready var music_audio = $MusicAudio
 @export var sonidos_ambiente : Array[AudioStream]
-
-var tiempo := 420.0
+@export var score = "res://Assets/niveles/scorecoll.gd"
+var tiempo := 240.0
 var player = null
 var cargador_max := 6
 var cargador := 6
@@ -41,3 +41,17 @@ func ambiente_loop():
 		ambient_audio.play()
 
 		await ambient_audio.finished
+
+func resetear_datos():
+
+	tiempo = 240.0
+
+	cargador = 6
+
+	reserva_balas = 12
+
+	score = 0
+func reproducir_muerte():
+	music_audio.stop()
+
+	death_music.play()
