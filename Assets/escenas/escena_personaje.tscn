@@ -62,6 +62,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.75213677, 0.26923078)
 
+[sub_resource type="LabelSettings" id="LabelSettings_o7s1h"]
+font_size = 32
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mplo"]
+font_size = 32
+font_color = Color(0, 1, 1, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=158334402 groups=["player"]]
 z_index = 1
 position = Vector2(42, 207)
@@ -100,10 +108,10 @@ target_position = Vector2(1000, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1944860173]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1361457195]
-offset_left = -68.0
-offset_top = -195.0
-offset_right = 99.0
-offset_bottom = -116.0
+offset_left = -67.0
+offset_top = -177.0
+offset_right = 100.0
+offset_bottom = -98.0
 scale = Vector2(4.3236694, 4.5148315)
 value = 100.0
 nine_patch_stretch = true
@@ -114,13 +122,16 @@ texture_progress = ExtResource("4_u03bn")
 texture_progress_offset = Vector2(0, 14.87)
 
 [node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=2015574208]
-offset_top = 19.0
-offset_right = 40.0
-offset_bottom = 42.0
+offset_left = 99.0
+offset_top = -1.0
+offset_right = 139.0
+offset_bottom = 22.0
+label_settings = SubResource("LabelSettings_o7s1h")
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=663793358]
 offset_right = 40.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_7mplo")
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=2095244574]
 anchors_preset = 5
